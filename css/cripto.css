@@ -1,0 +1,68 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../Imagenes/body-f3.jfif");
+    background-size: cover;
+    background-attachment: fixed;
+    width: auto;
+    height: auto;
+}
+
+h2{
+    color:gainsboro;
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+h1{
+    text-align: center;
+    margin-bottom: 2rem;
+    color:#FFD23F;
+    font-size: 2em;
+}
+h3{
+    color:whitesmoke;
+}
+
+button{
+    margin-bottom:2rem;
+}    
+
+#infoBox{
+ 
+  width: 19rem;
+  height: 6rem;
+}
+
+#usdt{
+  margin-top: 3rem;
+}
+#cotizacionBts{
+  color: white;
+  margin-top: 1rem;
+}
+.boxBtc{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+#resultadoCripto,#resultadoFecha{
+  color: white;
+}
+.spanBtc{
+  font-size: 1em;
+}
+.sb{
+  color: #FFD23F;
+}
+.section{
+  width: 100%;
+  display: flex;
+  margin-top: 1rem;
+  gap:2rem;
+}
+
+@media only screen and (max-width: 400px) {
+   
+}
