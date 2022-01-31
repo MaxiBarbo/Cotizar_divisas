@@ -24,8 +24,13 @@ h3{
     color:whitesmoke;
 }
 
-button{
-    margin-bottom:2rem;
+.btnDivisas{
+  width: 100%;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+    
 }    
 
 #infoBox{
@@ -34,7 +39,7 @@ button{
   height: 6rem;
 }
 
-#usdt{
+#usdt,#euro{
   margin-top: 3rem;
 }
 #cotizacionBts{
@@ -64,5 +69,7 @@ button{
 }
 
 @media only screen and (max-width: 400px) {
-   
+  .section{
+    flex-direction: column;
+}
 }
