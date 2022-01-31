@@ -5,14 +5,11 @@
         obtenerDatos();
 
     });
-
-    
+   
     function division(a,b){
         return a/b;
     } 
      
-    
-
     function obtenerDatos(){
 
     let url = 'https://api.coindesk.com/v1/bpi/currentprice.json';

@@ -1,8 +1,9 @@
 body {
     display: flex;
     flex-direction: column;
-    background-image: url("../Imagenes/body-f3.jfif");
-    background-size: cover;
+    background-image: url("../Imagenes/fondo-game3.jfif");
+    background-size:cover;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     width: auto;
     height: auto;
