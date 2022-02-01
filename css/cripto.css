@@ -8,6 +8,9 @@ body {
     width: auto;
     height: auto;
 }
+.navbar{
+  color: black;
+}
 
 h2{
     color:gainsboro;
@@ -17,30 +20,26 @@ h2{
 }
 h1{
     text-align: center;
-    margin-bottom: 2rem;
+    letter-spacing: 10px;
+    margin-top: 1rem;
     color:#FFD23F;
-    font-size: 2em;
+    font-size: 1.3em;
 }
 h3{
     color:whitesmoke;
 }
-
-.btnDivisas{
-  width: 100%;
+.btnDivisas{ 
     display: flex;
-    gap: 2rem;
+    gap: 0.5rem;
     margin-bottom: 2rem;
-    justify-content: center;
-    
+    justify-content: center;    
 }    
-
 #infoBox{
- 
   width: 19rem;
   height: 6rem;
 }
-
-#usdt,#euro{
+#usdt,#euro,#dolar{
+  margin-left: 1rem;
   margin-top: 3rem;
 }
 #cotizacionBts{
@@ -68,6 +67,47 @@ h3{
   margin-top: 1rem;
   gap:2rem;
 }
+
+/* Switch cambiar tema */
+.switch{
+  margin-bottom: 1rem;
+}
+.inputOne[type=checkbox] {
+  visibility: hidden; }
+
+.inputOne[type=checkbox]:checked + .labelOne {
+  transform: rotate(360deg);
+  background-color: whitesmoke; }
+
+.inputOne[type=checkbox]:checked + .labelOne:before {
+  transform: translateX(60px);
+  background-color: black; }
+
+.labelOne {
+  background-color: black;
+  display: flex;
+  width: 100px;
+  height: 40px;
+  border: 3px solid;
+  border-radius: 99em;
+  position: relative;
+  transition: transform 0.75s ease-in-out;
+  transform-origin: 50% 50%;
+  cursor: pointer; }
+
+.labelOne:before {
+  transition: transform 0.75s ease;
+  transition-delay: 0.5s;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  background-size: 115%;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px; }
 
 @media only screen and (max-width: 400px) {
   .section{

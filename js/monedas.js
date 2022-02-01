@@ -31,13 +31,16 @@
             let resultadoDolar = division(pesosBtc,resultadoBtc);
               
             let cotizacionBtc = $(".boxBtc");
-            cotizacionBtc.append(`<span>$ ${datos.bpi.USD.rate_float} ${datos.bpi.USD.code}</span>`);
+            cotizacionBtc.append(`<span class="sb">1 Bitcoin <span class="iconify" data-icon="cib:btc" style="color: #ffd23f;" data-width="15" data-height="15"></span></span>
+                                  <span>$ ${datos.bpi.USD.rate_float} ${datos.bpi.USD.code}</span>`);
 
             let resultadoUno = $("#resultadoCripto");
-            resultadoUno.append(`<li> ${datos.chartName} <span class="iconify" data-icon="cryptocurrency:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> | $ ${resultadoDolar}</li>`);
+            resultadoUno.append(`<span class="sb">Cripto:</span>
+                                <li> ${datos.chartName} | <span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${resultadoDolar}</li>`);
 
             let resultadoDos = $("#resultadoFecha");
-            resultadoDos.append(`<li>${datos.time.updated.substr(0, 22)}</li>`);
+            resultadoDos.append(`<span class="sb">Fecha / Horario:</span>
+                                <li>${datos.time.updated.substr(0, 22)}</li>`);
              
         }
     }
@@ -60,13 +63,16 @@ $.getJSON(URLJSON, function (respuesta, estado) {
       let resultadoEuro = division(pesosBtc,apiEuro);
       
       let resultadoUno = $("#resultadoCripto");
-      resultadoUno.append(`<li>${misDatos.chartName} <span class="iconify" data-icon="cryptocurrency:eur" style="color: #ffd23f;" data-width="15" data-height="15"></span> | $ ${resultadoEuro}</li>`);
+      resultadoUno.append(`<span class="sb">Cripto:</span>
+                            <li>${misDatos.chartName}  | <span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${resultadoEuro}</li>`);
 
       let resultadoDos = $("#resultadoFecha");
-      resultadoDos.append(`<li>${misDatos.time.updated.substr(0, 22)}</li>`);
+      resultadoDos.append(`<span class="sb">Fecha / Horario:</span>
+                            <li>${misDatos.time.updated.substr(0, 22)}</li>`);
 
       let cotizacionBtc = $(".boxBtc");
-      cotizacionBtc.append(`<span>$ ${misDatos.bpi.EUR.rate_float} ${misDatos.bpi.EUR.code}</span>`);
+      cotizacionBtc.append(`<span class="sb">1 Bitcoin<span class="iconify" data-icon="cib:btc" style="color: #ffd23f;" data-width="15" data-height="15"></span></span>
+                            <span>$ ${misDatos.bpi.EUR.rate_float} ${misDatos.bpi.EUR.code}</span>`);
 
     }
   });

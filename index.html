@@ -15,19 +15,46 @@
 
     <title>Criptomonedas</title>
 </head>
-<body>
+<body onload="loadPage()">
     <header>
-        
+        <h1>Simulador</h1>
+        <nav class="navbar  navbar-expand-lg navbar-light bg-dark">
+            <div class="container-fluid">
+                <div class="switch">
+                    <input class="inputOne" onclick="changeTheme()" type="checkbox" id="toggle"/>
+                    <label class="labelOne" for="toggle"></label>
+                </div>
+              <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href=""><span id="navText">Simulador 2</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href=""><span id="navText"></span>Simulador 3</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href=""><span id="navText"></span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="" tabindex="-1" aria-disabled="true"><span id="navText"></span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
     </header>
     
 <main class="container">
-    <div class="col-lg-4 col-md-3 col-6">
+    <div class="col-lg-4 col-md-3 col-11">
         <div class="btnDivisas">
-            <button type="button" id="usdt" class="btn btn-outline-danger btn-sm">USD</button>
-            <button type="button" id="euro" class="btn btn1 btn-outline-danger btn-sm">EURO</button>
+            <button type="button" id="usdt" class="btn btn-outline-danger btn-sm">USD/BTC</button>
+            <button type="button" id="euro" class="btn btn1 btn-outline-danger btn-sm">EURO/BTC</button>
+            <button type="button" id="dolar" class="btn btn1 btn-outline-success btn-sm">USD/ARS</button>
         </div>
         <div class="boxBtc">
-            <span class="sb">1 Bitcoin </span>
             <span class="spanBtc"></span>
         </div>
         <input type="text" class="form-control" name="btc" id="btc" placeholder="Ingrese cantidad de USD/EUR a convertir">
@@ -35,15 +62,14 @@
 
   <div class="section">
     <div>
-        <span class="sb">Cripto:</span>
-        <ol id="resultadoCripto"></ol>
+        
+        <ul id="resultadoCripto"></ul>
     </div>
     <div>
-        <span class="sb">Fecha / Horario:</span>
-        <ol id="resultadoFecha"></ol>
+        <ul id="resultadoFecha"></ul>
     </div>
   </div>
-
+  <button type="button" id="" class="btn btn-outline-secondary btn-sm" onclick='deleteUser()'>Borrar LocalS</button>
 </main>
    
 </body>
@@ -52,4 +78,6 @@
 <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
 
 <script src="js/monedas.js"></script>
+<script src="js/mostrar.js"></script>
+<script src="js/theme.js"></script>
 </html>
