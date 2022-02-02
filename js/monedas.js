@@ -115,7 +115,7 @@ $("#dolar").click(() => {
             tituloDolarBlue.append(`<span class="tDivisas">${dolarBlueNombre}</span>`); 
 
             let resultadoDolarBlue = $("#resultadoDolar");
-            resultadoDolarBlue.append(`<span class="sb">Divisa:</span>
+            resultadoDolarBlue.append(`<span class="sb">Conversion a $ARS:</span>
                                 <li>${misDatosDolar[0].casa.nombre}  |$ ${dolarCotizarOficial}</li>
                                 <li>${dolarBlueNombre}  |$ ${dolarCotizar}</li>`);
 
