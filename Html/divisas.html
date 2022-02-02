@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/cripto.css">
+    <link rel="stylesheet" href="../css/cripto.css">
     
 
-    <title>Criptomonedas</title>
+    <title>Divisas</title>
 </head>
 <body onload="loadPage()">
     <header>
-        <h1>Criptomonedas</h1>
+        <h1>Divisas</h1>
         <nav class="navbar  navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
                 <div class="switch">
@@ -30,7 +30,7 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../Html/divisas.html"><span id="navText">Divisas</span></a>
+                    <a class="nav-link active" aria-current="page" href="../index.html"><span id="navText">Criptomonedas</span></a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link active" href=""><span id="navText"></span></a>
@@ -50,23 +50,33 @@
 <main class="container">
     <div class="col-lg-4 col-md-3 col-11">
         <div class="btnDivisas">
-            <button type="button" id="usdt" class="btn btn-outline-info btn-sm">USD/BTC</button>
-            <button type="button" id="euro" class="btn btn1 btn-outline-info btn-sm">EURO/BTC</button>
+            <button type="button" id="dolar" class="btn btn1 btn-outline-info btn-sm">USD/ARS</button>
+            <button type="button" id="eur" class="btn btn1 btn-outline-info btn-sm">EUR/ARS</button>
         </div>
-        <div class="boxBtc">
-            <span class="spanBtc"></span>
-            <span class="spanDolar"></span>
+
+        <div class="boxDivisas">
+
+            <div class="boxDolarBlue">
+                <span class="spanDolarBlue"></span>
+            </div>
+
+            <div class="boxDolarOficial">
+                <span class="spanDolarOficial"></span>
+            </div>
+
         </div>
-        <input type="text" class="form-control" name="btc" id="btc" placeholder="Ingrese cantidad de USD/EUR a convertir">
+
+        <input type="number" class="" name="usdArs" id="usd" placeholder="cantidad de USD a convertir en ARS">
+        
   </div>
 
   <div class="section">
     <div>
         
-        <ul id="resultadoCripto"></ul>
+        <ul id="resultadoDolar"></ul>
     </div>
     <div>
-        <ul id="resultadoFecha"></ul>
+        <ul id="resultadoFechaDolar"></ul>
     </div>
   </div>
   <button type="button" id="" class="btn btn-outline-secondary btn-sm" onclick='deleteUser()'>Borrar LocalS</button>
@@ -77,7 +87,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
 
-<script src="js/monedas.js"></script>
-<script src="js/mostrar.js"></script>
-<script src="js/theme.js"></script>
+<script src="../js/monedas.js"></script>
+<script src="../js/mostrar.js"></script>
+<script src="../js/theme.js"></script>
 </html>
