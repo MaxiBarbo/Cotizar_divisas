@@ -10,7 +10,7 @@
         return a/b;
     } 
     function multi(n1, n2) {
-        return (parseInt(n1) * parseInt(n2));
+        return n1 * n2;
     }
      
     function obtenerDatos(){
@@ -30,7 +30,7 @@
             const datos = JSON.parse(this.responseText);
             // console.log(datos.bpi);
 
-            let resultadoBtc = datos.bpi.USD.rate_float;
+            let resultadoBtc = parseFloat(datos.bpi.USD.rate_float);
             let resultadoDolar = division(pesosBtc,resultadoBtc);
               
             let cotizacionBtc = $(".boxBtc");
@@ -43,7 +43,7 @@
 
             let resultadoDos = $("#resultadoFecha");
             resultadoDos.append(`<span class="sb">Fecha / Horario:</span>
-                                <li>${datos.time.updated.substr(0, 22)}</li>`);
+                                <li>${datos.time.updated.substr(0, 20)}</li>`);
              
         }
     }
@@ -64,7 +64,7 @@ $.getJSON(URLJSON, function (respuesta, estado) {
       const misDatos = respuesta;
       
 
-      let apiEuro = misDatos.bpi.EUR.rate_float;
+      let apiEuro = parseFloat(misDatos.bpi.EUR.rate_float);
       let resultadoEuro = division(pesosBtc,apiEuro);
       
       let resultadoUno = $("#resultadoCripto");
@@ -73,7 +73,7 @@ $.getJSON(URLJSON, function (respuesta, estado) {
 
       let resultadoDos = $("#resultadoFecha");
       resultadoDos.append(`<span class="sb">Fecha / Horario:</span>
-                            <li>${misDatos.time.updated.substr(0, 22)}</li>`);
+                            <li>${misDatos.time.updated.substr(0, 20)}</li>`);
 
       let cotizacionBtc = $(".boxBtc");
       cotizacionBtc.append(`<span class="sb">1 Bitcoin<span class="iconify" data-icon="cib:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span></span>
@@ -101,9 +101,11 @@ $("#dolar").click(() => {
           const dolarBlueventa = misDatosDolar[1].casa.venta;
           const dolarBlueNombre = misDatosDolar[1].casa.nombre;
           
-          let dolarCotizar = multi(dolarBlueventa,pesosDolar);
-          let dolarCotizarOficial = multi(misDatosDolar[0].casa.venta,pesosDolar);
-          
+          let dolarCotizarBlue = multi(parseFloat(dolarBlueventa),pesosDolar);
+          let dolarCotizarOficial = multi(parseFloat(misDatosDolar[0].casa.venta),pesosDolar);
+
+        //   console.log(typeof(pesosDolar));
+        //   console.log(typeof(parseInt(dolarBlueventa)));
           
 //Seccion Dolar Blue
 
@@ -117,7 +119,7 @@ $("#dolar").click(() => {
             let resultadoDolarBlue = $("#resultadoDolar");
             resultadoDolarBlue.append(`<span class="sb">Conversion a $ARS:</span>
                                 <li>${misDatosDolar[0].casa.nombre}  |$ ${dolarCotizarOficial}</li>
-                                <li>${dolarBlueNombre}  |$ ${dolarCotizar}</li>`);
+                                <li>${dolarBlueNombre}  |$ ${dolarCotizarBlue}</li>`);
 
  // Seccion Dolar Oficial  
 
