@@ -24,7 +24,7 @@ if(theme){
 
 // Cambio fondo Body
     for (let i = 0; i < body.length; i++) {
-        body[i].style.backgroundImage = "url('../Imagenes/fondo-game3.jfif')";
+        body[i].style.backgroundImage = "url('./Imagenes/fondo-game3.jfif')";
         localStorage.setItem('body','dark')
         
     }  
@@ -41,7 +41,7 @@ else{
     }
 
     for (let i = 0; i < body.length; i++) {
-        body[i].style.backgroundImage = "url('../Imagenes/fondo-game6.jpg')";
+        body[i].style.backgroundImage = "url('./Imagenes/fondo-game6.jpg')";
         localStorage.setItem('body','light')
         
     }
