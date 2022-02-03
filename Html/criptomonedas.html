@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="../css/cripto.css">
     
 
-    <title>Divisas</title>
+    <title>Criptomonedas</title>
 </head>
 <body onload="loadPage()">
     <header>
-        <h1>Divisas</h1>
+        <h1>Criptomonedas</h1>
         <nav class="navbar  navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
                 <div class="switch">
@@ -33,7 +33,7 @@
                     <a class="nav-link active" aria-current="page" href="../index.html"><span id="navText">Home</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="criptomonedas.html"><span id="navText">Criptomonedas</span></a>
+                    <a class="nav-link active" href="../Html/divisas.html"><span id="navText">Divisas</span></a>
                   </li>
                   <!-- <li class="nav-item">
                     <a class="nav-link" href=""><span id="navText"></span></a>
@@ -50,33 +50,23 @@
 <main class="container">
     <div class="col-lg-4 col-md-3 col-11">
         <div class="btnDivisas">
-            <button type="button" id="dolar" class="btn btn1 btn-outline-info btn-lg">USD/ARS</button>
-            <button type="button" id="eur" class="btn btn1 btn-outline-info btn-lg">EUR/ARS</button>
+            <button type="button" id="usdt" class="btn btn-outline-info btn-lg">USD/BTC</button>
+            <button type="button" id="euro" class="btn btn1 btn-outline-info btn-lg">EURO/BTC</button>
         </div>
-
-        <div class="boxDivisas">
-
-            <div class="boxDolarBlue">
-                <span class="spanDolarBlue"></span>
-            </div>
-
-            <div class="boxDolarOficial">
-                <span class="spanDolarOficial"></span>
-            </div>
-
+        <div class="boxBtc">
+            <span class="spanBtc"></span>
+            <span class="spanDolar"></span>
         </div>
-
-        <input type="number" class="form-control" name="usdArs" id="usdArs" placeholder="cantidad de USD a convertir en ARS">
-        
+        <input type="number" class="form-control" name="btc" id="btc" placeholder="Ingrese cantidad de USD/EUR a convertir">
   </div>
 
   <div class="section">
     <div>
         
-        <ul id="resultadoDolar"></ul>
+        <ul id="resultadoCripto"></ul>
     </div>
     <div>
-        <ul id="resultadoFechaDolar"></ul>
+        <ul id="resultadoFecha"></ul>
     </div>
   </div>
   <button type="button" id="" class="btn btn-outline-secondary btn-sm" onclick='deleteUser()'>Borrar LocalS</button>

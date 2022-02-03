@@ -3,7 +3,7 @@
 // Etiquetas en el DOM a cambiar
 
 let aNav = $("a,h1");
-let container = $("body")
+let body = $("body")
 let huno = $('h1')
 
 
@@ -14,6 +14,7 @@ function changeTheme(){
 theme = !theme;
 if(theme){
 
+   
 // se cambia el color de "a" y "h1"
     for (let i = 0; i < aNav.length; i++) {
         aNav[i].style.color = "white"
@@ -22,9 +23,14 @@ if(theme){
     }
 
 // Cambio fondo Body
-    
+    for (let i = 0; i < body.length; i++) {
+        body[i].style.backgroundImage = "url('../Imagenes/fondo-game3.jfif')";
+        localStorage.setItem('body','dark')
+        
+    }  
     
 }
+
 else{
 
 // se cambia el color de "a" y "h1"
@@ -33,7 +39,12 @@ else{
         localStorage.setItem('a','light')
         
     }
-    
+
+    for (let i = 0; i < body.length; i++) {
+        body[i].style.backgroundImage = "url('../Imagenes/fondo-game6.jpg')";
+        localStorage.setItem('body','light')
+        
+    }
 }
    
 
@@ -41,15 +52,24 @@ else{
 
 function loadPage() {
 
-    // se cambia el color tema Background
+    // se cambia el color tema Background en LocalStorade al iniciar pagina
     
-    //   if (localStorage.getItem('theme')) {
-    //     if (localStorage.getItem('theme') === 'light') {
-    //       container.style.background = 'red'
-    //     } else {
-    //       container.style.background = '#2F2F2F'
-    //     }
-    //   }
+    if (localStorage.getItem('body')){
+
+        if (localStorage.getItem('body') === 'dark'){
+            for (let i = 0; i < body.length; i++) {
+                body[i].style.backgroundImage = "url('../Imagenes/fondo-game3.jfif')";
+                
+            }
+        }
+        else{
+
+            for (let i = 0; i < body.length; i++) {
+                body[i].style.backgroundImage = "url('../Imagenes/fondo-game6.jpg')";
+                
+            }
+        }
+    }
     
     // se cambia el color de "a" y "h1"
     

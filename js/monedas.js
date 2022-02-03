@@ -103,10 +103,7 @@ $("#dolar").click(() => {
           
           let dolarCotizarBlue = multi(parseFloat(dolarBlueventa),pesosDolar);
           let dolarCotizarOficial = multi(parseFloat(misDatosDolar[0].casa.venta),pesosDolar);
-
-        //   console.log(typeof(pesosDolar));
-        //   console.log(typeof(parseInt(dolarBlueventa)));
-          
+       
 //Seccion Dolar Blue
 
             let cotizacionDolarBlue = $(".boxDolarBlue");
