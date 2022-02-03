@@ -3,8 +3,8 @@
 // Etiquetas en el DOM a cambiar
 
 let aNav = $("a,h1");
-let body = $("body")
-let huno = $('h1')
+let body = $("#bodySecudanrio");
+let huno = $('h1');
 
 
 let theme = false;
@@ -14,7 +14,6 @@ function changeTheme(){
 theme = !theme;
 if(theme){
 
-   
 // se cambia el color de "a" y "h1"
     for (let i = 0; i < aNav.length; i++) {
         aNav[i].style.color = "white"
@@ -22,13 +21,12 @@ if(theme){
         
     }
 
-// Cambio fondo Body
+// Cambio fondo Body en subcarpeta
     for (let i = 0; i < body.length; i++) {
-        body[i].style.backgroundImage = "url('./Imagenes/fondo-game3.jfif')";
+        body[i].style.backgroundImage = "url('../Imagenes/fonfo-game18.jpg')";
         localStorage.setItem('body','dark')
         
-    }  
-    
+    }        
 }
 
 else{
@@ -39,15 +37,13 @@ else{
         localStorage.setItem('a','light')
         
     }
-
+// Cambio fondo Body en subcarpeta
     for (let i = 0; i < body.length; i++) {
-        body[i].style.backgroundImage = "url('./Imagenes/fondo-game6.jpg')";
+        body[i].style.backgroundImage = "url('../Imagenes/fonfo-game20.jpg')";
         localStorage.setItem('body','light')
         
-    }
-}
-   
-
+    }  
+  }   
 }
 
 function loadPage() {
@@ -58,14 +54,14 @@ function loadPage() {
 
         if (localStorage.getItem('body') === 'dark'){
             for (let i = 0; i < body.length; i++) {
-                body[i].style.backgroundImage = "url('../Imagenes/fondo-game3.jfif')";
+                body[i].style.backgroundImage = "url('../Imagenes/fonfo-game18.jpg')";
                 
-            }
+            }  
         }
         else{
 
             for (let i = 0; i < body.length; i++) {
-                body[i].style.backgroundImage = "url('../Imagenes/fondo-game6.jpg')";
+                body[i].style.backgroundImage = "url('../Imagenes/fonfo-game20.jpg')";
                 
             }
         }
@@ -79,7 +75,7 @@ function loadPage() {
     
             for (let i = 0; i < aNav.length; i++) {
     
-              aNav[i].style.color = 'white'
+              aNav[i].style.color = 'white';
         }
           } 
         
@@ -92,7 +88,7 @@ function loadPage() {
             }
         }
       }
-}
+    }
 function deleteUser() {
     localStorage.clear()
 }   

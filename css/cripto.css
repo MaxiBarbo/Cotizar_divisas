@@ -20,13 +20,18 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    background-image: url("../Imagenes/fondo-game3.jfif");
+    /* background-image: url("Imagenes/fondo-game3.jfif"); */
     background-size:cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     width: auto;
     height: auto;
 }
+#bodyIndex{
+  background-image: url("/Imagenes/fonfo-game14.jpg");
+  background-position:top;
+}
+
 .navbar{
   color: black;
 }
