@@ -103,15 +103,14 @@ $("#dolar").click(() => {
           
           let dolarCotizarBlue = multi(parseFloat(dolarBlueventa),pesosDolar);
           let dolarCotizarOficial = multi(parseFloat(misDatosDolar[0].casa.venta),pesosDolar);
+
        
 //Seccion Dolar Blue
 
             let cotizacionDolarBlue = $(".boxDolarBlue");
-            cotizacionDolarBlue.append(`<span><span class="sb">Compra: </span>${dolarBlueCompra}</span>
+            cotizacionDolarBlue.append(`<span class="tDivisas">${dolarBlueNombre}</span>
+                                        <span><span class="sb">Compra: </span>${dolarBlueCompra}</span>
                                         <span><span class="sb">Venta: </span>${dolarBlueventa}</span>`);
-
-            let tituloDolarBlue = $(".spanDolarBlue");  
-            tituloDolarBlue.append(`<span class="tDivisas">${dolarBlueNombre}</span>`); 
 
             let resultadoDolarBlue = $("#resultadoDolar");
             resultadoDolarBlue.append(`<span class="sb">Conversion a $ARS:</span>
@@ -121,14 +120,11 @@ $("#dolar").click(() => {
  // Seccion Dolar Oficial  
 
             let cotizacionDolarOficial = $(".boxDolarOficial");
-            cotizacionDolarOficial.append(`<span><span class="sb">Compra: </span>${misDatosDolar[0].casa.compra}</span>
+            cotizacionDolarOficial.append(`<span class="tDivisas">${misDatosDolar[0].casa.nombre}</span>
+                                            <span><span class="sb">Compra: </span>${misDatosDolar[0].casa.compra}</span>
                                           <span><span class="sb">Venta: </span>${misDatosDolar[0].casa.venta}</span>`); 
 
-            let tituloDolarOficial = $(".spanDolarOficial");  
-            tituloDolarOficial.append(`<span class="tDivisas">${misDatosDolar[0].casa.nombre}</span>`); 
-            
-            
-                            
+                                       
         }
     });
   });
