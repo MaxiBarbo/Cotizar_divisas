@@ -95,7 +95,7 @@ $("#dolar").click(() => {
         if(estado === "success"){
               
           const misDatosDolar = respuesta;
-          console.log(misDatosDolar);
+        //   console.log(misDatosDolar);
           
           const dolarBlueCompra = misDatosDolar[1].casa.compra;
           const dolarBlueventa = misDatosDolar[1].casa.venta;
@@ -128,3 +128,47 @@ $("#dolar").click(() => {
         }
     });
   });
+
+  const urlEuro = 'https://api.bluelytics.com.ar/v2/latest';
+
+
+$("#eur").click(() => { 
+
+    let pesosEuro = $("[name*='usdArs']").val();  
+
+    $.getJSON(urlEuro, function (respuesta, estado) {
+    
+        if(estado === "success"){
+
+            const misDatosEuro = respuesta;
+            console.log(misDatosEuro);
+
+            const euroBlueCompra = misDatosEuro.blue_euro.value_sell ;
+            const euroBlueventa = misDatosEuro.blue_euro.value_buy;
+            
+            //Seccion Euro Blue
+
+            let cotizacionEuroBlue = $(".boxDolarBlue");
+            cotizacionEuroBlue.append(`<span class="tDivisas">Euro Blue</span>
+                                        <span><span class="sb">Compra: </span>${euroBlueCompra}</span>
+                                        <span><span class="sb">Venta: </span>${euroBlueventa}</span>`);
+
+            // Seccion Dolar Oficial  
+
+            let cotizacionEuroOficial = $(".boxDolarOficial");
+            cotizacionEuroOficial.append(`<span class="tDivisas">Euro Oficial</span>
+                                            <span><span class="sb">Compra: </span>${misDatosEuro.oficial_euro.value_sell}</span>
+                                          <span><span class="sb">Venta: </span>${misDatosEuro.oficial_euro.value_buy}</span>`); 
+
+            
+            let euroCotizarBlue = multi(parseFloat(euroBlueventa),pesosEuro);
+            let euroCotizarOficial = multi(parseFloat(misDatosEuro.oficial_euro.value_buy),pesosEuro);
+
+            let resultadoEuroBlue = $("#resultadoDolar");
+            resultadoEuroBlue.append(`<span class="sb">Conversion a $ARS:</span>
+                                <li>Euro Oficial |$ ${euroCotizarOficial}</li>
+                                <li>Euro Blue |$ ${euroCotizarBlue}</li>`);
+
+        }
+    })
+});
