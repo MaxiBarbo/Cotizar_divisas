@@ -52,10 +52,11 @@ h2{
 }
 h1{
     text-align: center;
-    letter-spacing: 10px;
+    letter-spacing: 7px;
     margin-top: 1rem;
     color:#FFD23F;
-    font-size: 1.3em;
+    font-size: 1.7em;
+    margin-bottom: 1rem;
 }
 
 h3{
