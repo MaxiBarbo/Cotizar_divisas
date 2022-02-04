@@ -39,7 +39,7 @@ else{
     }
 // Cambio fondo Body en subcarpeta
     for (let i = 0; i < body.length; i++) {
-        body[i].style.backgroundImage = "url('../Imagenes/fonfo-game20.jpg')";
+        body[i].style.backgroundImage = "url('../Imagenes/fonfo-game21.jpg')";
         localStorage.setItem('body','light')
         
     }  
@@ -61,7 +61,7 @@ function loadPage() {
         else{
 
             for (let i = 0; i < body.length; i++) {
-                body[i].style.backgroundImage = "url('../Imagenes/fonfo-game20.jpg')";
+                body[i].style.backgroundImage = "url('../Imagenes/fonfo-game21.jpg')";
                 
             }
         }
