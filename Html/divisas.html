@@ -17,7 +17,7 @@
 </head>
 <body id="bodySecudanrio" onload="loadPage()">
     <header>
-        <h1>Divisas</h1>
+        <h1 class="animate__animated animate__pulse animate__infinite	infinite">Divisas</h1>
         <nav class="navbar  navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
                 <div class="switch">
@@ -49,13 +49,20 @@
     
 <main class="container">
     <div class="col-lg-4 col-md-3 col-11">
+
         <div class="btnDivisas">
-            <button type="button" id="dolar" class="btn btn1 btn-outline-info btn-lg">USD/ARS</button>
-            <button type="button" id="eur" class="btn btn1 btn-outline-info btn-lg">EUR/ARS</button>
+            <button type="button" id="dolar" class="btn btn1 btn-outline-success btn-lg" onclick="fechaGlobal();">USD/ARS</button>
+            <button type="button" id="eur" class="btn btn1 btn-outline-success btn-lg" onclick="fechaGlobal();">EUR/ARS</button>
         </div>
 
-        <div class="boxDivisas">
+         <!--Inicio Reloj-->
+          <div class="reloj">
+            <p class="fecha"></p>
+            <p class="tiempo"></p>
+          </div>
+         <!--Fin Reloj-->
 
+        <div class="boxDivisas">
             <div class="boxDolarBlue">
                 <span class="spanDolarBlue"></span>
             </div>
@@ -63,23 +70,26 @@
             <div class="boxDolarOficial">
                 <span class="spanDolarOficial"></span>
             </div>
-
         </div>
 
-        <input type="number" class="form-control" name="usdArs" id="usdArs" placeholder="cantidad de USD a convertir en ARS">
-        
+        <input type="number" class="form-control" name="usdArs" id="usdArs" placeholder="cantidad de USD a convertir en ARS"> 
   </div>
 
   <div class="section">
-    <div>
-        
+    <div>  
         <ul id="resultadoDolar"></ul>
     </div>
+
     <div>
         <ul id="resultadoFechaDolar"></ul>
     </div>
   </div>
-  <button type="button" id="" class="btn btn-outline-secondary btn-sm" onclick='deleteUser()'>Borrar LocalS</button>
+
+  <div class="btnEnd">
+    <button type="button" id="" class="btn btn-outline-danger" onclick='deleteUser()'>Borrar LocalS</button>
+    <button type="button" id="" class="btn btn-outline-light" onclick='refresh()'>Reload</button>
+  </div>
+
 </main>
    
 </body>
@@ -90,4 +100,5 @@
 <script src="../js/monedas.js"></script>
 <script src="../js/mostrar.js"></script>
 <script src="../js/theme.js"></script>
+<script src="../js/fecha.js"></script>
 </html>

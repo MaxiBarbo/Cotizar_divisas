@@ -132,7 +132,7 @@ h4:hover{
 }
 
 .tDivisas{
-  color:#CC8B86;
+  color:#90C290;
   font-size: 1.4em;
   letter-spacing: 2px;
 }
@@ -184,6 +184,33 @@ h4:hover{
   border-radius: 50%;
   top: 2px;
   left: 2px; }
+
+  /*Reloj Digital*/
+
+.reloj{
+color:white; 
+display: flex;
+flex-direction: column;
+align-items: flex-end; 
+}
+.tiempo{
+letter-spacing: 0.05em;
+font-size: 1.5em;
+}
+.fecha{
+letter-spacing: 0.1em;
+font-size: 1.5em;
+letter-spacing: 0.1em;
+}
+.btnEnd{
+  width: 25%;
+  gap:1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+
+}
 
 @media only screen and (max-width: 400px) {
   .section{
