@@ -77,7 +77,7 @@ h3{
 }
 h4{
   font-family: var(--font-title-family);
-  color: whitesmoke;
+  color: white;
   font-size: 2em;
   letter-spacing: 4px;
   text-align: center;
@@ -104,7 +104,7 @@ h4:hover{
   width: 19rem;
   height: 6rem;
 }
-#usdt,#euro,#dolar,#eur{
+#usdt,#dolar,#eur,#btcArs,#ethArs,#eth{
   margin-left: 1rem;
   margin-top: 3rem;
 }

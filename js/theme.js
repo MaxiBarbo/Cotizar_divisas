@@ -2,7 +2,7 @@
 
 // Etiquetas en el DOM a cambiar
 
-let aNav = $("a,h1");
+let aNav = $("a,h1,h4");
 let body = $("#bodySecudanrio");
 let huno = $('h1');
 

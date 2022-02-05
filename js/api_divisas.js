@@ -1,110 +1,4 @@
 
-// // Funcion para calcular conversion BTC / Dolar (Usando otro metodo de entrada a la api)
-
-    $("#usdt").click(function(){
-
-        obtenerDatos();
-
-    });
-   
-    function division(a,b){
-        return a/b;
-    } 
-    function multi(n1, n2) {
-        return n1 * n2;
-    }
-    // //Funcion Fecha local    
-    // let f = new Date(),
-    //   dia = f.getDate(),
-    //   mes = f.getMonth() + 1,
-    //   anio = f.getFullYear(),
-    //   diaSemana = f.getDay(); 
-
-    //   dia = ('0' + dia).slice(-2);
-    //   mes = ('0' + mes).slice(-2);
-
-    //   let timeString = f.toLocaleTimeString();
-    //   let semana = ['DOMINGO','LUNES','MARTES','MIERCOLES','JUEVES','VIERNES','SABADO'];
-    //   let showSemana = (semana[diaSemana]);
-
-// Funcion para convertir USD / BTC
-
-    function obtenerDatos(){
-
-    let url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
-
-    const api = new XMLHttpRequest();
-    api.open('get', url, true);
-    api.send();
-
-    let pesosBtc = $("[name*='btc']").val();
-
-    api.onreadystatechange = function(){
-
-        if(this.status == 200 && this.readyState == 4){
-
-            const datos = JSON.parse(this.responseText);
-            console.log(datos);
-
-            let resultadoBtc = parseFloat(datos.bpi.USD.rate_float);
-            let resultadoDolar = division(pesosBtc,resultadoBtc);
-              
-            let cotizacionBtc = $(".boxBtc");
-            cotizacionBtc.append(`<span class="sb">1 Bitcoin <span class="iconify" data-icon="cib:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span></span>
-                                  <span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${datos.bpi.USD.rate_float}</span>`);
-
-            let resultadoUno = $("#resultadoCripto");
-            resultadoUno.append(`<span class="sb">Cripto / USD:</span>
-                                <li> ${datos.chartName} | <span class="iconify" data-icon="cib:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${resultadoDolar}</li>`);
-
-            // let resultadoDos = $("#resultadoFecha");
-            // resultadoDos.append(`<span class="sb">Fecha / Horario:</span>
-            //                     <li>${showSemana} ${dia}-${mes}-${anio}</li>
-            //                     <li>${timeString}</li>`);
-             
-        }
-    }
-}
-
-// Funcion para consultar api Criptos btc / euro
-
-const URLJSON = 'https://api.coindesk.com/v1/bpi/currentprice.json' 
-
-   
-
-$("#euro").click(() => { 
-
-let pesosBtc = $("[name*='btc']").val(); 
-$.getJSON(URLJSON, function (respuesta, estado) {
-
-    if(estado === "success"){
-        
-      const misDatos = respuesta;
-      
-
-// Datos BTC / EURO
-
-      let apiEuro = parseFloat(misDatos.bpi.EUR.rate_float);
-      let resultadoEuro = division(pesosBtc,apiEuro);
-      
-      let resultadoUno = $("#resultadoCripto");
-      resultadoUno.append(`<span class="sb">Cripto / EUR:</span>
-                            <li>${misDatos.chartName}  | <span class="iconify" data-icon="cib:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${resultadoEuro}</li>`);
-
-    //   let resultadoDos = $("#resultadoFecha");
-    //   resultadoDos.append(`<span class="sb">Fecha / Horario:</span>
-    //                         <li>${showSemana} ${dia}-${mes}-${anio}</li>
-    //                         <li>${timeString}</li>`);
-
-      let cotizacionBtc = $(".boxBtc");
-      cotizacionBtc.append(`<span class="sb">1 Bitcoin <span class="iconify" data-icon="cib:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span></span>
-                            <span><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="13" data-height="13"></span> ${misDatos.bpi.EUR.rate_float}</span>`);
-
-    
-    }
-  });
-});
-
 const urlDolar = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
 
 
@@ -152,6 +46,7 @@ $("#dolar").click(() => {
   });
 
 // Funcion para consultar api en EURO
+
   const urlEuro = 'https://api.bluelytics.com.ar/v2/latest';
 
 
@@ -195,3 +90,12 @@ $("#eur").click(() => {
         }
     })
 });
+
+function division(a,b){
+  return a/b;
+} 
+function multi(n1, n2) {
+  return n1 * n2;
+}
+
+
