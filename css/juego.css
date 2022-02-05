@@ -19,6 +19,7 @@
 
 .juego-titulo, .juego-info{
     text-align: center;
+    font-size: 0.8em;
 }
 
 .juego-cuadricula{
