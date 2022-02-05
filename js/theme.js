@@ -33,7 +33,7 @@ else{
 
 // se cambia el color de "a" y "h1"
     for (let i = 0; i < aNav.length; i++) {
-        aNav[i].style.color = "#FFD23F"
+        aNav[i].style.color = "#F79824"
         localStorage.setItem('a','light')
         
     }
@@ -83,7 +83,7 @@ function loadPage() {
 
     // se cambia el color de "a" y "h1"
             for (let i = 0; i < aNav.length; i++) {
-            aNav[i].style.color = '#FFD23F'
+            aNav[i].style.color = '#F79824'
     
             }
         }

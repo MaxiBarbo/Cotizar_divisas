@@ -49,7 +49,7 @@ function obtenerDatos(coin,titulo,exchange,cripto,fiat,icono){
         if(this.status == 200 && this.readyState == 4){
 
             const datos = JSON.parse(this.responseText);
-            console.log(datos.ask);
+            // console.log(datos);
 
             let resultadoBtc = parseFloat(datos.ask);
             let resultadoPeso = division(pesosBtc,resultadoBtc);

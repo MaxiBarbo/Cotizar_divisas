@@ -83,7 +83,7 @@ $("#eur").click(() => {
             let euroCotizarOficial = multi(parseFloat(misDatosEuro.oficial_euro.value_buy),pesosEuro);
 
             let resultadoEuroBlue = $("#resultadoDolar");
-            resultadoEuroBlue.append(`<span class="sb">Conversion en $ARS:</span>
+            resultadoEuroBlue.append(`<span class="sb">Conversion en <span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> ARS:</span>
                                 <li>Euro Oficial |<span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${euroCotizarOficial}</li>
                                 <li>Euro Blue |<span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${euroCotizarBlue}</li>`);
 
