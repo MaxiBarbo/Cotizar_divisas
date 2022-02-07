@@ -51,6 +51,7 @@
     
 <main class="container">
     <div class="col-lg-4 col-md-3 col-11">
+      <h3>Pulsa para Consultar tipos de conversion</h3>
         <div class="btnDivisas">
             <button type="button" id="usdt" class="btn btn-outline-warning btn-lg" onclick="fechaGlobal();">USD/BTC</button>
             <button type="button" id="eth" class="btn btn1 btn-outline-warning btn-lg" onclick="fechaGlobal();">USD/ETH</button>
@@ -69,7 +70,13 @@
             <span class="spanBtc"></span>
             <span class="spanDolar"></span>
         </div>
-        <input type="number" class="form-control" name="btc" id="btc" placeholder="Cantidad USD/EUR">
+        <span class="input input--kuro">
+					<input class="input__field input__field--kuro" type="text" id="input-7" name="btc" />
+					<label class="input__label input__label--kuro" for="input-7">
+						<span class="input__label-content input__label-content--kuro">Ingresa USD/EURO</span>
+					</label>
+				</span>
+        <!-- <input type="number" class="form-control" name="btc" id="btc" placeholder="Cantidad USD/EUR"> -->
   </div>
 
   <div class="section">
@@ -93,8 +100,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
 
-<!-- <script src="../js/monedas.js"></script> -->
-<script src="../js/mostrar.js"></script>
+
+<!-- <script src="../js/mostrar.js"></script> -->
 <script src="../js/theme.js"></script>
 <script src="../js/api_criptos.js"></script>
 <script src="../js/fecha.js"></script>
