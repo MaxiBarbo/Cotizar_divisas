@@ -20,7 +20,11 @@ html {
     font-size: 62.5%;
     
 } 
-
+.itemsNav{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 body {
     display: flex;
     flex-direction: column;
@@ -35,11 +39,12 @@ body {
   background-position:top;
 }
 #borderSep{
-  border-bottom: 0.1rem solid white;
+  border-bottom: 0.1rem solid black;
   color: white;
   width: 100%;
-  height: 0.5px;
-  margin-top: 1rem;
+  height: 0.8px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 .navbar{
   color: black;
@@ -172,7 +177,8 @@ h4:hover{
 
 .inputOne[type=checkbox]:checked + .labelOne {
   transform: rotate(360deg);
-  background-color: whitesmoke; }
+  background-color: whitesmoke;
+ }
 
 .inputOne[type=checkbox]:checked + .labelOne:before {
   transform: translateX(60px);
@@ -191,6 +197,8 @@ h4:hover{
   cursor: pointer; }
 
 .labelOne:before {
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.5s infinite ease-in-out;
   transition: transform 0.75s ease;
   transition-delay: 0.5s;
   content: "";
@@ -233,7 +241,34 @@ letter-spacing: 0.1em;
 .headerIconos{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+#btc{
+  height: 4rem;
+  width: 30%;
+  margin-left: 2rem;
+}
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 
+  100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
 }
 
 @media only screen and (max-width: 400px) {

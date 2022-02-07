@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    
+    <title>Document</title>
+<script src="../js/api_criptos.js"></script>
+
+<style> body {
+    font-family: sans-serif;
+    max-width: 280px;
+    margin: 25px auto;
+  }
+  
+  .divisa {
+    display: grid;                    /* cuadrícula */
+    grid-template-columns: 50% 50%;   /* 2 columnas iguales */
+    margin-bottom: 15px;
+    background: rgb(37, 169, 209); 
+    color: white;
+  }
+  
+  .nombre, .valor{
+    padding: 5px;
+    font-size: 16px;
+    align-self: center;  /* alinear elemento al centro en altura */
+    text-align: center;  /* alinear texto al centro en ancho */
+  }</style>
+
+</head>
+<body>
+    <button type="button" id="criptoYa"></button>
+
+    <select id="producto" name="producto">
+        <option value="12">Texto One</option>
+        <option value="13">Texto Two</option>
+        </select>
+
+
+        <div class="divisa">
+            <div class="nombre">Euros</div>
+            <input class="valor" type="number" value="1" />
+          </div>
+          
+          <div class="divisa">
+            <div class="nombre">Dólares</div>
+            <input class="valor" type="number" value="1" />
+          </div>
+          
+          <div class="divisa">
+            <div class="nombre">Libras</div>
+            <input class="valor" type="number" value="1" />
+          </div>
+          
+          <div class="divisa">
+            <div class="nombre">Yenes</div>
+            <input class="valor" type="number" value="1" /> 
+          </div>
+        
+    
+</body>
+</html>

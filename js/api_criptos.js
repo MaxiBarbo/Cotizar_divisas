@@ -59,7 +59,7 @@ function obtenerDatos(coin,titulo,exchange,cripto,fiat,icono){
                                   <span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${datos.ask}</span>`);
 
             let resultadoUno = $("#resultadoCripto");
-            resultadoUno.append(`<span class="sb">Cantidad:</span>
+            resultadoUno.append(`<span class="sb">Cantidad convertida:</span>
                                 <li> ${cripto} | ${icono} ${resultadoPeso}</li>`);
 
           
@@ -67,3 +67,21 @@ function obtenerDatos(coin,titulo,exchange,cripto,fiat,icono){
     }
 }
 
+// Funcion para consultar api en EURO
+
+
+const urlCriptoYa = `https://criptoya.com/api`;
+
+
+$("#criptoYa").click(() => { 
+
+    let pesosEuro = $("[name*='']").val();  
+
+    $.getJSON(urlEuro, function (respuesta, estado) {
+    
+        if(estado === "success"){
+            console.log(respuesta);
+
+        }
+    })
+});

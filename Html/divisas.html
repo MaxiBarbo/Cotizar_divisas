@@ -18,7 +18,7 @@
 </head>
 <body id="bodySecudanrio" onload="loadPage()">
     <header>
-        <h1 class="animate__animated animate__pulse animate__infinite	infinite">Divisas</h1>
+        <h1>Divisas</h1>
         <nav class="navbar  navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
                 <div class="switch">
@@ -30,11 +30,12 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                  <div id="borderSep"></div>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="../index.html"><span id="navText">Home</span></a>
+                    <a class="nav-link active" aria-current="page" href="../index.html"><span id="navText"><span class="iconify" data-icon="bx:bx-home" data-width="20" data-height="20"></span> Home</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" href="criptomonedas.html"><span id="navText">Criptomonedas</span></a>
+                    <a class="nav-link active" href="criptomonedas.html"><span id="navText"><span class="iconify" data-icon="ri:bit-coin-line" data-width="20" data-height="20"></span> Criptomonedas</span></a>
                   </li>
                   <!-- <li class="nav-item">
                     <a class="nav-link" href=""><span id="navText"></span></a>
@@ -55,6 +56,11 @@
             <button type="button" id="dolar" class="btn btn1 btn-outline-success btn-lg" onclick="fechaGlobal();">USD/ARS</button>
             <button type="button" id="eur" class="btn btn1 btn-outline-success btn-lg" onclick="fechaGlobal();">EUR/ARS</button>
         </div>
+
+        <!-- <select id="producto" name="producto">
+          <option value="1">Bake</option>
+          <option value="2">BNB</option>
+          </select> -->
 
          <!--Inicio Reloj-->
           <div class="reloj">
