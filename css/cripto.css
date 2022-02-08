@@ -162,8 +162,9 @@ h4:hover{
 }
 
 .tDivisas{
-  color:#90C290;
-  font-size: 1.4em;
+  /* color:#474954; */
+  color: rgb(153, 147, 147);
+  font-size: 1.3em;
   letter-spacing: 2px;
 }
 

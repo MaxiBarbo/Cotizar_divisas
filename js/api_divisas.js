@@ -59,7 +59,7 @@ $("#eur").click(() => {
         if(estado === "success"){
 
             const misDatosEuro = respuesta;
-            console.log(misDatosEuro);
+            // console.log(misDatosEuro);
 
             const euroBlueCompra = misDatosEuro.blue_euro.value_sell ;
             const euroBlueventa = misDatosEuro.blue_euro.value_buy;
@@ -84,8 +84,8 @@ $("#eur").click(() => {
 
             let resultadoEuroBlue = $("#resultadoDolar");
             resultadoEuroBlue.append(`<span class="sb">Conversion en <span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> ARS:</span>
-                                <li>Euro Oficial |<span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${euroCotizarOficial}</li>
-                                <li>Euro Blue |<span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${euroCotizarBlue}</li>`);
+                                <li>Euro Oficial |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span></span> ${euroCotizarOficial}</li>
+                                <li>Euro Blue |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span></span> ${euroCotizarBlue}</li>`);
 
         }
     })
