@@ -62,6 +62,11 @@ body {
   flex-direction: column;
   margin-top: 2rem; 
 }
+.iconosCripto{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 h2{
     color:gainsboro;
     margin-bottom: 1rem;

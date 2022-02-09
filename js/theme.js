@@ -16,7 +16,7 @@ if(theme){
 
 // se cambia el color de "a" y "h1"
     for (let i = 0; i < aNav.length; i++) {
-        aNav[i].style.color = "white"
+        aNav[i].style.color = "silver"
         localStorage.setItem('a','dark')
         
     }
@@ -75,7 +75,7 @@ function loadPage() {
     
             for (let i = 0; i < aNav.length; i++) {
     
-              aNav[i].style.color = 'white';
+              aNav[i].style.color = 'silver';
         }
           } 
         
