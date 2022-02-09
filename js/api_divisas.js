@@ -30,8 +30,8 @@ $("#dolar").click(() => {
 
             let resultadoDolarBlue = $("#resultadoDolar");
             resultadoDolarBlue.append(`<span class="sb">Conversion en <span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span>ARS:</span>
-                                <li>${misDatosDolar[0].casa.nombre}  |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> ${dolarCotizarOficial}</li>
-                                <li>${dolarBlueNombre}  |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> ${dolarCotizarBlue}</li>`);
+                                <li><span class="tDivisas">${misDatosDolar[0].casa.nombre}</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> ${dolarCotizarOficial}</li>
+                                <li><span class="tDivisas">${dolarBlueNombre}</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> ${dolarCotizarBlue}</li>`);
 
  // Seccion Dolar Oficial  
 

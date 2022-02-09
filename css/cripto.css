@@ -162,16 +162,17 @@ h4:hover{
   font-size: 2.1em;
 }
 .sb{
+  font-family: var(--font-title-family);
   color: silver; 
   font-size: 1em;
   letter-spacing: 2px;
 }
 
 .tDivisas{
-  /* color:#474954; */
-  color: #2A628F;
+  font-family: var(--font-title-family);
+  color: #3E92CC;
   font: bolder;
-  font-size: 1.2em;
+  font-size: 1.1em;
   letter-spacing: 2px;
 }
 
