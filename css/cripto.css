@@ -157,14 +157,16 @@ h4:hover{
   font-size: 2.1em;
 }
 .sb{
-  color: #D1BE9C; 
+  color: silver; 
   font-size: 1em;
+  letter-spacing: 2px;
 }
 
 .tDivisas{
   /* color:#474954; */
-  color: rgb(153, 147, 147);
-  font-size: 1.3em;
+  color: #2A628F;
+  font: bolder;
+  font-size: 1.2em;
   letter-spacing: 2px;
 }
 
