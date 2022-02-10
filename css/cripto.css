@@ -67,6 +67,10 @@ body {
   flex-direction: row;
   justify-content: space-between;
 }
+.inputsDivisas{
+display:flex;
+flex-direction: row;
+}
 h2{
     color:gainsboro;
     margin-bottom: 1rem;
