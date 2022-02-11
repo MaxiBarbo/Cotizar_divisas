@@ -100,8 +100,8 @@ $("#eur").click(() => {
                                 <li><span class="tDivisas">Euro Blue</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span></span> ${euroCotizarBlue}</li>
                                 
                                 <span class="sb">De <span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span> :</span>
-                                <li><span class="tDivisas">Euro Oficial</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span></span> ${pesosEuroCotizarOficial}</li>
-                                <li><span class="tDivisas">Euro Blue</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span></span> ${pesosEuroCotizarBlue}</li>`);
+                                <li><span class="tDivisas">Euro Oficial</span> |<span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${pesosEuroCotizarOficial}</li>
+                                <li><span class="tDivisas">Euro Blue</span> |<span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${pesosEuroCotizarBlue}</li>`);
 
         }
     })

@@ -23,7 +23,7 @@ if(theme){
 
 // Cambio fondo Body en subcarpeta
     for (let i = 0; i < body.length; i++) {
-        body[i].style.backgroundImage = "url('../Imagenes/fonfo-game18.jpg')";
+        body[i].style.backgroundImage = "url('../Imagenes/fonfo-game34.png')";
         localStorage.setItem('body','dark')
         
     }        
@@ -39,7 +39,7 @@ else{
     }
 // Cambio fondo Body en subcarpeta
     for (let i = 0; i < body.length; i++) {
-        body[i].style.backgroundImage = "url('../Imagenes/fonfo-game21.jpg')";
+        body[i].style.backgroundImage = "url('../Imagenes/fonfo-game32.webp')";
         localStorage.setItem('body','light')
         
     }  
@@ -54,14 +54,14 @@ function loadPage() {
 
         if (localStorage.getItem('body') === 'dark'){
             for (let i = 0; i < body.length; i++) {
-                body[i].style.backgroundImage = "url('../Imagenes/fonfo-game18.jpg')";
+                body[i].style.backgroundImage = "url('../Imagenes/fonfo-game34.png')";
                 
             }  
         }
         else{
 
             for (let i = 0; i < body.length; i++) {
-                body[i].style.backgroundImage = "url('../Imagenes/fonfo-game21.jpg')";
+                body[i].style.backgroundImage = "url('../Imagenes/fonfo-game32.webp')";
                 
             }
         }
