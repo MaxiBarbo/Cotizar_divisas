@@ -23,15 +23,6 @@ $("#eth").click(function(){
 
 });
 
-
-
-// $("#bnb").click(function(){
-
-//     obtenerDatos('eos','1 BNB','letsbit','BNB','usd','<span class="iconify" data-icon="cib:ethereum" style="color: #ffd23f;" data-width="15" data-height="15"></span>');
-
-// });
-
-
 function division(a,b){
     return a/b;
 } 
@@ -77,11 +68,26 @@ function obtenerDatos(coin,titulo,exchange,cripto,fiat,icono){
 
 //Funcion para consultar api satoshi tango cripto XRP
 
+$("#bnb").click(() => {
 
-const urlCriptoYa = `https://criptoya.com/api/satoshitango/xrp/ars`;
+    obtenerDatosApi('buenbit','bnb','ars','BNB','<span class="iconify" data-icon="cryptocurrency:bnb" style="color: #ffd23f;" data-width="14" data-height="14"></span>');
+
+});
+
+$("#xrp").click(() => {
+
+    obtenerDatosApi('sesocio','xrp','ars','XRP','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+
+});
 
 
-$("#xrp").click(() => { 
+
+
+function obtenerDatosApi(exchange,coin,fiat,cripto,icono){
+
+   
+   
+    const urlCriptoYa = `https://criptoya.com/api/${exchange}/${coin}/${fiat}`;
 
     let pesosXrp = $("[name*='btc']").val();  
 
@@ -89,23 +95,21 @@ $("#xrp").click(() => {
     
         if(estado === "success"){
             
-
             let xrp = respuesta.totalAsk;
 
             let resultadoXrp = parseFloat(respuesta.totalAsk);
             let resultadoPesoXrp = division(pesosXrp,resultadoXrp);
 
             let cotizacionXrp = $(".boxBtc");
-            cotizacionXrp.append(`<span class="sb">1 XRP <span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span> </span>
+            cotizacionXrp.append(`<span class="sb">1 ${cripto} ${icono} </span>
                                   <span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${xrp}</span>`);
 
             let resultadoUnoXrp = $("#resultadoCripto");
             resultadoUnoXrp.append(`<span class="sb">Cantidad convertida:</span>
-                                <li> Xrp | <span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${resultadoPesoXrp}</li>`);
+                                <li> ${cripto} | <span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${resultadoPesoXrp}</li>`);
 
 
-
-            // console.log(xrp);
         }
+        
     })
-});
+}
