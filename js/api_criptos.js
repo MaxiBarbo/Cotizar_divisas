@@ -23,6 +23,8 @@ $("#eth").click(function(){
 
 });
 
+
+
 // $("#bnb").click(function(){
 
 //     obtenerDatos('eos','1 BNB','letsbit','BNB','usd','<span class="iconify" data-icon="cib:ethereum" style="color: #ffd23f;" data-width="15" data-height="15"></span>');
@@ -73,21 +75,37 @@ function obtenerDatos(coin,titulo,exchange,cripto,fiat,icono){
     }
 }
 
-// Funcion para consultar api en EURO
+//Funcion para consultar api satoshi tango cripto XRP
 
 
-// const urlCriptoYa = `https://criptoya.com/api`;
+const urlCriptoYa = `https://criptoya.com/api/satoshitango/xrp/ars`;
 
 
-// $("#criptoYa").click(() => { 
+$("#xrp").click(() => { 
 
-//     let pesosEuro = $("[name*='']").val();  
+    let pesosXrp = $("[name*='btc']").val();  
 
-//     $.getJSON(urlEuro, function (respuesta, estado) {
+    $.getJSON(urlCriptoYa, function (respuesta, estado) {
     
-//         if(estado === "success"){
-//             console.log(respuesta);
+        if(estado === "success"){
+            
 
-//         }
-//     })
-// });
+            let xrp = respuesta.totalAsk;
+
+            let resultadoXrp = parseFloat(respuesta.totalAsk);
+            let resultadoPesoXrp = division(pesosXrp,resultadoXrp);
+
+            let cotizacionXrp = $(".boxBtc");
+            cotizacionXrp.append(`<span class="sb">1 XRP <span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span> </span>
+                                  <span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${xrp}</span>`);
+
+            let resultadoUnoXrp = $("#resultadoCripto");
+            resultadoUnoXrp.append(`<span class="sb">Cantidad convertida:</span>
+                                <li> XRP | <span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${resultadoPesoXrp}</li>`);
+
+
+
+            // console.log(xrp);
+        }
+    })
+});

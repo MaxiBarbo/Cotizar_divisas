@@ -1,3 +1,4 @@
+// Api para consutlar valor del Dolar
 
 const urlDolar = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
 
