@@ -101,7 +101,7 @@ $("#xrp").click(() => {
 
             let resultadoUnoXrp = $("#resultadoCripto");
             resultadoUnoXrp.append(`<span class="sb">Cantidad convertida:</span>
-                                <li> XRP | <span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${resultadoPesoXrp}</li>`);
+                                <li> Xrp | <span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${resultadoPesoXrp}</li>`);
 
 
 
