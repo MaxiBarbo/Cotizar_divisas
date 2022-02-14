@@ -34,6 +34,7 @@ function multi(n1, n2) {
 
 function obtenerDatos(coin,titulo,exchange,cripto,fiat,icono){
 
+    
 
     const urlArgenBtc = `https://criptoya.com/api/${exchange}/${coin}/${fiat}/0.1`;
 
@@ -66,7 +67,7 @@ function obtenerDatos(coin,titulo,exchange,cripto,fiat,icono){
     }
 }
 
-//Funcion para consultar api satoshi tango cripto XRP
+//Funcion para consultar api criptoYa y obtener distitnos valores de criptos
 
 $("#bnb").click(() => {
 
@@ -85,8 +86,6 @@ $("#xrp").click(() => {
 
 function obtenerDatosApi(exchange,coin,fiat,cripto,icono){
 
-   
-   
     const urlCriptoYa = `https://criptoya.com/api/${exchange}/${coin}/${fiat}`;
 
     let pesosXrp = $("[name*='btc']").val();  
@@ -95,6 +94,8 @@ function obtenerDatosApi(exchange,coin,fiat,cripto,icono){
     
         if(estado === "success"){
             
+            console.log(respuesta);
+
             let xrp = respuesta.totalAsk;
 
             let resultadoXrp = parseFloat(respuesta.totalAsk);
@@ -106,7 +107,7 @@ function obtenerDatosApi(exchange,coin,fiat,cripto,icono){
 
             let resultadoUnoXrp = $("#resultadoCripto");
             resultadoUnoXrp.append(`<span class="sb">Cantidad convertida:</span>
-                                <li> ${cripto} | <span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${resultadoPesoXrp}</li>`);
+                                <li> ${cripto} | ${icono} ${resultadoPesoXrp}</li>`);
 
 
         }
