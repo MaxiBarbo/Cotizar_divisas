@@ -22,7 +22,44 @@
       <div class="dot2"></div>
     </div>
     <h1>Cotizador Divisas</h1>
-    <span class="iconify" data-icon="carbon:user-avatar-filled-alt" style="color: gray;" data-width="25" data-height="25"></span>
+    
+    <!-- Button para iniciar session -->
+    <button type="" class="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <span class="iconify" data-icon="carbon:user-avatar-filled-alt" data-width="25" data-height="25" style="color: gray;"></span>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" >
+        <div class="modal-content" style="background-color: silver;">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <form id="formOne"> 
+              <div class="mb-3 l3">
+                <label for="exampleFormControlInput1" class=""> <span class="iconify" data-icon="carbon:user-avatar-filled-alt" data-width="20" data-height="20"></span></label>
+                <input type="text"  class="form-control" id="nombre" placeholder="Usuario" name="nombre">
+
+                <label for="exampleFormControlInput1" class=""><span class="iconify" data-icon="simple-icons:keepassxc" data-width="20" data-height="20"></span></label>
+                <input type="email"  class="form-control" id="mail" placeholder="email" name="mail">
+
+                <label for="exampleFormControlInput1" class=""><span class="iconify" data-icon="mdi:onepassword" data-width="20" data-height="20"></span></label>
+                <input type="password"  class="form-control" id="pass" placeholder="Confirmar Pass" name="pass">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-outline-primary">Enviar</button>
+            <button type="button" class="btn btn-outline-warning">Registrar</button>
+          </div>
+        </form> 
+        </div>
+      </div>
+    </div>
+
   </div>
 
     <header>
@@ -80,6 +117,6 @@
 
 
 
-<script src=""></script>
+<script src="js/login.js"></script>
 <script src="js/theme.js"></script>
 </html>
