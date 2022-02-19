@@ -156,3 +156,38 @@ class Tareas {
          localStorage.setItem('theme', 'light')            
      }
  }
+
+ 
+ function obtenerDatosApi(exchange,coin,fiat,cripto,icono){
+
+    const urlCriptoYa = `https://criptoya.com/api/${exchange}/${coin}/${fiat}`;
+
+    let pesosXrp = $("[name*='btc']").val();  
+
+    $.getJSON(urlCriptoYa, function (respuesta, estado) {
+    
+        if(estado === "success"){
+            
+            console.log(respuesta);
+
+            let xrp = respuesta.totalAsk;
+
+            let resultadoXrp = parseFloat(respuesta.totalAsk);
+            let resultadoPesoXrp = division(pesosXrp,resultadoXrp);
+
+            let cotizacionXrp = $(".boxBtc");
+            cotizacionXrp.append(`<span class="sb">1 ${cripto} ${icono} </span>
+                                  <span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${xrp}</span>`);
+
+            let resultadoUnoXrp = $("#resultadoCripto");
+            resultadoUnoXrp.append(`<span class="sb">Cantidad convertida:</span>
+                                <li> ${cripto} | ${icono} ${resultadoPesoXrp}</li>`);
+
+
+
+
+
+        }
+        
+    })
+}

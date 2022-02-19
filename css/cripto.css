@@ -16,6 +16,9 @@ a {
     text-decoration: none;
     
 }
+th{
+  color: silver;
+}
 html {
     font-size: 62.5%;
     
@@ -479,7 +482,9 @@ font-size: 1.3em;
 		transform: translate3d(0, 3.7em, 0);
 	}
 }
-
+.table{
+  text-align: center; 
+}
 
 
 @media only screen and (max-width: 400px) {
