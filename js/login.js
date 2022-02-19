@@ -13,9 +13,9 @@ $(function(){
 // clave almacenada en const
 const clave_localStorage = "dataArr"
 
-let datosObservacion = [];
+let datosLogin = [];
 
-console.log(datosObservacion);
+console.log(datosLogin);
 
 $("#formOne").submit(function(event){
     event.preventDefault();
@@ -29,8 +29,8 @@ $("#formOne").submit(function(event){
 
         if (ingresok === ""){
 
-            datosObservacion.push(new User(nombre,mail,pass));
-            guardar_user(datosObservacion);
+            datosLogin.push(new User(nombre,mail,pass));
+            guardar_user(datosLogin);
 
         }else{
         
@@ -40,14 +40,14 @@ $("#formOne").submit(function(event){
 
 // Funcion para guardar datos de entrada en inputs al local Storage
 
-function guardar_user(datosObservacion){
+function guardar_user(datosLogin){
 
     let dato = localStorage.getItem(clave_localStorage);
 
         if (dato){
 
             let dato_guardado = JSON.parse(localStorage.getItem(clave_localStorage));
-                dato_guardado.push(datosObservacion);
+                dato_guardado.push(datosLogin);
             
             let dato_string = JSON.stringify(dato_guardado);
                 localStorage.setItem(clave_localStorage, dato_string);    
@@ -55,14 +55,14 @@ function guardar_user(datosObservacion){
         else {
 
             let dato_guardado = new Array();
-                dato_guardado.push(datosObservacion)
+                dato_guardado.push(datosLogin)
 
             let dato_string = JSON.stringify(dato_guardado);
                 localStorage.setItem(clave_localStorage,dato_string);    
     }
 }
 
-// Funcion para confiramr si se ingresaron datos en inputs de entrada
+// Funcion para confirmar  si se ingresaron datos en inputs de entrada
 
 function confirmar_datos(nombre,mail,pass){
 
@@ -79,3 +79,20 @@ function confirmar_datos(nombre,mail,pass){
             return check;
     }
 });
+
+// const URLGET = "https://jsonplaceholder.typicode.com/posts"
+// //Declaramos la información a enviar
+// const infoPost =  { nombre: "Ana", profesion: "Programadora" }
+// //Agregamos un botón con jQuery
+// $("body").prepend('<button id="btn2">POST</button>');
+// //Escuchamos el evento click del botón agregado
+// $("#btn2").click(() => { 
+//     $.post(URLGET, infoPost ,(respuesta, estado) => {
+//       console.log(respuesta);
+//         if(estado === "success"){
+//             $("body").prepend(`<div>
+// Guardado:${respuesta.nombre}
+// </div>`);
+//         }  
+//     });
+// });

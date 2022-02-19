@@ -1,27 +1,14 @@
 // Funcion y acceso Api BTC / ETH
 $("#btcArs").click(function(){
 
-    obtenerDatos('btc','1 Bitcoin','bitex','Bitcoin','ars','<span class="iconify" data-icon="cib:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span>');
-
+    obtenerDatos('btc','Bitcoin','bitex','Bitcoin','ars','<span class="iconify" data-icon="cib:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span>');
 });
 
 $("#ethArs").click(function(){
 
-    obtenerDatos('eth','1 Ethereum','bitex','Ethereum','ars','<span class="iconify" data-icon="cib:ethereum" style="color: #ffd23f;" data-width="15" data-height="15"></span>');
-
+    obtenerDatos('eth','Ethereum','bitex','Ethereum','ars','<span class="iconify" data-icon="cib:ethereum" style="color: #ffd23f;" data-width="15" data-height="15"></span>');
 });
 
-$("#usdt").click(function(){
-
-    obtenerDatos('btc','1 Bitcoin','bitex','Bitcoin','usd','<span class="iconify" data-icon="cib:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span>');
-
-});
-
-$("#eth").click(function(){
-
-    obtenerDatos('eth','1 Ethereum','bitex','Ethereum','usd','<span class="iconify" data-icon="cib:ethereum" style="color: #ffd23f;" data-width="15" data-height="15"></span>');
-
-});
 
 function division(a,b){
     return a/b;
@@ -49,67 +36,136 @@ function obtenerDatos(coin,titulo,exchange,cripto,fiat,icono){
         if(this.status == 200 && this.readyState == 4){
 
             const datos = JSON.parse(this.responseText);
+            
+            
             // console.log(datos);
 
             let resultadoBtc = parseFloat(datos.ask);
             let resultadoPeso = division(pesosBtc,resultadoBtc);
-              
-            let cotizacionBtc = $(".boxBtc");
-            cotizacionBtc.append(`<span class="sb">${titulo} ${icono}</span>
-                                  <span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${datos.ask}</span>`);
 
-            let resultadoUno = $("#resultadoCripto");
-            resultadoUno.append(`<span class="sb">Cantidad convertida:</span>
-                                <li> ${cripto} | ${icono} ${resultadoPeso}</li>`);
+            let datoApi = datos.ask;
+console.log(cripto);
+                                $("#tableTwo").prepend(`
+                                <tr>
+                                <th class="sb" scope="row">${icono}</th>
+                                <th class="sb" scope="row">${titulo}</th>
+                                <td class="sb">$ ${datoApi.toFixed(1)}</td>
+                                <td class="sb">% </td>
+                                </tr> `)
+                    
+                    
+                                $("#table").prepend(`                    
+                                    <tr>
+                                    <th class="sb" scope="row">${icono}</th>
+                                    <th class="sb" scope="row">${cripto}</th>
+                                    <td class="sb">$ ${resultadoPeso.toFixed(3)}</td>
+                                    <td class="sb">% </td>
+                                    </tr> `)
 
-          
         }
     }
 }
 
-//Funcion para consultar api criptoYa y obtener distitnos valores de criptos
+// function obtenerDatosApi(exchange,coin,fiat,cripto,icono){
+
+//     const urlCriptoYa = `https://criptoya.com/api/${exchange}/${coin}/${fiat}`;
+
+//     let pesosXrp = $("[name*='btc']").val();  
+
+//     $.getJSON(urlCriptoYa, function (respuesta, estado) {
+    
+//         if(estado === "success"){
+            
+//             console.log(respuesta);
+
+//             let xrp = respuesta.totalAsk;
+
+//             let resultadoXrp = parseFloat(respuesta.totalAsk);
+//             let resultadoPesoXrp = division(pesosXrp,resultadoXrp);
+
+            // let cotizacionXrp = $(".boxBtc");
+            // cotizacionXrp.append(`<span class="sb">1 ${cripto} ${icono} </span>
+            //                       <span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${xrp}</span>`);
+
+            // let resultadoUnoXrp = $("#resultadoCripto");
+            // resultadoUnoXrp.append(`<span class="sb">Cantidad convertida:</span>
+            //                     <li> ${cripto} | ${icono} ${resultadoPesoXrp}</li>`);
+
+
+
+
+
+//         }
+        
+//     })
+// }
+
+$("#mana").click(() => {
+
+    obtenerDatosApiBinance('MANA','902','<span class="iconify" data-icon="cryptocurrency:mana" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+});
+
+$("#sand").click(() => {
+
+    obtenerDatosApiBinance('SAND','942','<span class="iconify" data-icon="cryptocurrency:sand" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+});
+
+$("#usdt").click(() => {
+
+    obtenerDatosApiBinance('Bitcoin','11','<span class="iconify" data-icon="cryptocurrency:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+});
+
+$("#eth").click(() => {
+
+    obtenerDatosApiBinance('Ethereum','12','<span class="iconify" data-icon="cib:ethereum" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+});
 
 $("#bnb").click(() => {
 
-    obtenerDatosApi('buenbit','bnb','ars','BNB','<span class="iconify" data-icon="cryptocurrency:bnb" style="color: #ffd23f;" data-width="14" data-height="14"></span>');
-
+    obtenerDatosApiBinance('BNB','98','<span class="iconify" data-icon="cryptocurrency:bnb" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
 $("#xrp").click(() => {
 
-    obtenerDatosApi('sesocio','xrp','ars','XRP','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
-
+    obtenerDatosApiBinance('XRP','306','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
+function obtenerDatosApiBinance(simbolo,precio,icono){;
 
+const URLGET = "https://api.binance.com/api/v1/ticker/24hr";
 
+let valorInput = $("[name*='btc']").val();
 
-function obtenerDatosApi(exchange,coin,fiat,cripto,icono){
+    $.get(URLGET,function (respuesta,estado){
 
-    const urlCriptoYa = `https://criptoya.com/api/${exchange}/${coin}/${fiat}`;
+        if (estado == "success"){
 
-    let pesosXrp = $("[name*='btc']").val();  
+         
+            let dato = (respuesta[precio]);
 
-    $.getJSON(urlCriptoYa, function (respuesta, estado) {
-    
-        if(estado === "success"){
+            let resultadoMana = division(valorInput,dato.askPrice)
             
-            console.log(respuesta);
-
-            let xrp = respuesta.totalAsk;
-
-            let resultadoXrp = parseFloat(respuesta.totalAsk);
-            let resultadoPesoXrp = division(pesosXrp,resultadoXrp);
-
-            let cotizacionXrp = $(".boxBtc");
-            cotizacionXrp.append(`<span class="sb">1 ${cripto} ${icono} </span>
-                                  <span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${xrp}</span>`);
-
-            let resultadoUnoXrp = $("#resultadoCripto");
-            resultadoUnoXrp.append(`<span class="sb">Cantidad convertida:</span>
-                                <li> ${cripto} | ${icono} ${resultadoPesoXrp}</li>`);
+            let datoApi = dato.askPrice;
+            
+ console.log(datoApi);           
+    
+            $("#tableTwo").prepend(`
+            <tr>
+            <th class="sb" scope="row">${icono}</th>
+            <th class="sb" scope="row">${simbolo}</th>
+            <td class="sb">$ ${datoApi.substr(0,6)}</td>
+            <td class="sb">% ${dato.priceChangePercent}</td>
+            </tr> `)
 
 
+            $("#table").prepend(`                    
+                <tr>
+                <th class="sb" scope="row">${icono}</th>
+                <th class="sb" scope="row">${simbolo}</th>
+                <td class="sb">$ ${resultadoMana.toFixed(3)}</td>
+                <td class="sb">% ${dato.priceChangePercent}</td>
+                </tr> `)
+      
         }
         
     })
