@@ -482,10 +482,15 @@ font-size: 1.3em;
 		transform: translate3d(0, 3.7em, 0);
 	}
 }
-.table{
+.table,#table{
   text-align: center; 
 }
-
+.limpiar{
+  margin: 0;
+  margin-left: 44%;
+  margin-bottom: 1rem;
+  margin-top: -1rem;
+}
 
 @media only screen and (max-width: 400px) {
   .section{

@@ -69,6 +69,22 @@
           </div>
          <!--Fin Reloj-->
 
+         <table id="table" class="table">
+          <thead>
+          <tr class="table-dark">
+              <th scope="col">Divisa</th>
+              <th scope="col">Compra</th>
+              <th scope="col">Venta</th>
+              <th scope="col">Variacion <span class="iconify" data-icon="eos-icons:arrow-rotate" style="color: #ffd23f;" data-width="14" data-height="14"></span></th>
+          </tr>
+          </thead>
+  
+          <tbody id="tableTwo">
+         
+          </tbody>
+  
+        </table>
+
         <div class="boxDivisas">
             <div class="boxDolarBlue">
                 <span class="spanDolarBlue"></span>
@@ -78,6 +94,8 @@
                 <span class="spanDolarOficial"></span>
             </div>
         </div>
+
+        <form>
         <div class="inputsDivisas">
         <span class="input input--kuro">
 					<input class="input__field input__field--kuro" type="text" id="input-7" name="usdArs" />
@@ -92,7 +110,25 @@
 					</label>
 				</span>
         </div>
-        <!-- <input type="number" class="form-control" name="usdArs" id="usdArs" placeholder="Cantidad $ ARS ">  -->
+        <button type="reset" class="btn limpiar btn-outline-secondary btn-sm" onclick='refresh()'>Limpiar</button>
+      </form>
+
+        <table class="table">
+          <thead>
+          <tr class="table-dark">
+              <th scope="col"></th>
+              <th scope="col">Conversion</th>
+              <th scope="col">Dolar Blue</th>
+              <th scope="col">Dolar Oficial</th>
+              <th scope="col">Variacion <span class="iconify" data-icon="eos-icons:arrow-rotate" style="color: #ffd23f;" data-width="14" data-height="14"></span></th>
+          </tr>
+          </thead>
+  
+          <tbody class="tableTwo">
+         
+          </tbody>
+  
+      </table>
   </div>
 
   <div class="section">

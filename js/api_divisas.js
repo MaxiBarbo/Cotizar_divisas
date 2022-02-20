@@ -5,6 +5,11 @@ const urlDolar = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
 
 $("#dolar").click(() => { 
 
+  apiDolar('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="20" data-height="20"></span>')
+});
+
+function apiDolar(icono){;
+
     let pesosDolar = $("[name*='usdArs']").val();  
     let pesosPesos = $("[name*='ArsArs']").val();
 
@@ -25,34 +30,51 @@ $("#dolar").click(() => {
           let pesosCotizarBlue = division(pesosPesos,parseFloat(dolarBlueventa));
           let pesosCotizarOficial = division(pesosPesos,parseFloat(misDatosDolar[0].casa.venta));
 
-       
-//Seccion Dolar Blue
+//Datos Precio Dolar Blue / Oficial
 
-            let cotizacionDolarBlue = $(".boxDolarBlue");
-            cotizacionDolarBlue.append(`<span class="tDivisas">${dolarBlueNombre}</span>
-                                        <span><span class="sb">Compra: </span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span>${dolarBlueCompra}</span>
-                                        <span><span class="sb">Venta: </span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span>${dolarBlueventa}</span>`);
+        $("#table").prepend(`                    
+          <tr>
+            <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span>Blue</th>
+            <td class="sb">${icono}${dolarBlueCompra}</td>
+            <td class="sb">${icono}${dolarBlueventa}</td>
+            <td class="sb">$</td>
+          </tr> 
+            <tr>
+            <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span>Ofic</th>
+            <td class="sb">${icono}${misDatosDolar[0].casa.compra}</td>
+            <td class="sb">${icono}${misDatosDolar[0].casa.venta}</td>
+            <td class="sb">$</td>
+          </tr>`)
+        
+// Datos convertidos segun tipo de cambio dolar blue / oficial
 
-            let resultadoDolarBlue = $("#resultadoDolar");
-            resultadoDolarBlue.append(`<span class="sb">De <span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span> :</span>
-                                        <li><span class="tDivisas">${misDatosDolar[0].casa.nombre}</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> ${dolarCotizarOficial}</li>
-                                        <li><span class="tDivisas">${dolarBlueNombre}</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> ${dolarCotizarBlue}</li>
+              if(pesosPesos !==''){
 
-                                        <span class="sb">De <span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span> :</span>
-                                        <li><span class="tDivisas">${misDatosDolar[0].casa.nombre}</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> ${pesosCotizarOficial} </li>
-                                        <li><span class="tDivisas">${dolarBlueNombre}</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span> ${pesosCotizarBlue}</li>`);
+              $(".tableTwo").prepend(`                    
+                                      <tr>
+                                      <th class="sb" scope="row"></th>
+                                      <th class="sb" scope="row"><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></span></th>
+                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarBlue.toFixed(2)}</td>
+                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarOficial.toFixed(2)}</td>
+                                      <td class="sb">%</td>
+                                      </tr> `)
+              }
 
- // Seccion Dolar Oficial  
+              if (pesosDolar !==''){
 
-            let cotizacionDolarOficial = $(".boxDolarOficial");
-            cotizacionDolarOficial.append(`<span class="tDivisas">${misDatosDolar[0].casa.nombre}</span>
-                                            <span><span class="sb">Compra: </span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span>${misDatosDolar[0].casa.compra}</span>
-                                            <span><span class="sb">Venta: </span><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span>${misDatosDolar[0].casa.venta}</span>`); 
-
-                                       
-        }
+              $(".tableTwo").prepend(`                    
+                                      <tr>
+                                      <th class="sb" scope="row"></th>
+                                      <th class="sb" scope="row"><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span></span></th>
+                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${dolarCotizarBlue}</td>
+                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${dolarCotizarOficial}</td>
+                                      <td class="sb">%</td>
+                                      </tr> `)
+            }                             
+          }
+          
     });
-  });
+  }
 
 // Funcion para consultar api en EURO
 
@@ -60,6 +82,11 @@ $("#dolar").click(() => {
 
 
 $("#eur").click(() => { 
+
+    apiEuro('<span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="20" data-height="20"></span>')
+});
+
+function apiEuro(icono){
 
     let pesosEuro = $("[name*='usdArs']").val();  
     let pesosPesos = $("[name*='ArsArs']").val();
@@ -73,40 +100,55 @@ $("#eur").click(() => {
 
             const euroBlueCompra = misDatosEuro.blue_euro.value_sell ;
             const euroBlueventa = misDatosEuro.blue_euro.value_buy;
-            
-            //Seccion Euro Blue
 
-            let cotizacionEuroBlue = $(".boxDolarBlue");
-            cotizacionEuroBlue.append(`<span class="tDivisas">Euro Blue</span>
-                                        <span><span class="sb">Compra: </span><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span>${euroBlueCompra}</span>
-                                        <span><span class="sb">Venta: </span><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span>${euroBlueventa}</span>`);
-
-            // Seccion Euro Oficial  
-
-            let cotizacionEuroOficial = $(".boxDolarOficial");
-            cotizacionEuroOficial.append(`<span class="tDivisas">Euro Oficial</span>
-                                            <span><span class="sb">Compra: </span><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span>${misDatosEuro.oficial_euro.value_sell}</span>
-                                          <span><span class="sb">Venta: </span><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span>${misDatosEuro.oficial_euro.value_buy}</span>`); 
-
-            
             let euroCotizarBlue = multi(pesosEuro,parseFloat(euroBlueventa));
             let euroCotizarOficial = multi(pesosEuro,parseFloat(misDatosEuro.oficial_euro.value_buy));
 
             let pesosEuroCotizarBlue = division(pesosPesos,parseFloat(euroBlueventa));
             let pesosEuroCotizarOficial = division(pesosPesos,parseFloat(misDatosEuro.oficial_euro.value_buy));
+            
+            //Seccion Euro Blue
 
-            let resultadoEuroBlue = $("#resultadoDolar");
-            resultadoEuroBlue.append(`<span class="sb">De <span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span> :</span>
-                                <li><span class="tDivisas">Euro Oficial</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span></span> ${euroCotizarOficial}</li>
-                                <li><span class="tDivisas">Euro Blue</span> |<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="15" data-height="15"></span></span> ${euroCotizarBlue}</li>
-                                
-                                <span class="sb">De <span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span> :</span>
-                                <li><span class="tDivisas">Euro Oficial</span> |<span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${pesosEuroCotizarOficial}</li>
-                                <li><span class="tDivisas">Euro Blue</span> |<span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="14" data-height="14"></span> ${pesosEuroCotizarBlue}</li>`);
+            $("#table").prepend(`                    
+            <tr>
+              <th class="sb"><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span>Blue</th>
+              <td class="sb">${icono}${euroBlueventa}</td>
+              <td class="sb">${icono}${euroBlueCompra}</td>
+              <td class="sb">$</td>
+            </tr> 
+              <tr>
+              <th class="sb"><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span>Ofic</th>
+              <td class="sb">${icono}${misDatosEuro.oficial_euro.value_buy}</td>
+              <td class="sb">${icono}${misDatosEuro.oficial_euro.value_sell}</td>
+              <td class="sb">$</td>
+            </tr>`)
 
+            if(pesosPesos !==''){
+
+              $(".tableTwo").prepend(`                    
+                                      <tr>
+                                      <th class="sb" scope="row"></th>
+                                      <th class="sb" scope="row"><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span></span></th>
+                                      <td class="sb"><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosEuroCotizarOficial.toFixed(2)}</td>
+                                      <td class="sb"><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosEuroCotizarBlue.toFixed(2)}</td>
+                                      <td class="sb">%</td>
+                                      </tr> `)
+              }
+
+              if (pesosEuro !==''){
+
+              $(".tableTwo").prepend(`                    
+                                      <tr>
+                                      <th class="sb" scope="row"></th>
+                                      <th class="sb" scope="row"><span class="sb"><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span></span></th>
+                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${euroCotizarBlue.toFixed(1)}</td>
+                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${euroCotizarOficial.toFixed(1)}</td>
+                                      <td class="sb">%</td>
+                                      </tr> `)
+            } 
         }
     })
-});
+}
 
 function division(a,b){
   return a/b;
