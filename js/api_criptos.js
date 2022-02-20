@@ -46,7 +46,7 @@ console.log(cripto);
                 <tr>
                 <th class="sb" scope="row">${icono}</th>
                 <th class="sb" scope="row">${titulo}</th>
-                <td class="sb">$ ${datoApi.toFixed(1)}</td>
+                <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${datoApi.toFixed(1)}</td>
                 <td class="sb">% </td>
                 </tr> `)
 
@@ -55,7 +55,7 @@ console.log(cripto);
                         <tr>
                         <th class="sb" scope="row">${icono}</th>
                         <th class="sb" scope="row">${cripto}</th>
-                        <td class="sb">$ ${resultadoPeso}</td>
+                        <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultadoPeso}</td>
                         <td class="sb">% </td>
                         </tr> `)
                     } 
@@ -116,7 +116,7 @@ let valorInput = $("[name*='btc']").val();
             <tr>
             <th class="sb" scope="row">${icono}</th>
             <th class="sb" scope="row">${simbolo}</th>
-            <td class="sb">$ ${datoApi.substr(0,6)}</td>
+            <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${datoApi.substr(0,6)}</td>
             <td class="sb">% ${dato.priceChangePercent}</td>
             </tr> `)
 
@@ -125,7 +125,7 @@ let valorInput = $("[name*='btc']").val();
                     <tr>
                     <th class="sb" scope="row">${icono}</th>
                     <th class="sb" scope="row">${simbolo}</th>
-                    <td class="sb">$ ${resultadoMana.toFixed(8)}</td>
+                    <td class="sb"></span> ${resultadoMana.toFixed(8)}</td>
                     <td class="sb">% ${dato.priceChangePercent}</td>
                     </tr> `)
             }
