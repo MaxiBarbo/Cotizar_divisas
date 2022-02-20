@@ -125,7 +125,7 @@ let valorInput = $("[name*='btc']").val();
                     <tr>
                     <th class="sb" scope="row">${icono}</th>
                     <th class="sb" scope="row">${simbolo}</th>
-                    <td class="sb">$ ${resultadoMana.toFixed(3)}</td>
+                    <td class="sb">$ ${resultadoMana.toFixed(8)}</td>
                     <td class="sb">% ${dato.priceChangePercent}</td>
                     </tr> `)
             }

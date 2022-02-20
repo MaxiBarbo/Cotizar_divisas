@@ -18,7 +18,7 @@ function apiDolar(icono){;
         if(estado === "success"){
               
           const misDatosDolar = respuesta;
-        //   console.log(misDatosDolar);
+// console.log(misDatosDolar);
           
           const dolarBlueCompra = misDatosDolar[1].casa.compra;
           const dolarBlueventa = misDatosDolar[1].casa.venta;
@@ -96,7 +96,7 @@ function apiEuro(icono){
         if(estado === "success"){
 
             const misDatosEuro = respuesta;
-            // console.log(misDatosEuro);
+// console.log(misDatosEuro);
 
             const euroBlueCompra = misDatosEuro.blue_euro.value_sell ;
             const euroBlueventa = misDatosEuro.blue_euro.value_buy;
