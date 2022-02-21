@@ -17,8 +17,12 @@ a {
     
 }
 th{
-  color: silver;
+  color:silver;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: var(--font-title-family)
 }
+
 html {
     font-size: 62.5%;
     
@@ -69,6 +73,13 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.iconosFooter{
+  display: flex;
+  justify-content: center;
+  gap:1rem;
+  
+  
 }
 .inputsDivisas{
 display:flex;

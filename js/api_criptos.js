@@ -55,7 +55,7 @@ console.log(cripto);
                         <tr>
                         <th class="sb" scope="row">${icono}</th>
                         <th class="sb" scope="row">${cripto}</th>
-                        <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultadoPeso}</td>
+                        <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultadoPeso.toFixed(11)}</td>
                         <td class="sb">% </td>
                         </tr> `)
                     } 
