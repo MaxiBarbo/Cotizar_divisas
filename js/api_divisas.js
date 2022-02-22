@@ -198,20 +198,20 @@ console.log(euro_ars)
 
             $("#table").prepend(`                    
               <tr>
-                <th class="sb">${flag}</th>
-                <th class="sb">$</th>
+                <td class="sb">${flag}</td>
+                <td class="sb">$</td>
                 <td class="sb">${fiat}${usd_euro}</td>
                 <td class="sb">%</td>
               </tr>
               <tr>
-                <th class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" style="color: silver;" data-width="30" data-height="30"></span></th>
-                <th class="sb">$</th>
+                <td class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" style="color: silver;" data-width="30" data-height="30"></span></td>
+                <td class="sb">$</td>
                 <td class="sb"><span class="iconify" data-icon="el:gbp" style="color: #ffd23f;" data-width="19" data-height="19"></span>${euro_gbp}</td>
                 <td class="sb">%</td>
               </tr> 
               <tr>
-                <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" style="color: silver;" data-width="30" data-height="30"></span></th>
-                <th class="sb">$</th>
+                <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" style="color: silver;" data-width="30" data-height="30"></span></td>
+                <td class="sb">$</td>
                 <td class="sb"><span class="iconify" data-icon="el:gbp" style="color: #ffd23f;" data-width="19" data-height="19"></span>${euro_ars}</td>
                 <td class="sb">%</td>
               </tr>`)
@@ -220,21 +220,21 @@ console.log(euro_ars)
 
                 $(".tableTwo").prepend(`                    
                                         <tr>
-                                        <th class="sb"></th>
-                                        <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" style="color: #ffd23f;" data-width="15" data-height="15"></span></th>
+                                        <td class="sb"></td>
+                                        <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" style="color: #ffd23f;" data-width="15" data-height="15"></span></td>
                                         <td class="sb">$</td>
                                         <td class="sb">$ ${resultado_usd.toFixed(1)}</td>
                                         <td class="sb">%</td>
                                         </tr> 
                                         <tr>
-                                        <th class="sb"></th>
-                                        <th class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" style="color: #ffd23f;" data-width="15" data-height="15"></span></th>
+                                        <td class="sb"></td>
+                                        <td class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" style="color: #ffd23f;" data-width="15" data-height="15"></span></td>
                                         <td class="sb">$</td>
                                         <td class="sb">$ ${resultado_gbp.toFixed(1)}</td>
                                         <td class="sb">%</td>
                                         </tr>
-                                        <th class="sb"></th>
-                                        <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" style="color: #ffd23f;" data-width="15" data-height="15"></span></th>
+                                        <td class="sb"></td>
+                                        <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" style="color: #ffd23f;" data-width="15" data-height="15"></span></td>
                                         <td class="sb">$</td>
                                         <td class="sb">$ ${resultado_ars.toFixed(1)}</td>
                                         <td class="sb">%</td>
