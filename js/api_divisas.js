@@ -1,3 +1,10 @@
+function division(a,b){
+  return a/b;
+} 
+function multi(n1, n2) {
+  return n1 * n2;
+}
+
 // Api para consutlar valor del Dolar
 
 const urlDolar = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
@@ -150,10 +157,61 @@ function apiEuro(icono){
     })
 }
 
-function division(a,b){
-  return a/b;
-} 
-function multi(n1, n2) {
-  return n1 * n2;
-}
+// FUncion para ingresar en Api con Key
+  
+  $("#usdEuro").click(() => {
+      datosApiDivisas('<span class="iconify" data-icon="emojione-v1:flag-for-united-states" style="color: #ffd23f;" data-width="30" data-height="30"></span>','<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="20" data-height="20"></span>');
+  });
 
+
+  //api www.freeCurrency.com
+  // const apiKey = "8a132e310-9324-11ec-9a68-75030c11c4ff";
+  // const urltrendingFree = 'https://freecurrencyapi.net/api/v2/latest?apikey=a132e310-9324-11ec-9a68-75030c11c4ff';
+  
+  // api de www.Fixer.com
+  const urltrendingFixer = 'http://data.fixer.io/api/latest?access_key=3ccedb265dbf15a3f8ae9bcccb7c5ab3'; 
+  const urlCurr = 'https://free.currconv.com/api/v7/currencies??apiKey=ebf2143557128efbca59'
+  const urlcurrJson = 'https://free.currconv.com/api/v7/convert?q=USD_EUR,EUR_USD&compact=ultra&callback=sampleCallback&apiKey=ebf2143557128efbca59'
+
+function datosApiDivisas(flag,fiat){   
+
+  let dolar = $("[name*='usdArs']").val();
+  // let url_gif = urltrending + "?api_key=" + apiKey;
+
+      $.ajax({
+          method: "GET",
+          url: urltrendingFixer,
+          success: function (respuesta) {
+           
+console.log(respuesta);
+
+              let usd_euro = respuesta.rates.USD;
+              let resultado = multi(dolar,usd_euro)
+console.log(usd_euro)   
+
+            $("#table").prepend(`                    
+              <tr>
+                <th class="sb">${flag}</th>
+                <td class="sb">${fiat}</td>
+                <td class="sb">${fiat}${usd_euro}</td>
+                <td class="sb">%</td>
+              </tr> `)
+              if(dolar !==''){
+
+                $(".tableTwo").prepend(`                    
+                                        <tr>
+                                        <th class="sb"></th>
+                                        <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" style="color: #ffd23f;" data-width="15" data-height="15"></span></th>
+                                        <td class="sb">$</td>
+                                        <td class="sb">$ ${resultado.toFixed(1)}</td>
+                                        <td class="sb">%</td>
+                                        </tr> `)
+                }
+          }   
+      });
+    }
+
+
+
+
+  
