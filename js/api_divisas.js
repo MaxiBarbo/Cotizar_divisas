@@ -5,7 +5,7 @@ function multi(n1, n2) {
   return n1 * n2;
 }
 
-// Api para consutlar valor del Dolar
+// Api para consutlar valor del Dolar / Ars
 
 const urlDolar = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
 
@@ -83,7 +83,7 @@ function apiDolar(icono){;
     });
   }
 
-// Funcion para consultar api en EURO
+// Funcion para consultar api ARS / EURO
 
   const urlEuro = 'https://api.bluelytics.com.ar/v2/latest';
 

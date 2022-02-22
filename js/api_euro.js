@@ -21,13 +21,13 @@ function datosApiDivisas(flag,fiat){
 
   let dolar = $("[name*='usdArs']").val();
 
-      $.ajax({
+        $.getJSON({
           method: "GET",
           url: 'http://data.fixer.io/api/' + endpoint + '?access_key=' + acces_key,
           dataType: 'jsonp',
           success: function (respuesta) {
            
-// console.log(respuesta);
+console.log(respuesta);
 
               let usd_euro = respuesta.rates.USD
               let euro_gbp = respuesta.rates.GBP
@@ -36,7 +36,7 @@ function datosApiDivisas(flag,fiat){
               let resultado_usd = multi(dolar,usd_euro)
               let resultado_gbp = multi(dolar,euro_gbp)
               let resultado_ars = multi(dolar,euro_ars)
-// console.log(respuesta.rates);  
+console.log(respuesta.rates);  
 
             $("#table").prepend(`                    
               <tr>
@@ -54,7 +54,7 @@ function datosApiDivisas(flag,fiat){
               <tr>
                 <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" style="color: silver;" data-width="30" data-height="30"></span></td>
                 <td class="sb">$</td>
-                <td class="sb"><span class="iconify" data-icon="el:gbp" style="color: #ffd23f;" data-width="19" data-height="19"></span>${euro_ars}</td>
+                <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="20" data-height="20"></span>${euro_ars}</td>
                 <td class="sb">%</td>
               </tr>`)
 
@@ -87,4 +87,3 @@ function datosApiDivisas(flag,fiat){
       });
     }
 
-    
