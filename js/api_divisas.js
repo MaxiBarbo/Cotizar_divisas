@@ -186,13 +186,13 @@ function datosApiDivisas(flag,fiat){
           url: 'http://data.fixer.io/api/' + endpoint + '?access_key=' + acces_key,
           success: function (respuesta) {
            
-console.log(respuesta.rates);
+// console.log(respuesta.rates);
 
               let usd_euro = respuesta.rates.USD;
               let euro_gbp = respuesta.rates.GBP;
               let resultado_usd = multi(dolar,usd_euro)
               let resultado_gbp = multi(dolar,euro_gbp)
-console.log(euro_gbp)   
+// console.log(euro_gbp)   
 
             $("#table").prepend(`                    
               <tr>
