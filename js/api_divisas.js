@@ -188,21 +188,23 @@ function datosApiDivisas(flag,fiat){
            
 console.log(respuesta.rates);
 
-              let usd_euro = respuesta.rates;
-              let resultado = multi(dolar,usd_euro)
-console.log(usd_euro)   
+              let usd_euro = respuesta.rates.USD;
+              let euro_gbp = respuesta.rates.GBP;
+              let resultado_usd = multi(dolar,usd_euro)
+              let resultado_gbp = multi(dolar,euro_gbp)
+console.log(euro_gbp)   
 
             $("#table").prepend(`                    
               <tr>
                 <th class="sb">${flag}</th>
                 <td class="sb">$</td>
-                <td class="sb">${fiat}${usd_euro.USD}</td>
+                <td class="sb">${fiat}${usd_euro}</td>
                 <td class="sb">%</td>
               </tr>
               <tr>
                 <th class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" style="color: silver;" data-width="30" data-height="30"></span></th>
                 <td class="sb">$</td>
-                <td class="sb"><span class="iconify" data-icon="el:gbp" style="color: #ffd23f;" data-width="20" data-height="20"></span>${usd_euro.GBP}</td>
+                <td class="sb"><span class="iconify" data-icon="el:gbp" style="color: #ffd23f;" data-width="19" data-height="19"></span>${euro_gbp}</td>
                 <td class="sb">%</td>
               </tr> `)
               if(dolar !==''){
@@ -212,9 +214,16 @@ console.log(usd_euro)
                                         <th class="sb"></th>
                                         <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" style="color: #ffd23f;" data-width="15" data-height="15"></span></th>
                                         <td class="sb">$</td>
-                                        <td class="sb">$ ${resultado.toFixed(1)}</td>
+                                        <td class="sb">$ ${resultado_usd.toFixed(1)}</td>
                                         <td class="sb">%</td>
-                                        </tr> `)
+                                        </tr> 
+                                        <tr>
+                                        <th class="sb"></th>
+                                        <th class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" style="color: #ffd23f;" data-width="15" data-height="15"></span></th>
+                                        <td class="sb">$</td>
+                                        <td class="sb">$ ${resultado_gbp.toFixed(1)}</td>
+                                        <td class="sb">%</td>
+                                        </tr>`)
                 }
           }   
       });
