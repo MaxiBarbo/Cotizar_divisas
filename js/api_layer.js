@@ -1,6 +1,6 @@
 
 
-$("#dolar").click(() => { 
+$("#testApi").click(() => { 
 
   apiDolar()
   
@@ -8,18 +8,20 @@ $("#dolar").click(() => {
 
 
 function apiDolar(){;
-    const urlDolar = `https://api.cambio.today/v1/full/EUR/json?key=19576|u6ax7ri546atqAjCLLWkt677^5MHyjjP`;
+    const urlDolar = 'https://free.currconv.com/api/v7/convert?q=USD_EUR,EUR_USD&compact=ultra&callback=sampleCallback&apiKey=ebf2143557128efbca59';
     let pesosDolar = $("[name*='usdArs']").val();  
     let pesosPesos = $("[name*='ArsArs']").val();
+
+    
 
     $.getJSON(urlDolar, function (respuesta, estado) {
     
         if(estado === "success"){
               
-          const misDatosDolar = respuesta.USD_PHP;
-          console.log(misDatosDolar)
+          const misDatosDolar = respuesta;
+          console.log(estado)
           
-console.log(misDatosDolar);
+
           
         //   const dolarBlueCompra = misDatosDolar.USD_EUR;
         //   const dolarBlueventa = misDatosDolar.EUR_USD;
@@ -39,13 +41,13 @@ console.log(misDatosDolar);
 
         $("#table").prepend(`                    
           <tr>
-            <th class="sb">1<span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span>Blue</th>
+            <th class="sb">1<span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></th>
             <td class="sb">1</td>
             <td class="sb">3</td>
             <td class="sb">4</td>
           </tr> 
             <tr>
-            <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span>Ofic</th>
+            <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></th>
             <td class="sb">2</td>
             <td class="sb">3</td>
             <td class="sb">4</td>
