@@ -8,7 +8,7 @@ function multi(n1, n2) {
 
 $(function(){
 
-$("#usdEuro").click(() => { 
+$("#newEuro").click(() => { 
 
   apiDolar()
   

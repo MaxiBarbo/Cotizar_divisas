@@ -22,9 +22,6 @@ th{
   letter-spacing: 3px;
   font-family: var(--font-title-family)
 }
-td{
-  
-}
 
 html {
     font-size: 62.5%;
@@ -144,7 +141,7 @@ h4:hover{
   width: 19rem;
   height: 6rem;
 }
-#usdt,#dolar,#eur,#btcArs,#ethArs,#eth,#usdEuro,#euroUsd{
+#usdt,#dolar,#eur,#btcArs,#ethArs,#eth,#usdEuro,#euroUsd,#newEuro{
   margin-left: 1rem;
   margin-top: 1rem;
 }
