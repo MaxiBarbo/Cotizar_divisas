@@ -30,32 +30,44 @@ function apiDolar(fiat){;
           let resultado_gbp = multi(misDatosDolar.GBP,pesosDolar)
           let resultado_ars = multi(misDatosDolar.ARS,pesosDolar)
           let resultado_brl = multi(pesosDolar,misDatosDolar.BRL)
-          console.log(resultado_brl)
+          let resultado_clp = multi(pesosDolar,misDatosDolar.CLP)
+          let resultado_cny = multi(pesosDolar,misDatosDolar.CNY)
+          // console.log(resultado_brl)
 
 // console.log(misDatosDolar.EUR);
          
           $("#table").prepend(`                    
           <tr>
-            <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></td>
+            <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span>USD</td>
             <td class="sb">${fiat}</td>
             <td class="sb">${fiat} ${misDatosDolar.USD}</td>
             <td class="sb">%</td>
           </tr> 
             <tr>
-            <td class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" data-width="25" data-height="25"></span></td>
+            <td class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" data-width="25" data-height="25"></span>GBP</td>
             <td class="sb"><span class="iconify" data-icon="el:gbp" style="color: #ffd23f;" data-width="19" data-height="19"></span></td>
             <td class="sb"><span class="iconify" data-icon="el:gbp" style="color: #ffd23f;" data-width="19" data-height="19"></span>${misDatosDolar.GBP}</td>
             <td class="sb">%</td>
           </tr>
           <tr>
-            <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span></td>
+            <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span>ARS</td>
             <td class="sb">${fiat}</td>
             <td class="sb">${fiat} ${misDatosDolar.ARS}</td>
             <td class="sb">%</td>
           </tr>
-          <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-brazil" data-width="25" data-height="25"></span></td>
+          <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-brazil" data-width="25" data-height="25"></span>BRL</td>
             <td class="sb"><span class="iconify" data-icon="fa6-solid:brazilian-real-sign" style="color: #ffd23f;" data-width="19" data-height="19"></span></td>
             <td class="sb"><span class="iconify" data-icon="fa6-solid:brazilian-real-sign" style="color: #ffd23f;" data-width="19" data-height="19"></span> ${misDatosDolar.BRL.toFixed(2)}</td>
+            <td class="sb">%</td>
+          </tr>
+          <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-chile" data-width="25" data-height="25"></span>CLP</td>
+            <td class="sb">${fiat}</td>
+            <td class="sb">${fiat} ${misDatosDolar.CLP.toFixed(2)}</td>
+            <td class="sb">%</td>
+          </tr>
+          <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-china" data-width="25" data-height="25"></span>CNY</td>
+            <td class="sb"><span class="iconify" data-icon="fa:cny" style="color: #ffd23f;" data-width="19" data-height="19"></span></td>
+            <td class="sb"><span class="iconify" data-icon="fa:cny" style="color: #ffd23f;" data-width="19" data-height="19"></span> ${misDatosDolar.CNY.toFixed(2)}</td>
             <td class="sb">%</td>
           </tr>`)
 
