@@ -1,6 +1,14 @@
 
+function division(a,b){
+    return a/b;
+} 
+function multi(n1, n2) {
+    return n1 * n2;
+}
 
-$("#testApi").click(() => { 
+$(function(){
+
+$("#usdEuro").click(() => { 
 
   apiDolar()
   
@@ -8,77 +16,54 @@ $("#testApi").click(() => {
 
 
 function apiDolar(){;
-    const urlDolar = 'https://free.currconv.com/api/v7/convert?q=USD_EUR,EUR_USD&compact=ultra&callback=sampleCallback&apiKey=ebf2143557128efbca59';
+    const urlFixer = 'http://data.fixer.io/api/latest?access_key=3ccedb265dbf15a3f8ae9bcccb7c5ab3';
     let pesosDolar = $("[name*='usdArs']").val();  
     let pesosPesos = $("[name*='ArsArs']").val();
 
-    
-
-    $.getJSON(urlDolar, function (respuesta, estado) {
+    $.get(urlFixer, function (respuesta, estado) {
     
         if(estado === "success"){
               
-          const misDatosDolar = respuesta;
-          console.log(estado)
+          const misDatosDolar = respuesta.rates;
+          let resultado_usd = multi(misDatosDolar.USD,pesosDolar)  
+          let resultado_gbp = multi(misDatosDolar.GBP,pesosDolar)
+
+          console.log(misDatosDolar);
           
-
-          
-        //   const dolarBlueCompra = misDatosDolar.USD_EUR;
-        //   const dolarBlueventa = misDatosDolar.EUR_USD;
-        //   const dolarBlueNombre = misDatosDolar.EUR_ARS;
-
-// console.log(dolarBlueCompra);  
-// console.log(dolarBlueventa); 
-// console.log(dolarBlueNombre);        
-          
-//           let dolarCotizarBlue = multi(pesosDolar,parseFloat(dolarBlueventa));
-//           let dolarCotizarOficial = multi(pesosDolar,parseFloat(misDatosDolar[0].casa.venta));
-
-//           let pesosCotizarBlue = division(pesosPesos,parseFloat(dolarBlueventa));
-//           let pesosCotizarOficial = division(pesosPesos,parseFloat(misDatosDolar[0].casa.venta));
-
-// //Datos Precio Dolar Blue / Oficial
-
-        $("#table").prepend(`                    
+          $("#table").prepend(`                    
           <tr>
-            <th class="sb">1<span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></th>
-            <td class="sb">1</td>
-            <td class="sb">3</td>
-            <td class="sb">4</td>
+            <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></td>
+            <td class="sb">$</td>
+            <td class="sb">${misDatosDolar.USD}</td>
+            <td class="sb">$</td>
           </tr> 
             <tr>
-            <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></th>
-            <td class="sb">2</td>
-            <td class="sb">3</td>
-            <td class="sb">4</td>
+            <td class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" data-width="25" data-height="25"></span></td>
+            <td class="sb">$</td>
+            <td class="sb">${misDatosDolar.GBP}</td>
+            <td class="sb">$</td>
           </tr>`)
-        
-// // Datos convertidos segun tipo de cambio dolar blue / oficial
 
-//               if(pesosPesos !==''){
+          if (pesosDolar !==''){
 
-//               $(".tableTwo").prepend(`                    
-//                                       <tr>
-//                                       <th class="sb" scope="row"></th>
-//                                       <th class="sb" scope="row"><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></span></th>
-//                                       <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span></td>
-//                                       <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span></td>
-//                                       <td class="sb">%</td>
-//                                       </tr> `)
-//               }
-
-//               if (pesosDolar !==''){
-
-//               $(".tableTwo").prepend(`                    
-//                                       <tr>
-//                                       <th class="sb" scope="row"></th>
-//                                       <th class="sb" scope="row"><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span></span></th>
-//                                       <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span></td>
-//                                       <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span></td>
-//                                       <td class="sb">%</td>
-//                                       </tr> `)
-//             }                             
-          }
-          
+            $(".tableTwo").prepend(`                    
+                                    <tr>
+                                    <td class="sb"></td>
+                                    <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="20" data-height="20"></span></td>
+                                    <td class="sb">$</td>
+                                    <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultado_usd.toFixed(1)}</td>
+                                    <td class="sb">%</td>
+                                    </tr> 
+                                    <tr>
+                                    <td class="sb"></td>
+                                    <td class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" data-width="20" data-height="20"></span></td>
+                                    <td class="sb">$</td>
+                                    <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultado_gbp.toFixed(1)}</td>
+                                    <td class="sb">%</td>
+                                    </tr>`)
+          } 
+                              
+          }  
     });
   }
+});

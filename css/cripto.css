@@ -22,6 +22,9 @@ th{
   letter-spacing: 3px;
   font-family: var(--font-title-family)
 }
+td{
+  
+}
 
 html {
     font-size: 62.5%;
