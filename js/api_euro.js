@@ -1,13 +1,10 @@
 
 // FUncion para ingresar en Api con Key
   
-$("#sw").click(() => {
+$("#nnnnn").click(() => {
     datosApiDivisas('<span class="iconify" data-icon="emojione-v1:flag-for-united-states" style="color: #ffd23f;" data-width="30" data-height="30"></span>','<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="20" data-height="20"></span>')
     
 });
-
-
-
 
   endpoint = 'latest'
   acces_key = '3ccedb265dbf15a3f8ae9bcccb7c5ab3';

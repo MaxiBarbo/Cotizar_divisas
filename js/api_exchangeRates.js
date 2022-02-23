@@ -29,6 +29,8 @@ function apiDolar(fiat){;
           let resultado_usd = multi(misDatosDolar.USD,pesosDolar)  
           let resultado_gbp = multi(misDatosDolar.GBP,pesosDolar)
           let resultado_ars = multi(misDatosDolar.ARS,pesosDolar)
+          let resultado_brl = multi(pesosDolar,misDatosDolar.BRL)
+          console.log(resultado_brl)
 
 // console.log(misDatosDolar.EUR);
          
@@ -41,7 +43,7 @@ function apiDolar(fiat){;
           </tr> 
             <tr>
             <td class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" data-width="25" data-height="25"></span></td>
-            <td class="sb">${fiat}</td>
+            <td class="sb"><span class="iconify" data-icon="el:gbp" style="color: #ffd23f;" data-width="19" data-height="19"></span></td>
             <td class="sb"><span class="iconify" data-icon="el:gbp" style="color: #ffd23f;" data-width="19" data-height="19"></span>${misDatosDolar.GBP}</td>
             <td class="sb">%</td>
           </tr>
@@ -49,6 +51,11 @@ function apiDolar(fiat){;
             <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span></td>
             <td class="sb">${fiat}</td>
             <td class="sb">${fiat} ${misDatosDolar.ARS}</td>
+            <td class="sb">%</td>
+          </tr>
+          <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-brazil" data-width="25" data-height="25"></span></td>
+            <td class="sb"><span class="iconify" data-icon="fa6-solid:brazilian-real-sign" style="color: #ffd23f;" data-width="19" data-height="19"></span></td>
+            <td class="sb"><span class="iconify" data-icon="fa6-solid:brazilian-real-sign" style="color: #ffd23f;" data-width="19" data-height="19"></span> ${misDatosDolar.BRL.toFixed(2)}</td>
             <td class="sb">%</td>
           </tr>`)
 
@@ -73,6 +80,12 @@ function apiDolar(fiat){;
                                     <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="20" data-height="20"></span></td>
                                     <td class="sb">$</td>
                                     <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultado_ars.toFixed(1)}</td>
+                                    <td class="sb">%</td>
+                                    </tr>
+                                    <td class="sb"></td>
+                                    <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-brazil" data-width="20" data-height="20"></span></td>
+                                    <td class="sb">$</td>
+                                    <td class="sb"><span class="iconify" data-icon="fa6-solid:brazilian-real-sign" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultado_brl.toFixed(1)}</td>
                                     <td class="sb">%</td>
                                     </tr>`)
           } 

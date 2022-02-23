@@ -61,8 +61,8 @@ function apiDolar(icono){;
                                       <tr>
                                       <th class="sb" scope="row"></th>
                                       <th class="sb" scope="row"><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></span></th>
-                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarBlue.toFixed(2)}</td>
                                       <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarOficial.toFixed(2)}</td>
+                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarBlue.toFixed(2)}</td>
                                       <td class="sb">%</td>
                                       </tr> `)
               }
@@ -90,7 +90,7 @@ function apiDolar(icono){;
 
 $("#eur").click(() => { 
 
-    apiEuro('<span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="20" data-height="20"></span>')
+    apiEuro('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="20" data-height="20"></span>')
 });
 
 function apiEuro(icono){
