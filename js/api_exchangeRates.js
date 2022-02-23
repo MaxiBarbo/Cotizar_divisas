@@ -8,40 +8,48 @@ function multi(n1, n2) {
 
 $(function(){
 
-$("#newEuro").click(() => { 
+$("#usdEuro").click(() => { 
 
-  apiDolar()
+  apiDolar('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="20" data-height="20"></span>')
   
 });
 
 
-function apiDolar(){;
-    const urlFixer = 'http://data.fixer.io/api/latest?access_key=3ccedb265dbf15a3f8ae9bcccb7c5ab3';
+function apiDolar(fiat){;
+    const apiExchangeRate = "https://v6.exchangerate-api.com/v6/2d4eec2d2d6668d4a8097987/latest/EUR";
     let pesosDolar = $("[name*='usdArs']").val();  
     let pesosPesos = $("[name*='ArsArs']").val();
 
-    $.get(urlFixer, function (respuesta, estado) {
+    $.get(apiExchangeRate, function (respuesta, estado) {
     
         if(estado === "success"){
-              
-          const misDatosDolar = respuesta.rates;
+// console.log(respuesta);  
+
+          const misDatosDolar = respuesta.conversion_rates;
           let resultado_usd = multi(misDatosDolar.USD,pesosDolar)  
           let resultado_gbp = multi(misDatosDolar.GBP,pesosDolar)
+          let resultado_ars = multi(misDatosDolar.ARS,pesosDolar)
 
-          console.log(misDatosDolar);
-          
+// console.log(misDatosDolar.EUR);
+         
           $("#table").prepend(`                    
           <tr>
             <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></td>
-            <td class="sb">$</td>
-            <td class="sb">${misDatosDolar.USD}</td>
-            <td class="sb">$</td>
+            <td class="sb">${fiat}</td>
+            <td class="sb">${fiat} ${misDatosDolar.USD}</td>
+            <td class="sb">%</td>
           </tr> 
             <tr>
             <td class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" data-width="25" data-height="25"></span></td>
-            <td class="sb">$</td>
-            <td class="sb">${misDatosDolar.GBP}</td>
-            <td class="sb">$</td>
+            <td class="sb">${fiat}</td>
+            <td class="sb"><span class="iconify" data-icon="el:gbp" style="color: #ffd23f;" data-width="19" data-height="19"></span>${misDatosDolar.GBP}</td>
+            <td class="sb">%</td>
+          </tr>
+          <tr>
+            <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span></td>
+            <td class="sb">${fiat}</td>
+            <td class="sb">${fiat} ${misDatosDolar.ARS}</td>
+            <td class="sb">%</td>
           </tr>`)
 
           if (pesosDolar !==''){
@@ -59,6 +67,12 @@ function apiDolar(){;
                                     <td class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" data-width="20" data-height="20"></span></td>
                                     <td class="sb">$</td>
                                     <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultado_gbp.toFixed(1)}</td>
+                                    <td class="sb">%</td>
+                                    </tr>
+                                    <td class="sb"></td>
+                                    <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="20" data-height="20"></span></td>
+                                    <td class="sb">$</td>
+                                    <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultado_ars.toFixed(1)}</td>
                                     <td class="sb">%</td>
                                     </tr>`)
           } 
