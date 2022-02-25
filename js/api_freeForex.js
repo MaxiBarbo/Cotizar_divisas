@@ -32,6 +32,7 @@ function apiDolar(fiat){;
           let resultado_ars = multi(misDatosDolar.ARS,pesosDolar)
           let resultado_jpy = multi(misDatosDolar.JPY,pesosDolar)
           let resultado_btc = multi(pesosDolar,misDatosDolar.BTC)
+          let resultado_eth = multi(pesosDolar,misDatosDolar.ETH)
         
         //   console.log(resultado_brl)
 
@@ -68,7 +69,12 @@ function apiDolar(fiat){;
             <td class="sb"><span class="iconify" data-icon="ph:currency-btc-bold" style="color: #ffd23f;" data-width="22" data-height="22"></span>${misDatosDolar.BTC}</td>
             <td class="sb">%</td>
           </tr>
-                `)
+          <tr>
+            <td class="sb"><span class="iconify" data-icon="ph:currency-eth-light" style="color: #ffd23f;" data-width="25" data-height="25"></span>ETH</td>
+            <td class="sb"><span class="iconify" data-icon="ph:currency-eth-bold" style="color: #ffd23f;" data-width="22" data-height="22"></span></td>
+            <td class="sb"><span class="iconify" data-icon="ph:currency-eth-bold" style="color: #ffd23f;" data-width="22" data-height="22"></span>${misDatosDolar.ETH}</td>
+            <td class="sb">%</td>
+          </tr>`)
 
           if (pesosDolar !==''){
 
