@@ -93,7 +93,7 @@ $("#bnb").click(() => {
 
 $("#xrp").click(() => {
 
-    obtenerDatosApiBinance('XRP','306','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+    obtenerDatosApiBinance('LUNA','958','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
 function obtenerDatosApiBinance(simbolo,precio,icono){;
