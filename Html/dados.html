@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dados</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+    <style>
+        .container {
+        width: 70%;
+        margin: auto;
+        text-align: center;
+        }
+
+        .dice {
+        text-align: center;
+        display: inline-block;
+
+        }
+
+        body {
+        background-color: #393E46;
+        }
+
+        h1 {
+        margin: 30px;
+        font-family: 'Lobster', cursive;
+        text-shadow: 5px 0 #232931;
+        font-size: 8rem;
+        color: #4ECCA3;
+        }
+
+        p {
+        font-size: 2rem;
+        color: #4ECCA3;
+        font-family: 'Indie Flower', cursive;
+        }
+
+        img {
+        width: 80%;
+        }
+
+        footer {
+        margin-top: 5%;
+        color: #EEEEEE;
+        text-align: center;
+        font-family: 'Indie Flower', cursive;
+
+        }
+        @media only screen and (max-width: 400px) {
+    
+        }
+    </style>
+  </head>
+  <body onclick="DadoClick()">
+    <div class="container">
+      <h1 >Refresh Me</h1>
+
+      <div class="dice">
+        <p>Player 1</p>
+        <img class="img1" src="../images/dice1.png" >
+      </div>
+
+      <div class="dice">
+        <p>Player 2</p>
+        <img class="img2" src="../images/dice5.png">
+      </div>
+
+    </div>
+  </body>
+<script>
+    function DadoClick(){
+    let randonNamber1 = Math.floor(Math.random() * 6) + 1;
+    let imageRandom1 = '../images/dice' + randonNamber1 + '.png';
+    let img1 = document.querySelectorAll('img')[0];
+    img1.setAttribute('src', imageRandom1);
+
+    let randonNamber2 = Math.floor(Math.random() * 6) + 1;
+    let imageRandom2 = '../images/dice' + randonNamber2 + '.png';
+    let img2 = document.querySelectorAll('img')[1];
+    img2.setAttribute('src', imageRandom2);
+
+    if (randonNamber1 > randonNamber2){
+        document.querySelector('h1').innerHTML = 'Win 1'
+    }
+    else if (randonNamber1 < randonNamber2){
+        document.querySelector('h1').innerHTML = 'Win 2'
+    }
+}
+</script>
+  <footer>
+    www 🎲 App Brewery 🎲 com
+  </footer>
+</html>
