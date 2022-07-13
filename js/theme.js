@@ -4,6 +4,8 @@
 
 let aNav = $(".iconosFooter,a,h1,h4");
 let body = $("#bodySecudanrio");
+let btnDivisas = $('#dolar,#eur,#usdEuro,#ls');
+let btnCripto = $('#usdt,#eth,#btcArs,#ethArs,#bnb,#xrp,#sand,#mana,#lStorage')
 
 
 
@@ -13,7 +15,7 @@ function changeTheme(){
 
 theme = !theme;
 if(theme){
-
+    
 // se cambia el color de "a" y "h1"
     for (let i = 0; i < aNav.length; i++) {
         aNav[i].style.color = "silver"
@@ -26,7 +28,14 @@ if(theme){
         body[i].style.backgroundImage = "url('../Imagenes/fonfo-game34.png')";
         localStorage.setItem('body','dark')
         
-    }        
+    }     
+    btnDivisas.toggleClass('btn-outline-warning')
+    btnCripto.toggleClass('btn-outline-danger')
+
+    localStorage.setItem('btnCripto','dark')
+    localStorage.setItem('btnDivisas','dark')
+
+    
 }
 
 else{
@@ -43,7 +52,9 @@ else{
         localStorage.setItem('body','light')
         
     }  
+    
   }   
+  
 }
 
 function loadPage() {
@@ -65,8 +76,9 @@ function loadPage() {
                 
             }
         }
+        
     }
-    
+   
     // se cambia el color de "a" y "h1"
     
       if (localStorage.getItem('a')) {
