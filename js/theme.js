@@ -107,8 +107,10 @@ function loadPage() {
             }
         }
       }
+
+    // Cambio de clases en buttons de Criptomonedas   
       if (localStorage.getItem('btnCripto')){
-        
+
         if (localStorage.getItem('btnCripto') === 'dark'){
             btnCripto.toggleClass('btn-outline-danger')
           }
@@ -116,7 +118,18 @@ function loadPage() {
             btnCripto.removeClass('btn-outline-danger')
           }
       }
+    // Cambio de clases en btn Divisas almacenadas en localStorage
+      if (localStorage.getItem('btnDivisas')){
+
+        if (localStorage.getItem('btnDivisas') === 'dark'){
+            btnDivisas.toggleClass('btn-outline-warning')
+        }
+        else{
+            btnDivisas.removeClass('btn-outline-warning')
+        }
+      }
     }
+
 function deleteUser() {
     localStorage.clear()
 }   
