@@ -29,6 +29,7 @@ if(theme){
         localStorage.setItem('body','dark')
         
     }     
+    
     btnDivisas.toggleClass('btn-outline-warning')
     btnCripto.toggleClass('btn-outline-danger')
 
@@ -39,6 +40,12 @@ if(theme){
 }
 
 else{
+
+    btnDivisas.removeClass('btn-outline-warning')
+    btnCripto.removeClass('btn-outline-danger')
+
+    localStorage.setItem('btnDivisas','light')
+    localStorage.setItem('btnCripto','light')
 
 // se cambia el color de "a" y "h1"
     for (let i = 0; i < aNav.length; i++) {
@@ -99,6 +106,15 @@ function loadPage() {
     
             }
         }
+      }
+      if (localStorage.getItem('btnCripto')){
+        
+        if (localStorage.getItem('btnCripto') === 'dark'){
+            btnCripto.toggleClass('btn-outline-danger')
+          }
+          else{
+            btnCripto.removeClass('btn-outline-danger')
+          }
       }
     }
 function deleteUser() {
