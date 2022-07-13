@@ -51,17 +51,14 @@ else{
     for (let i = 0; i < aNav.length; i++) {
         aNav[i].style.color = "#F79824"
         localStorage.setItem('a','light')
-        
     }
+
 // Cambio fondo Body en subcarpeta
     for (let i = 0; i < body.length; i++) {
         body[i].style.backgroundImage = "url('../Imagenes/fonfo-game32.webp')";
-        localStorage.setItem('body','light')
-        
+        localStorage.setItem('body','light')   
     }  
-    
   }   
-  
 }
 
 function loadPage() {
@@ -108,26 +105,26 @@ function loadPage() {
         }
       }
 
-    // Cambio de clases en buttons de Criptomonedas   
-      if (localStorage.getItem('btnCripto')){
+    // // Cambio de clases en buttons de Criptomonedas   
+    //   if (localStorage.getItem('btnCripto')){
 
-        if (localStorage.getItem('btnCripto') === 'dark'){
-            btnCripto.toggleClass('btn-outline-danger')
-          }
-          else{
-            btnCripto.removeClass('btn-outline-danger')
-          }
-      }
-    // Cambio de clases en btn Divisas almacenadas en localStorage
-      if (localStorage.getItem('btnDivisas')){
+    //     if (localStorage.getItem('btnCripto') === 'dark'){
+    //         btnCripto.toggleClass('btn-outline-danger')
+    //       }
+    //       else{
+    //         btnCripto.removeClass('btn-outline-danger')
+    //       }
+    //   }
+    // // Cambio de clases en btn Divisas almacenadas en localStorage
+    //   if (localStorage.getItem('btnDivisas')){
 
-        if (localStorage.getItem('btnDivisas') === 'dark'){
-            btnDivisas.toggleClass('btn-outline-warning')
-        }
-        else{
-            btnDivisas.removeClass('btn-outline-warning')
-        }
-      }
+    //     if (localStorage.getItem('btnDivisas') === 'dark'){
+    //         btnDivisas.toggleClass('btn-outline-warning')
+    //     }
+    //     else{
+    //         btnDivisas.removeClass('btn-outline-warning')
+    //     }
+    //   }
     }
 
 function deleteUser() {
