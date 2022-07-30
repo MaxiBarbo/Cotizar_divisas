@@ -6,7 +6,7 @@ let aNav = $(".iconosFooter,a,h1,h4");
 let body = $("#bodySecudanrio");
 let btnDivisas = $('#dolar,#eur,#usdEuro,#ls');
 let btnCripto = $('#usdt,#eth,#btcArs,#ethArs,#bnb,#xrp,#sand,#mana,#lStorage')
-
+let btnForex = $('#newEuro')
 
 
 let theme = false;
@@ -32,6 +32,7 @@ if(theme){
     
     btnDivisas.toggleClass('btn-outline-warning')
     btnCripto.toggleClass('btn-outline-danger')
+    btnForex.toggleClass('btn-outline-primary')
 
     localStorage.setItem('btnCripto','dark')
     localStorage.setItem('btnDivisas','dark')
@@ -43,6 +44,7 @@ else{
 
     btnDivisas.removeClass('btn-outline-warning')
     btnCripto.removeClass('btn-outline-danger')
+   
 
     localStorage.setItem('btnDivisas','light')
     localStorage.setItem('btnCripto','light')
@@ -130,3 +132,4 @@ function loadPage() {
 function deleteUser() {
     localStorage.clear()
 }   
+

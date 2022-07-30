@@ -42,10 +42,10 @@
                   <li class="nav-item">
                     <a class="nav-link active" href="divisas.html"><span id="navText"><span class="iconify" data-icon="bi:cash-coin" data-width="20" data-height="20"></span> Divisas</span></a>
                   </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" href=""><span id="navText"></span></a>
-                  </li>
                   <li class="nav-item">
+                    <a class="nav-link" href=""><span id="navText">Contacto</span></a>
+                  </li>
+                  <!-- <li class="nav-item">
                     <a class="nav-link" href="" tabindex="-1" aria-disabled="true"><span id="navText"></span></a>
                   </li> -->
                 </ul>
@@ -80,7 +80,7 @@
         </div>
       <!--Fin Reloj-->
 
-      <table class="table table-hover">
+      <table id="tblData" class="table table-hover">
         <thead>
         <tr class="table">
             <th scope="col"></th>
@@ -109,10 +109,11 @@
 					</label>
 				</span>
         <button type="reset" class="btn limpiarCripto btn-outline-light btn-sm" onclick='refresh()'>Limpiar</button>
-      
+        
+    
 
  <!-- Contenido resultado cripto -->
-        <table class="table table-hover">
+        <table class="table table-hover tblData">
           <thead>
             <tr class="table-dark">
               <th scope="col"></th>
@@ -139,6 +140,7 @@
 
   <div class="btnEnd">
     <button type="button" id="lStorage" class="btn btn-outline-warning" onclick='deleteUser()'>Borrar LocalS</button>
+    <button class="btn btn-outline-light export" onclick="exportTableToExcel('tblData')">Export Excel</button>
   </div>
   <footer>
     <div class="iconosFooter">
@@ -153,9 +155,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
-
-
-<!-- <script src="../js/mostrar.js"></script> -->
+<script src="../js/exportExcel.js"></script>
 <script src="../js/theme.js"></script>
 <script src="../js/api_criptos.js"></script>
 <script src="../js/fecha.js"></script>
