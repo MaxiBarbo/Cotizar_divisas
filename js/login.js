@@ -64,6 +64,10 @@ function guardar_user(datosLogin){
 
 // Funcion para confirmar  si se ingresaron datos en inputs de entrada
 
+icoName = document.querySelector('#icoName')
+icoMail = document.querySelector('#icoMail')
+icoPass = document.querySelector('#icoPass')
+
 function confirmar_datos(nombre,mail,pass){
 
     let check = "";
@@ -73,26 +77,27 @@ function confirmar_datos(nombre,mail,pass){
         alert("Muchas gracias :)")         
 }
     else {
-
+        
+        if(nombre === ""){
+            icoName.style.color = '#ff4965'
+        }
+        else{
+            icoName.style.color = '#0e6330'  
+        }
+        if(mail === ""){
+            icoMail.style.color = '#ff4965'
+        }
+        else{
+            icoMail.style.color = '#0e6330' 
+        }
+        if (pass === ""){
+            icoPass.style.color = '#ff4965'
+        }
+        else{
+            icoPass.style.color = '#0e6330' 
+        }
         check = "Favor de ingresar todos los datos con * :("
         }
             return check;
     }
 });
-
-// const URLGET = "https://jsonplaceholder.typicode.com/posts"
-// //Declaramos la información a enviar
-// const infoPost =  { nombre: "Ana", profesion: "Programadora" }
-// //Agregamos un botón con jQuery
-// $("body").prepend('<button id="btn2">POST</button>');
-// //Escuchamos el evento click del botón agregado
-// $("#btn2").click(() => { 
-//     $.post(URLGET, infoPost ,(respuesta, estado) => {
-//       console.log(respuesta);
-//         if(estado === "success"){
-//             $("body").prepend(`<div>
-// Guardado:${respuesta.nombre}
-// </div>`);
-//         }  
-//     });
-// });
