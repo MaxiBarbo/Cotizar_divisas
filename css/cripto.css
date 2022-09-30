@@ -531,4 +531,9 @@ font-size: 1.3em;
 #bodyIndex{
   background-position:top;
 }
+.btnEnd{
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
 }
