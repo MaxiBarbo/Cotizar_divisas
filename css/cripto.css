@@ -14,7 +14,7 @@ ul {
 }
 a {
   text-decoration: none;
-  width: 22rem;
+  /* width: 22rem; */
     
 }
 th{
@@ -80,6 +80,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  
+  
 }
 .iconosFooter{
   display: flex;
@@ -129,7 +131,7 @@ h4{
   margin-bottom: 2rem;
   margin-top: 2rem;
   border: 1px solid white;
-  width: 100%;
+  width: 22rem;
   border-radius: 0.5rem;
   -moz-box-shadow: 1px 0px 7px #f8f8f8;
   -webkit-box-shadow: 1px 0px 7px #ededf5;
@@ -525,6 +527,8 @@ font-size: 1.3em;
 }
 .titulosIndex{
   align-items: center;
-  
+}
+#bodyIndex{
+  background-position:top;
 }
 }
