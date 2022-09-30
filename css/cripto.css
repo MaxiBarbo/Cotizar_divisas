@@ -10,11 +10,11 @@
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 a {
-    text-decoration: none;
-    width: 22rem;
+  text-decoration: none;
+  width: 22rem;
     
 }
 th{
@@ -25,9 +25,14 @@ th{
 }
 
 html {
-    font-size: 62.5%;
-    
+  font-size: 62.5%;  
 } 
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
 .itemsNav{
   display: flex;
   align-items: center;
@@ -35,17 +40,17 @@ html {
 }
 body {
   background-color: black;
-    display: flex;
-    flex-direction: column;
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: auto;
-    height: auto;
+  display: flex;
+  flex-direction: column;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: auto;
+  height: auto;
 }
 #bodyIndex{
   background-image: url("../Imagenes/fonfo-game14.jpg");
-  background-position:top;
+  background-position:center;
 }
 #borderSep{
   border-bottom: 0.1rem solid silver;
@@ -69,6 +74,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 2rem; 
+  align-items: center;
 }
 .iconosCripto{
   display: flex;
@@ -123,7 +129,7 @@ h4{
   margin-bottom: 2rem;
   margin-top: 2rem;
   border: 1px solid white;
-  width: 22rem;
+  width: 100%;
   border-radius: 0.5rem;
   -moz-box-shadow: 1px 0px 7px #f8f8f8;
   -webkit-box-shadow: 1px 0px 7px #ededf5;
@@ -131,6 +137,7 @@ h4{
 }
 h4:hover{
   background-color: gray;
+  transition: 0.5s;
 }
 .btnDivisas{ 
     display: flex;
@@ -372,7 +379,7 @@ font-size: 1.3em;
 	font-weight: bold;
 	font-size: 80.25%;
 	-webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
