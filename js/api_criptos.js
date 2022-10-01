@@ -44,19 +44,19 @@ console.log(cripto);
        
             $("#tableTwo").prepend(`
                 <tr>
-                <th class="sb" scope="row">${icono}</th>
-                <th class="sb" scope="row">${titulo}</th>
-                <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${datoApi.toFixed(1)}</td>
-                <td class="sb">% </td>
+                <th >${icono}</th>
+                <th >${titulo}</th>
+                <th ><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${datoApi.toFixed(1)}</th>
+                <th >% </th>
                 </tr> `)
 
                 if ( pesosBtc !== ''){  
                     $("#table").prepend(`                    
                         <tr>
-                        <th class="sb" scope="row">${icono}</th>
-                        <th class="sb" scope="row">${cripto}</th>
-                        <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultadoPeso.toFixed(11)}</td>
-                        <td class="sb">% </td>
+                        <th >${icono}</th>
+                        <th >${cripto}</th>
+                        <th ><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultadoPeso.toFixed(11)}</th>
+                        <th >% </th>
                         </tr> `)
                     } 
                               
@@ -114,19 +114,19 @@ let valorInput = $("[name*='btc']").val();
     
             $("#tableTwo").prepend(`
             <tr>
-            <th class="sb" scope="row">${icono}</th>
-            <th class="sb" scope="row">${simbolo}</th>
-            <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${datoApi.substr(0,6)}</td>
-            <td class="sb">% ${dato.priceChangePercent}</td>
+            <th >${icono}</th>
+            <th >${simbolo}</th>
+            <th ><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${datoApi.substr(0,6)}</td>
+            <th >% ${dato.priceChangePercent}</td>
             </tr> `)
 
             if(valorInput !==''){
                 $("#table").prepend(`                    
                     <tr>
-                    <th class="sb" scope="row">${icono}</th>
-                    <th class="sb" scope="row">${simbolo}</th>
-                    <td class="sb"></span> ${resultadoMana.toFixed(8)}</td>
-                    <td class="sb">% ${dato.priceChangePercent}</td>
+                    <th >${icono}</th>
+                    <th >${simbolo}</th>
+                    <th ></span> ${resultadoMana.toFixed(8)}</th>
+                    <th >% ${dato.priceChangePercent}</th>
                     </tr> `)
             }
         }  

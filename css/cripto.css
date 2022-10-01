@@ -60,9 +60,6 @@ body {
   margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
-.navbar{
-  color: black;
-}
 #navText{
   margin-left: 1rem;
   font-size: 1.5em;
@@ -103,24 +100,26 @@ h2{
 }
 h1{
   font-family: var(--font-title-family);
-    text-align: center;
-    letter-spacing: 7px;
-    margin-top: 1rem;
-    color:#FFD23F;
-    font-size: 1.7em;
-    margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 7px;
+  margin-top: 1rem;
+  color:silver;
+  font-size: 1.6em;
+  margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 h3{
-  font-size: 1.4em;
+  font-weight: bold;
+  font-size: 1.2em;
   font-family: var(--font-title-family);
   letter-spacing: 2px;
-  color:grey;
+  color:silver;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  text-align: center;
-    
+  text-align: center;  
 }
+
 h4{
   font-family: var(--font-title-family);
   color: white;
@@ -189,17 +188,22 @@ h4:hover{
 .spanBtc{
   font-size: 1.4em;
 }
+
 .sa{
   font-family: var(--font-title-family);
   font-size: 2.1em;
 }
-.sb{
+
+/* .sb{
   font-family: var(--font-title-family);
   color: silver; 
   font-size: 1em;
   letter-spacing: 2px;
-}
+} */
 
+/* th{
+  color: green;
+} */
 .tDivisas{
   font-family: var(--font-title-family);
   color: #3E92CC;
