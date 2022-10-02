@@ -33,10 +33,10 @@ console.log(respuesta.rates);
 
             $("#table").prepend(`                    
               <tr>
-                <td class="sb">${flag}</td>
-                <td class="sb">$</td>
-                <td class="sb">${fiat}${usd_euro}</td>
-                <td class="sb">%</td>
+                <th >${flag}</th>
+                <th >$</th>
+                <th >${fiat}${usd_euro}</th>
+                <th ">%</th>
               </tr>
               <tr>
                 <td class="sb"><span class="iconify" data-icon="noto-v1:flag-for-flag-united-kingdom" style="color: silver;" data-width="30" data-height="30"></span></td>
