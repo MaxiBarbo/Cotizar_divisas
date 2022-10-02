@@ -7,7 +7,7 @@ let body = $("#bodySecudanrio");
 let btnDivisas = $('#dolar,#eur,#usdEuro,#ls');
 let btnCripto = $('#usdt,#eth,#btcArs,#ethArs,#bnb,#xrp,#sand,#mana,#lStorage')
 let btnForex = $('#newEuro')
-let h3 = $('h3,h1,th')
+let h3 = $('h3,h1,th,p')
 
 
 let theme = false;

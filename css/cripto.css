@@ -507,8 +507,9 @@ font-size: 1.3em;
 		transform: translate3d(0, 3.7em, 0);
 	}
 }
-.table,#table{
+table{
   text-align: center; 
+  color: green;
 }
 .limpiar{
   margin: 0;
