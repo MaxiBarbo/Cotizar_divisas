@@ -8,7 +8,7 @@ let btnDivisas = $('#dolar,#eur,#usdEuro,#ls');
 let btnCripto = $('#usdt,#eth,#btcArs,#ethArs,#bnb,#xrp,#sand,#mana,#lStorage')
 let btnForex = $('#newEuro')
 let h3 = $('h3,h1,th,p')
-
+let letter = $('letter')
 
 let theme = false;
 
@@ -36,7 +36,7 @@ if(theme){
         
     }     
     
-    
+    // letter.style.color = 'black'
 
     btnDivisas.toggleClass('btn-outline-warning')
     btnCripto.removeClass('btn-outline-dark')
@@ -47,7 +47,6 @@ if(theme){
     // localStorage.setItem('tableletter','dark')
 
 }
-
 else{
 
     for (let i = 0; i < h3.length; i++) {
@@ -55,13 +54,14 @@ else{
         localStorage.setItem('h3','light')
     }
 
+    // letter.style.color = 'black'
+
     btnDivisas.removeClass('btn-outline-warning')
     btnCripto.toggleClass('btn-outline-dark')
 
     localStorage.setItem('btnDivisas','light')
     localStorage.setItem('btnCripto','light')
     
-
 // se cambia el color de "a" y "h1"
     for (let i = 0; i < aNav.length; i++) {
         aNav[i].style.color = "silver"
@@ -81,8 +81,7 @@ function loadPage() {
     if (localStorage.getItem('h3')){
         if (localStorage.getItem('h3') === 'light'){
             for (let i = 0; i < h3.length; i++) {
-                h3[i].style.color = 'black'
-                
+                h3[i].style.color = 'black'               
             }
         }
     }
@@ -99,13 +98,11 @@ function loadPage() {
         }
         else{
             
-
             for (let i = 0; i < body.length; i++) {
                 body[i].style.backgroundImage = "url('../Imagenes/body-f9.jpg')";
                 
             }
-        }
-        
+        }      
     }
    
     // se cambia el color de "a" y "h1"
@@ -129,7 +126,6 @@ function loadPage() {
             }
         }
       }
-
     }
 
 function deleteUser() {

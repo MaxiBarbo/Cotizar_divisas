@@ -62,8 +62,10 @@
             <button type="button" id="eur" class="btn btn-outline-primary btn-lg" onclick="fechaGlobal();">EUR/ARS</button>
             <button type="button" id="usdEuro" class="btn btn-outline-primary " onclick="fechaGlobal();">EURO</button>
             <button type="button" id="newEuro" class="btn btn-outline-light" onclick="fechaGlobal();">Forex/USD</button>
-
         </div>
+          <div>
+            <button type="button" id="dolarTurista" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">Usd Turista</button>
+          </div>
 
          <!--Inicio Reloj-->
           <div class="reloj">
@@ -72,13 +74,16 @@
           </div>
          <!--Fin Reloj-->
 
-         <table id="table" class="table">
+         <table id="table" class="table table-dark">
           <thead>
           <tr class="table">
+              
               <th scope="col">Divisa</th>
               <th scope="col">Compra</th>
               <th scope="col">Venta</th>
-              <th scope="col">Var <span class="iconify" data-icon="eos-icons:arrow-rotate" style="color: #ffd23f;" data-width="14" data-height="14"></span></th>
+              <th scope="col">DIF %</span></th>
+              <th scope="col">Var<span class="iconify" data-icon="eos-icons:arrow-rotate" style="color: #ffd23f;" data-width="14" data-height="14"></span></th>
+              
           </tr>
           </thead>
   
@@ -116,10 +121,10 @@
         <button type="reset" class="btn limpiar btn-outline-light" onclick='refresh()'>Limpiar</button>
       </form>
 
-        <table class="table">
+        <table class="table table-dark">
           <thead>
           <tr class="table">
-              <th scope="col"></th>
+              
               <th scope="col">Divisas</th>
               <th scope="col">Blue</th>
               <th scope="col">Oficial</th>
@@ -127,7 +132,7 @@
           </tr>
           </thead>
   
-          <tbody class="tableTwo">
+          <tbody id="tableResults">
          
           </tbody>
   
@@ -164,7 +169,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
 
-<!-- <script src="../js/exportExcel.js"></script> -->
+<script src="../js/api_euro.js"></script>
 <script src="../js/api_freeAbstract.js"></script>
 <script src="../js/api_exchangeRates.js"></script>
 <script src="../js/theme.js"></script>

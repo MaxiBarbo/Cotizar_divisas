@@ -1,19 +1,55 @@
 function division(a,b){
   return a/b;
 } 
-function multi(n1, n2) {
+function multi(n2, n1) {
   return n1 * n2;
+}
+function variacion (n2,n1){
+  return ((n2-n1)/n1) * 100;
+}
+function difPorcentual(n1,n2){
+  return ((n1+n2)/((n1+n2))/2) * 100
 }
 
 // Api para consutlar valor del Dolar / Ars
 
 const urlDolar = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
 
-
 $("#dolar").click(() => { 
 
   apiDolar('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="20" data-height="20"></span>')
 });
+
+$("#dolarTurista").click(() => { 
+
+  apiDolarTurista('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="20" data-height="20"></span>')
+});
+
+function apiDolarTurista(icono){
+  $.getJSON(urlDolar, function(respuesta,estado){
+
+      if (estado === 'success'){
+
+        const datos = respuesta
+
+console.log(datos)
+
+        const dolarTuristaCompra = datos[6].casa.compra;
+        const dolarTuristaventa = datos[6].casa.venta;
+        const variacionT = datos[6].casa.variacion;
+
+
+      let tableBody = document.getElementById('tableTwo');
+        let flag = `<td></td>`;
+        let dolarCompraT = `<td>${icono}${dolarTuristaCompra}</td>`;
+        let dolarVentaT = `<td>${icono}${dolarTuristaventa}</td>`;  
+        let VariacionT = `<td>${variacionT} %</td>`;
+
+      tableBody.innerHTML += `<tr>${ flag + dolarCompraT + dolarVentaT + VariacionT}</tr>`;
+
+      }
+  })
+}
 
 function apiDolar(icono){;
 
@@ -25,68 +61,69 @@ function apiDolar(icono){;
         if(estado === "success"){
               
           const misDatosDolar = respuesta;
-// console.log(misDatosDolar);
+          
+console.log(misDatosDolar);
           
           const dolarBlueCompra = misDatosDolar[1].casa.compra;
           const dolarBlueventa = misDatosDolar[1].casa.venta;
-          const dolarBlueNombre = misDatosDolar[1].casa.nombre;
-          
+          const variacionBlue = misDatosDolar[1].casa.variacion;
+          const variacionOficial = misDatosDolar[0].casa.variacion;
+//  console.log(variacion)         
           let dolarCotizarBlue = multi(pesosDolar,parseFloat(dolarBlueventa));
           let dolarCotizarOficial = multi(pesosDolar,parseFloat(misDatosDolar[0].casa.venta));
+          let brechaBlueVenta = multi(dolarBlueventa,parseFloat( misDatosDolar[0].casa.venta))
+          
 
           let pesosCotizarBlue = division(pesosPesos,parseFloat(dolarBlueventa));
           let pesosCotizarOficial = division(pesosPesos,parseFloat(misDatosDolar[0].casa.venta));
 
-//Datos Precio Dolar Blue / Oficial
+//Se crea tabla dinamica tomando datos del Dolar Blue y Dolar Oficial
 
-        $("#table").prepend(`                    
-          <tr>
-            <th ><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span>Blue</th>
-            <th >${icono}${dolarBlueCompra}</th>
-            <th >${icono}${dolarBlueventa}</th>
-            <th >$</td>
-          </tr> 
-          <tr>
-            <th class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span>Ofic</th>
-            <th class="sb">${icono}${misDatosDolar[0].casa.compra}</th>
-            <th class="sb">${icono}${misDatosDolar[0].casa.venta}</th>
-            <th class="sb">$</th>
-          </tr>`)
-        
-// Datos convertidos segun tipo de cambio dolar blue / oficial
+          let tableBody = document.getElementById('tableTwo');
+              let flagOficial = `<td><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span>Ofic</td>`;
+              let flagBlue = `<td><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span>Blue</td>`;
+              let dolarCompraB = `<td>${icono}${dolarBlueCompra}</td>`
+              let dolarVentaB = `<td>${icono}${dolarBlueventa}</td>`;
+              let dolarCompra = `<td>${icono}${misDatosDolar[0].casa.compra}</td>`;
+              let dolarVenta = `<td>${icono}${misDatosDolar[0].casa.venta}</td>`;
+              let variacionDolar = `<td>${variacionBlue} %</td>`;
+              let variacionDolarOficial = `<td>${variacionOficial} %</td>`;
+              let brechaDolarBlue = `<td>%</td>`;
+              let brechaDolarCompra = `<td>%</td>`;
 
-              if(pesosPesos !==''){
+                tableBody.innerHTML += `<tr>${ flagBlue + dolarCompraB + dolarVentaB + brechaDolarBlue + variacionDolar}</tr>`;
+                tableBody.innerHTML += `<tr>${ flagOficial + dolarCompra + dolarVenta + brechaDolarCompra + variacionDolarOficial}</tr>`;
+                         
+// Se crea tabla dinamica de Resultados dolar blue/oficial si se ingresa cantidad por usuario en inputs
 
-              $(".tableTwo").prepend(`                    
-                                      <tr>
-                                      <th class="sb" scope="row"></th>
-                                      <th class="sb" scope="row"><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></span></th>
-                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarOficial.toFixed(2)}</td>
-                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarBlue.toFixed(2)}</td>
-                                      <td class="sb">%</td>
-                                      </tr> `)
-              }
+            if(pesosPesos !==''){
 
-              if (pesosDolar !==''){
+              let tableResult = document.getElementById('tableResults');
+              let variacion = `<td>${variacionDolarOficial}%</td>`;
+              let flag = `<td><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></span></td>`;
+              let resultadoOficial = `<td><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarOficial.toFixed(2)}</td>`;
+              let resultadoBlue = `<td><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarBlue.toFixed(2)}</td>`;
 
-              $(".tableTwo").prepend(`                    
-                                      <tr>
-                                      <th class="sb" scope="row"></th>
-                                      <th class="sb" scope="row"><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span></span></th>
-                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${dolarCotizarBlue}</td>
-                                      <td class="sb"><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${dolarCotizarOficial}</td>
-                                      <td class="sb">%</td>
-                                      </tr> `)
+                tableResult.innerHTML += `<tr>${flag + resultadoOficial + resultadoBlue + variacion}</tr>`
+            }
+
+            if (pesosDolar !==''){
+
+              let tableResult = document.getElementById('tableResults');
+              let variacion = `<td>${variacionDolarOficial}%</td>`;
+              let flag = `<td><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span></span></td>`;
+              let resultadoOficial = `<td><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${dolarCotizarBlue}</td>`;
+              let resultadoBlue = `<td><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${dolarCotizarOficial}</td>`;
+
+                tableResult.innerHTML += `<tr>${flag + resultadoOficial + resultadoBlue + variacion}</tr>`
             }                             
-          }
-          
-    });
-  }
+          } 
+  });
+}
 
 // Funcion para consultar api ARS / EURO
 
   const urlEuro = 'https://api.bluelytics.com.ar/v2/latest';
-
 
 $("#eur").click(() => { 
 
@@ -103,55 +140,58 @@ function apiEuro(icono){
         if(estado === "success"){
 
             const misDatosEuro = respuesta;
-// console.log(misDatosEuro);
+console.log(misDatosEuro);
 
             const euroBlueCompra = misDatosEuro.blue_euro.value_sell ;
             const euroBlueventa = misDatosEuro.blue_euro.value_buy;
+            const variacionEuroOfic = misDatosEuro.blue_euro.value_avg
 
             let euroCotizarBlue = multi(pesosEuro,parseFloat(euroBlueventa));
             let euroCotizarOficial = multi(pesosEuro,parseFloat(misDatosEuro.oficial_euro.value_buy));
+            let euroVariacionBlue = variacion(euroBlueventa,misDatosEuro.oficial_euro.value_buy)
+            let euroVariacionOficial = difPorcentual(10,5220)
 
             let pesosEuroCotizarBlue = division(pesosPesos,parseFloat(euroBlueventa));
             let pesosEuroCotizarOficial = division(pesosPesos,parseFloat(misDatosEuro.oficial_euro.value_buy));
             
             //Seccion Euro Blue
 
-          $("#table").prepend(`                    
-            <tr>
-              <th ><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span>Blue</th>
-              <th >${icono}${euroBlueventa}</th>
-              <th >${icono}${euroBlueCompra}</th>
-              <th >$</th>
-            </tr> 
-              <tr>
-              <th ><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span>Ofic</th>
-              <th >${icono}${misDatosEuro.oficial_euro.value_buy}</th>
-              <th >${icono}${misDatosEuro.oficial_euro.value_sell}</th>
-              <th >$</th>
-            </tr>`)
+            
+            let tableResult = document.getElementById('tableTwo');
+              let variacionBlue = `<td>${euroVariacionBlue.toFixed(2)}%</td>`;
+              let variacionOficial = `<td>${euroVariacionOficial.toFixed(2)}%</td>`;
+              let flag = `<td><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span>Blue</td>`;
+              let flagOficial = `<td><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span>Ofic</td>`;
+              let resultadoOficial = `<td>${icono}${euroBlueventa}</td>`;
+              let resultadoBlue = `<td>${icono}${euroBlueCompra}</td>`;
+              let resultadoEuOficial = `<td>${icono}${misDatosEuro.oficial_euro.value_buy}</td>`;
+              let resultadoEuBlue = `<td>${icono}${misDatosEuro.oficial_euro.value_sell}</td>`;
+
+                tableResult.innerHTML += `<tr>${flag + resultadoOficial + resultadoBlue + variacionBlue}</tr>`
+                tableResult.innerHTML += `<tr>${flagOficial + resultadoEuOficial + resultadoEuBlue + variacionOficial }</tr>`
+                
 
             if(pesosPesos !==''){
 
-              $(".tableTwo").prepend(`                    
-                                      <tr>
-                                      <th ></th>
-                                      <th ><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span></span></th>
-                                      <th ><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosEuroCotizarOficial.toFixed(2)}</th>
-                                      <th ><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosEuroCotizarBlue.toFixed(2)}</th>
-                                      <th >%</th>
-                                      </tr> `)
+              let tableResult = document.getElementById('tableResults');
+              let variacion = `<td>1</td>`;
+              let flag = `<td><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span></span></td>`;
+              let resultadoOficial = `<td><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosEuroCotizarOficial.toFixed(2)}</td>`;
+              let resultadoBlue = `<td><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosEuroCotizarBlue.toFixed(2)}</td>`;
+              
+                tableResult.innerHTML += `<tr>${flag + resultadoOficial + resultadoBlue + variacion}</tr>`
+                
               }
 
               if (pesosEuro !==''){
 
-              $(".tableTwo").prepend(`                    
-                                      <tr>
-                                      <th ></th>
-                                      <th ><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span></span></th>
-                                      <th ><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${euroCotizarBlue.toFixed(1)}</th>
-                                      <th ><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${euroCotizarOficial.toFixed(1)}</th>
-                                      <th >%</th>
-                                      </tr> `)
+              let tableResult = document.getElementById('tableResults');
+              let variacion = `<td>2</td>`;
+              let flag = `<td><span class="iconify" data-icon="twemoji:flag-for-flag-european-union" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span></td>`;
+              let resultadoOficial = `<td><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${euroCotizarBlue.toFixed(1)}</td>`;
+              let resultadoBlue = `<td><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${euroCotizarOficial.toFixed(1)}</td>`;
+              
+                tableResult.innerHTML += `<tr>${flag + resultadoOficial + resultadoBlue + variacion}</tr>`
             } 
         }
     })

@@ -142,24 +142,22 @@ h4:hover{
 }
 .btnDivisas{ 
     display: flex;
-    gap: 0.5rem;
-    justify-content: center; 
-    margin-bottom: 1rem;   
+    gap: 1.5rem;
+    justify-content: space-between; 
+    margin-bottom: 1.5rem; 
+    margin-top: 1rem;  
 }    
 #infoBox{
   width: 19rem;
   height: 6rem;
 }
-#usdt,#dolar,#eur,#btcArs,#ethArs,#eth,#usdEuro,#euroUsd,#newEuro{
-  margin-left: 1rem;
-  margin-top: 1rem;
-}
+
 #usdArs,#btc{
   width: 60%;
   
 }
 #cotizacionBts{
-  color: white;
+  
   margin-top: 1rem;
 }
 .boxDivisas{
@@ -168,7 +166,6 @@ h4:hover{
   justify-content: space-between;
 }
 .boxBtc,.boxDolarBlue,.boxDolarOficial{
-  color: white;
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
@@ -179,7 +176,7 @@ h4:hover{
 #resultadoCripto,#resultadoFecha,#resultadoDolar{
   display: flex;
   flex-direction: column;
-  color: white;
+  
   font-size: 1.6em;
   gap: 0.5rem;
   
@@ -189,21 +186,6 @@ h4:hover{
   font-size: 1.4em;
 }
 
-.sa{
-  font-family: var(--font-title-family);
-  font-size: 2.1em;
-}
-
-/* .sb{
-  font-family: var(--font-title-family);
-  color: silver; 
-  font-size: 1em;
-  letter-spacing: 2px;
-} */
-
-/* th{
-  color: green;
-} */
 .tDivisas{
   font-family: var(--font-title-family);
   color: #3E92CC;
@@ -507,7 +489,7 @@ font-size: 1.3em;
 		transform: translate3d(0, 3.7em, 0);
 	}
 }
-table{
+table{ 
   text-align: center; 
   color: green;
 }
