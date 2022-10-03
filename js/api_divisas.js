@@ -8,7 +8,7 @@ function variacion (n2,n1){
   return ((n2-n1)/n1) * 100;
 }
 function difPorcentual(n1,n2){
-  return ((n1+n2)/((n1+n2))/2) * 100
+  return ((n1 - n2))/((n2+n1)/2)*100
 }
 
 // Api para consutlar valor del Dolar / Ars
@@ -149,7 +149,7 @@ console.log(misDatosEuro);
             let euroCotizarBlue = multi(pesosEuro,parseFloat(euroBlueventa));
             let euroCotizarOficial = multi(pesosEuro,parseFloat(misDatosEuro.oficial_euro.value_buy));
             let euroVariacionBlue = variacion(euroBlueventa,misDatosEuro.oficial_euro.value_buy)
-            let euroVariacionOficial = difPorcentual(10,5220)
+            let euroVariacionOficial = difPorcentual(euroBlueCompra,misDatosEuro.oficial_euro.value_buy)
 
             let pesosEuroCotizarBlue = division(pesosPesos,parseFloat(euroBlueventa));
             let pesosEuroCotizarOficial = division(pesosPesos,parseFloat(misDatosEuro.oficial_euro.value_buy));
