@@ -66,11 +66,27 @@
             
         </div>
 
-        <div class="btnDivisas">
+        <div class="btnDivisasDos">
           <button type="button" id="bnb" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">USD/BNB</button>
           <button type="button" id="xrp" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">USD/LUNA</button>
           <button type="button" id="mana" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">MANA/USD</button>
           <button type="button" id="sand" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">SAND/USD</button>
+        </div>
+
+        <div class="optionMenu">
+          <div class='dropdown'>
+            <div class='title pointerCursor'>Cripto<i class="fa fa-angle-right"></i></div>
+            
+            <div class='menu pointerCursor hide'>
+              <div class='option' id='option1'>Option 1</div>
+              <div class='option' id='option2'>Option 2</div>
+              <div class='option' id='option3'>Option 3</div>
+              <div class='option' id='option4'>Option 4</div>
+            </div>
+        
+          </div>
+        
+          <span id='result'>Seleccion</span>
         </div>
 
         <!--Inicio Reloj-->
@@ -155,6 +171,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.iconify.design/2/2.0.4/iconify.min.js"></script>
+<script src="../js/optionsMenu.js"></script>
 <script src="../js/exportExcel.js"></script>
 <script src="../js/theme.js"></script>
 <script src="../js/api_criptos.js"></script>

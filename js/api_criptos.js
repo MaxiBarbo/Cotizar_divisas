@@ -1,3 +1,5 @@
+
+
 // Funcion y acceso Api BTC / ETH en ARS Url de cripto ya
 $("#btcArs").click(function(){
 
@@ -68,32 +70,47 @@ console.log(cripto);
         
 $("#mana").click(() => {
 
-    obtenerDatosApiBinance('MANA','902','<span class="iconify" data-icon="cryptocurrency:mana" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','902','<span class="iconify" data-icon="cryptocurrency:mana" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
 $("#sand").click(() => {
 
-    obtenerDatosApiBinance('SAND','942','<span class="iconify" data-icon="cryptocurrency:sand" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','942','<span class="iconify" data-icon="cryptocurrency:sand" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
 $("#usdt").click(() => {
 
-    obtenerDatosApiBinance('Bitcoin','11','<span class="iconify" data-icon="cryptocurrency:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','11','<span class="iconify" data-icon="cryptocurrency:btc" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
 $("#eth").click(() => {
 
-    obtenerDatosApiBinance('Ethereum','12','<span class="iconify" data-icon="cib:ethereum" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','12','<span class="iconify" data-icon="cib:ethereum" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
 $("#bnb").click(() => {
 
-    obtenerDatosApiBinance('BNB','98','<span class="iconify" data-icon="cryptocurrency:bnb" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','98','<span class="iconify" data-icon="cryptocurrency:bnb" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
 $("#xrp").click(() => {
 
-    obtenerDatosApiBinance('LUNA','958','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','958','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+});
+
+$("#option1").click(() => {
+
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','557','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+});
+
+$("#option2").click(() => {
+
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','200','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+});
+
+$("#option3").click(() => {
+
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','422','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
 function obtenerDatosApiBinance(simbolo,precio,icono){;
@@ -101,32 +118,39 @@ function obtenerDatosApiBinance(simbolo,precio,icono){;
 const URLGET = "https://api.binance.com/api/v1/ticker/24hr";
 
 let valorInput = $("[name*='btc']").val();
+let resultText = document.getElementById('result')
 
     $.get(URLGET,function (respuesta,estado){
 
         if (estado == "success"){
 
             let dato = (respuesta[precio]);
-            let resultadoMana = division(valorInput,dato.askPrice)
-            let datoApi = dato.askPrice;
+            let resultadoPrice = division(valorInput,dato.askPrice)
+            let criptoName = dato.symbol;
+            let datoPrice = parseFloat(dato.askPrice);
+            let percentPrice = dato.priceChangePercent
             
- console.log(datoApi);           
+ console.log(resultText)   
+
     
-            $("#tableTwo").prepend(`
-            <tr>
-            <th >${icono}</th>
-            <th >${simbolo}</th>
-            <th ><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${datoApi.substr(0,6)}</td>
-            <th >% ${dato.priceChangePercent}</td>
-            </tr> `)
+            let tableBody = document.getElementById('tableTwo');
+            let nameCripto = `<td>${icono}</td>`;
+            let simb = `<td>${criptoName}</td>`;  
+            let valor = `<td>${simbolo}${datoPrice.toFixed(0)}</td>`;
+            let pricePercent = `<td>${percentPrice} %</td>`;
+
+            tableBody.innerHTML += `<tr>${ nameCripto + simb + valor + pricePercent}</tr>`;
+            resultText.innerHTML += `<span>%</span>`;
+
+console.log(respuesta);  
 
             if(valorInput !==''){
                 $("#table").prepend(`                    
                     <tr>
-                    <th >${icono}</th>
-                    <th >${simbolo}</th>
-                    <th ></span> ${resultadoMana.toFixed(8)}</th>
-                    <th >% ${dato.priceChangePercent}</th>
+                        <th >${icono}</th>
+                        <th >${simbolo}</th>
+                        <th ></span> ${parseFloat(resultadoPrice.toFixed(4,4))}</th>
+                        <th >% ${dato.priceChangePercent}</th>
                     </tr> `)
             }
         }  

@@ -19,9 +19,9 @@
 <body id="bodySecudanrio" onload="loadPage()">
     <header>
       <div class="iconosCripto">
-        <a href="../index.html"><span class="iconify" data-icon="jam:arrow-square-left" style="color: grey;" data-width="30" data-height="40"></span></a>
+        <a href="../index.html"><span class="iconify" data-icon="jam:arrow-square-left" data-width="30" data-height="40"></span></a>
         <h1>Divisas</h1>
-        <a href="criptomonedas.html"><span class="iconify" data-icon="jam:arrow-square-right" style="color: grey;" data-width="30" data-height="40"></span></a> 
+        <a href="criptomonedas.html"><span class="iconify" data-icon="jam:arrow-square-right" data-width="30" data-height="40"></span></a> 
       </div>
        
       <nav class="navbar  navbar-expand-lg navbar-light " style="background-color: #1C1D21; opacity: 80%;">
@@ -58,13 +58,14 @@
       <div id="borderSep"></div>
       <div class="col-lg-4 col-md-3 col-11">
         <div class="btnDivisas">
-            <button type="button" id="dolar" class="btn btn-outline-primary btn-lg" onclick="fechaGlobal();">USD/ARS</button>
-            <button type="button" id="eur" class="btn btn-outline-primary btn-lg" onclick="fechaGlobal();">EUR/ARS</button>
-            <button type="button" id="usdEuro" class="btn btn-outline-primary " onclick="fechaGlobal();">EURO</button>
-            <button type="button" id="newEuro" class="btn btn-outline-light" onclick="fechaGlobal();">Forex/USD</button>
+            <button type="button" id="dolar" class="btn btn-outline-warning btn-lg" onclick="fechaGlobal();">USD/ARS</button>
+            <button type="button" id="eur" class="btn btn-outline-warning btn-lg" onclick="fechaGlobal();">EUR/ARS</button>
+            <button type="button" id="usdEuro" class="btn btn-outline-warning " onclick="fechaGlobal();">EURO</button>
+            <button type="button" id="newEuro" class="btn btn-outline-warning" onclick="fechaGlobal();">Forex/USD</button>
         </div>
-          <div>
-            <button type="button" id="dolarTurista" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">Usd Turista</button>
+          <div class="btnDivisas">
+            <button type="button" id="dolarTurista" class="btn btn-outline-warning btn-lg" onclick="fechaGlobal();">Usd Turista</button>
+            <button type="button" id="dolarccl" class="btn btn-outline-warning btn-lg" onclick="fechaGlobal();">Usd CCL</button>
           </div>
 
          <!--Inicio Reloj-->
@@ -74,7 +75,7 @@
           </div>
          <!--Fin Reloj-->
 
-         <table id="table" class="table table-dark">
+         <table id="table" class="table table-dark table-striped">
           <thead>
           <tr class="table">
               
@@ -150,15 +151,15 @@
   </div>
 
   <div class="btnEnd">
-    <button type="button" id="ls" class="btn btn-outline-primary" onclick='deleteUser()'>Borrar LocalS</button>
+    <button type="button" id="ls" class="btn btn-outline-danger btn-lg" onclick='deleteUser()'>Borrar LocalS</button>
     <!-- <button class="btn btn-outline-light export" onclick="exportTableToExcel('tblData')">Export Excel</button> -->
   </div>
 
   <footer>
     <div class="iconosFooter">
-      <span class="iconify" data-icon="ant-design:instagram-outlined" style="color: silver;" data-width="25" data-height="25"></span>
-      <span class="iconify" data-icon="fluent:mail-28-regular" style="color: silver;" data-width="25" data-height="25"></span>
-      <span class="iconify" data-icon="akar-icons:github-fill" style="color: silver;" data-width="21" data-height="21"></span>
+      <span class="iconify" data-icon="ant-design:instagram-outlined" data-width="25" data-height="25"></span>
+      <span class="iconify" data-icon="fluent:mail-28-regular" data-width="25" data-height="25"></span>
+      <span class="iconify" data-icon="akar-icons:github-fill" data-width="21" data-height="21"></span>
     </div>
   </footer>
 
