@@ -11,6 +11,11 @@ $("#ethArs").click(function(){
     obtenerDatos('eth','Ethereum','bitex','Ethereum','ars','<span class="iconify" data-icon="cib:ethereum" style="color: #ffd23f;" data-width="15" data-height="15"></span>');
 });
 
+$("#option4").click(function(){
+
+    obtenerDatos('eth','Ethereum','bitex','Ethereum','ars','<span class="iconify" data-icon="cib:ethereum" style="color: #ffd23f;" data-width="15" data-height="15"></span>');
+});
+
 function division(a,b){
     return a/b;
 } 
@@ -22,46 +27,43 @@ function multi(n1, n2) {
 
 function obtenerDatos(coin,titulo,exchange,cripto,fiat,icono){
 
-    const urlArgenBtc = `https://criptoya.com/api/${exchange}/${coin}/${fiat}/0.1`;
+const urlArgenBtc = `https://criptoya.com/api/${exchange}/${coin}/${fiat}/0.1`;
 
     const api = new XMLHttpRequest();
     api.open('get', urlArgenBtc, true);
     api.send();
 
-    let pesosBtc = $("[name*='btc']").val();
+    let pesosBtc = $("[name*='btc']").val(); // guardamos valor ingresado por usuario desde un input ('Ingrese USD/Euro/Ars')
 
     api.onreadystatechange = function(){
 
         if(this.status == 200 && this.readyState == 4){
 
-            const datos = JSON.parse(this.responseText);
-              
-// console.log(datos);
-
+            const datos = JSON.parse(this.responseText);        
             let resultadoBtc = parseFloat(datos.ask);
             let resultadoPeso = division(pesosBtc,resultadoBtc);
             let datoApi = datos.ask;
 
-console.log(cripto);
+console.log(typeof(resultadoPeso));
        
-            $("#tableTwo").prepend(`
-                <tr>
-                <th >${icono}</th>
-                <th >${titulo}</th>
-                <th ><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${datoApi.toFixed(1)}</th>
-                <th >% </th>
-                </tr> `)
+            let tBody = document.getElementById('tableTwo');
+            let iconoCripto = `<td>${icono}</td>`;
+            let nameCripto = `<td>${titulo}</td>`; 
+            let valorCripto = `<td><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${datoApi.toFixed(1)}</td>`;
+            let variacion = `<td>%</td>`;  
+           
+            tBody.innerHTML += `<tr>${iconoCripto + nameCripto + valorCripto + variacion}</tr>`;
 
                 if ( pesosBtc !== ''){  
                     $("#table").prepend(`                    
-                        <tr>
-                        <th >${icono}</th>
-                        <th >${cripto}</th>
-                        <th ><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultadoPeso.toFixed(11)}</th>
-                        <th >% </th>
-                        </tr> `)
-                    } 
-                              
+                    <tr>
+                        <td></td>
+                        <td>${icono}</td>
+                        <td><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${resultadoPeso.toFixed(12)}</td>
+                        <td>%</td>
+                    </tr> `)
+
+                    }           
                 }
             }
         }
@@ -100,7 +102,7 @@ $("#xrp").click(() => {
 
 $("#option1").click(() => {
 
-    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','557','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','557','<span class="iconify" data-icon="cryptocurrency:doge" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
 $("#option2").click(() => {
@@ -110,7 +112,7 @@ $("#option2").click(() => {
 
 $("#option3").click(() => {
 
-    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','422','<span class="iconify" data-icon="cryptocurrency:xrp" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
+    obtenerDatosApiBinance('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','422','<span class="iconify" data-icon="cryptocurrency:doge" style="color: #ffd23f;" data-width="14" data-height="14"></span>')
 });
 
 function obtenerDatosApiBinance(simbolo,precio,icono){;
@@ -118,7 +120,6 @@ function obtenerDatosApiBinance(simbolo,precio,icono){;
 const URLGET = "https://api.binance.com/api/v1/ticker/24hr";
 
 let valorInput = $("[name*='btc']").val();
-let resultText = document.getElementById('result')
 
     $.get(URLGET,function (respuesta,estado){
 
@@ -130,27 +131,25 @@ let resultText = document.getElementById('result')
             let datoPrice = parseFloat(dato.askPrice);
             let percentPrice = dato.priceChangePercent
             
- console.log(resultText)   
+ console.log(respuesta)   
 
-    
             let tableBody = document.getElementById('tableTwo');
             let nameCripto = `<td>${icono}</td>`;
             let simb = `<td>${criptoName}</td>`;  
-            let valor = `<td>${simbolo}${datoPrice.toFixed(0)}</td>`;
+            let valor = `<td>${simbolo}${parseFloat(datoPrice)}</td>`;
             let pricePercent = `<td>${percentPrice} %</td>`;
 
-            tableBody.innerHTML += `<tr>${ nameCripto + simb + valor + pricePercent}</tr>`;
-            resultText.innerHTML += `<span>%</span>`;
+            tableBody.innerHTML += `<tr>${nameCripto + simb + valor + pricePercent}</tr>`;
 
-console.log(respuesta);  
+// console.log(respuesta);  
 
             if(valorInput !==''){
                 $("#table").prepend(`                    
                     <tr>
-                        <th >${icono}</th>
-                        <th >${simbolo}</th>
-                        <th ></span> ${parseFloat(resultadoPrice.toFixed(4,4))}</th>
-                        <th >% ${dato.priceChangePercent}</th>
+                        <td></th>
+                        <td>${icono}</td>
+                        <td>${simbolo}${parseFloat(resultadoPrice.toFixed(12))}</td>
+                        <td>% ${percentPrice}</td>
                     </tr> `)
             }
         }  

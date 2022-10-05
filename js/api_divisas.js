@@ -179,7 +179,6 @@ function apiEuro(icono){
                 tableResult.innerHTML += `<tr>${flag + resultadoOficial + resultadoBlue + variacionBlue + varBlue}</tr>`
                 tableResult.innerHTML += `<tr>${flagOficial + resultadoEuOficial + resultadoEuBlue + variacionOficial + varOficial}</tr>`
                 
-
             if(pesosPesos !==''){
 
               let tableResult = document.getElementById('tableResults');
@@ -188,11 +187,10 @@ function apiEuro(icono){
               let resultadoOficial = `<td><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosEuroCotizarOficial.toFixed(2)}</td>`;
               let resultadoBlue = `<td><span class="iconify" data-icon="el:eur" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosEuroCotizarBlue.toFixed(2)}</td>`;
               
-                tableResult.innerHTML += `<tr>${flag + resultadoOficial + resultadoBlue + variacion}</tr>`
-                
+                tableResult.innerHTML += `<tr>${flag + resultadoOficial + resultadoBlue + variacion}</tr>` 
               }
 
-              if (pesosEuro !==''){
+            if (pesosEuro !==''){
 
               let tableResult = document.getElementById('tableResults');
               let variacion = `<td>2</td>`;

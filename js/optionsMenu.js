@@ -52,7 +52,7 @@ function toggleClass(elem,className){
   function handleTitleChange(e){
     const result = document.getElementById('result');
   
-    result.innerHTML = e.target.textContent;
+    // result.innerHTML = e.target.textContent;
   }
   
   //get elements

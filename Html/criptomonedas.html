@@ -20,12 +20,12 @@
 <body id="bodySecudanrio" onload="loadPage()">
     <header>
       <div class="iconosCripto">
-        <a href="../index.html"><span class="iconify" data-icon="jam:arrow-square-left" style="color: grey;" data-width="30" data-height="40"></span></a>
+        <a href="../index.html"><span class="iconify" data-icon="jam:arrow-square-left" data-width="30" data-height="40"></span></a>
         <h1>Criptomonedas</h1>
-      <a href="divisas.html"><span class="iconify" data-icon="jam:arrow-square-right" style="color: grey;" data-width="30" data-height="40"></span></a> 
+      <a href="divisas.html"><span class="iconify" data-icon="jam:arrow-square-right" data-width="30" data-height="40"></span></a> 
       </div>
         
-        <nav class="navbar  navbar-expand-lg navbar-light " style="background-color: #1C1D21; opacity: 60%;">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <div class="switch">
                     <input class="inputOne" onclick="changeTheme()" type="checkbox" id="toggle"/>
@@ -45,9 +45,6 @@
                   <li class="nav-item">
                     <a class="nav-link active" href=""><span id="navText"><span class="iconify" data-icon="ant-design:mail-outlined" data-width="20" data-height="20" style="margin-right: 6px;"></span>Contacto</span></a>
                   </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link" href="" tabindex="-1" aria-disabled="true"><span id="navText"></span></a>
-                  </li> -->
                 </ul>
               </div>
             </div>
@@ -55,20 +52,18 @@
     </header>
     
 <main class="container">  
-      <h3>Pulsa para Con<span class="letter" sultar tipos</span> de conversion</h3>
-      <div id="borderSep"></div>
-      <div class="col-lg-4 col-md-3 col-11">
+  <span id="borderSep"></span>
+    <div class="col-lg-4 col-md-3 col-11">
         <div class="btnDivisas">
-            <button type="button" id="usdt" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">USD/BTC</button>
-            <button type="button" id="eth" class="btn btn1 btn-outline-light btn-lg" onclick="fechaGlobal();">USD/ETH</button>
-            <button type="button" id="btcArs" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">ARS/BTC</button>
-            <button type="button" id="ethArs" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">ARS/ETH</button>
-            
+            <button type="button" id="usdt" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">BTC/USD</button>
+            <button type="button" id="eth" class="btn btn1 btn-outline-light btn-lg" onclick="fechaGlobal();">ETH/USD</button>
+            <button type="button" id="btcArs" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">BTC/ARS</button>
+            <button type="button" id="ethArs" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">ETH/ARS</button> 
         </div>
 
         <div class="btnDivisasDos">
-          <button type="button" id="bnb" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">USD/BNB</button>
-          <button type="button" id="xrp" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">USD/LUNA</button>
+          <button type="button" id="bnb" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">BNB/USD</button>
+          <button type="button" id="xrp" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">LUNA/USD</button>
           <button type="button" id="mana" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">MANA/USD</button>
           <button type="button" id="sand" class="btn btn-outline-light btn-lg" onclick="fechaGlobal();">SAND/USD</button>
         </div>
@@ -76,17 +71,14 @@
         <div class="optionMenu">
           <div class='dropdown'>
             <div class='title pointerCursor'>Cripto<i class="fa fa-angle-right"></i></div>
-            
             <div class='menu pointerCursor hide'>
-              <div class='option' id='option1'>Option 1</div>
+              <div class='option' id='option1'>Doge</div>
               <div class='option' id='option2'>Option 2</div>
               <div class='option' id='option3'>Option 3</div>
               <div class='option' id='option4'>Option 4</div>
             </div>
-        
           </div>
-        
-          <span id='result'>Seleccion</span>
+          <!-- <span id='result'></span> -->
         </div>
 
         <!--Inicio Reloj-->
@@ -98,35 +90,27 @@
 
       <table id="tblData" class="table table-dark tblData">
         <thead>
-        <tr class="table">
-            <th scope="col"></th>
-            <th scope="col">Cripto</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Variacion <span class="iconify" data-icon="eos-icons:arrow-rotate" style="color: #ffd23f;" data-width="14" data-height="14"></span></th>
-        </tr>
+          <tr class="table">
+              <th scope="col"></th>
+              <th scope="col">Cripto</th>
+              <th scope="col">Valor</th>
+              <th scope="col">Variacion <span class="iconify" data-icon="eos-icons:arrow-rotate" style="color: #ffd23f;" data-width="14" data-height="14"></span></th>
+          </tr>
         </thead>
-
-        <tbody id="tableTwo">
-       
-        </tbody>
-
+        <tbody id="tableTwo"></tbody>
       </table>
 
-        <div class="boxBtc">
-            <span class="spanBtc"></span>
-            <span class="spanDolar"></span>
-        </div>
-
-      
+      <div class="boxBtc">
+        <span class="spanBtc"></span>
+        <span class="spanDolar"></span>
+      </div>
         <span class="input input--kuro">
 					<input class="input__field input__field--kuro" type="text" id="input-7" name="btc" />
 					<label class="input__label input__label--kuro" for="input-7">
-						<span class="input__label-content input__label-content--kuro">Ingresa USD/EURO/ARS</span>
+						<span id="textInputC" class="input__label-content input__label-content--kuro">Ingresa USD/EURO/ARS</span>
 					</label>
 				</span>
         <button type="reset" class="btn limpiarCripto btn-outline-danger btn-sm" onclick='refresh()'>Limpiar</button>
-        
-    
 
  <!-- Contenido resultado cripto -->
         <table class="table table-dark tblData">
@@ -138,17 +122,15 @@
               <th scope="col">Variacion <span class="iconify" data-icon="eos-icons:arrow-rotate" style="color: #ffd23f;" data-width="14" data-height="14"></span></th> 
             </tr>
           </thead>
-          <tbody id="table">
-           
-          </tbody>
+          <tbody id="table"></tbody>
         </table>
-  </div>
+     </div>
 
   <div class="section">
     <div>
-        
         <ul id="resultadoCripto"></ul>
     </div>
+
     <div>
         <ul id="resultadoFecha"></ul>
     </div>
@@ -158,11 +140,12 @@
     <button type="button" id="lStorage" class="btn btn-outline-light" onclick='deleteUser()'>Borrar LocalS</button>
     <button class="btn btn-outline-light export" onclick="exportTableToExcel('tblData')">Export Excel</button>
   </div>
+
   <footer>
     <div class="iconosFooter">
-      <span class="iconify" data-icon="ant-design:instagram-outlined" style="color: silver;" data-width="25" data-height="25"></span>
-      <span class="iconify" data-icon="fluent:mail-28-regular" style="color: silver;" data-width="25" data-height="25"></span>
-      <span class="iconify" data-icon="akar-icons:github-fill" style="color: silver;" data-width="21" data-height="21"></span>
+      <span class="iconify" data-icon="ant-design:instagram-outlined" data-width="25" data-height="25"></span>
+      <span class="iconify" data-icon="fluent:mail-28-regular" data-width="25" data-height="25"></span>
+      <span class="iconify" data-icon="akar-icons:github-fill" data-width="21" data-height="21"></span>
     </div>
   </footer>
 </main>

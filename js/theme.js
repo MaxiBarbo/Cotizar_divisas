@@ -1,5 +1,3 @@
-
-
 // Etiquetas en el DOM a cambiar
 
 let aNav = $(".iconosFooter,a,h4");
@@ -11,12 +9,12 @@ let h3 = $('h3,h1,th,p')
 let menuDrop = document.querySelector('.dropdown')
 let opcionTitle = document.querySelector('.title')
 let optionSubTitle = document.querySelector('.menu')
-let itemResult = document.querySelector('#result')
-
-console.log(optionSubTitle)
-
+let itemResult = document.querySelector('button')
+let input7 = document.getElementById('input-7')
+let textInputC = document.getElementById('textInputC')
+let borderSep = document.getElementById('borderSep')
+console.log(borderSep)
 let theme = false;
-
 function changeTheme(){
 
 theme = !theme;
@@ -30,8 +28,7 @@ if(theme){
 // se cambia el color de "a" y "h1"
     for (let i = 0; i < aNav.length; i++) {
         aNav[i].style.color = "silver"
-        localStorage.setItem('a','dark')
-        
+        localStorage.setItem('a','dark')     
     }
 
 // Cambio fondo Body en subcarpeta
@@ -41,10 +38,13 @@ if(theme){
         
     }     
     
-    itemResult.style.color = 'white'
+    input7.style.color = 'white'
+    textInputC.style.color = 'white'
     optionSubTitle.style.color = 'white'
-    menuDrop.style.border = '1px solid white'
     opcionTitle.style.color = 'white'
+    menuDrop.style.border = '1px solid white'
+    borderSep.style.color = 'red'
+    
     btnCripto.removeClass('btn-outline-dark')
     btnForex.toggleClass('btn-outline-primary')
 
@@ -54,6 +54,8 @@ if(theme){
     localStorage.setItem('opcionTitle','dark')
     localStorage.setItem('optionSubTitle','dark')
     localStorage.setItem('itemResult','dark')
+    localStorage.setItem('textInputC','dark')
+    localStorage.setItem('input7','dark')
 }
 else{
 
@@ -62,19 +64,22 @@ else{
         localStorage.setItem('h3','light')
     }
 
-    itemResult.style.color = 'black'
     menuDrop.style.border = '1px solid black'
     optionSubTitle.style.color = 'black'
     opcionTitle.style.color = 'black'
     btnCripto.toggleClass('btn-outline-dark')
+    input7.style.color = 'black'
+    textInputC.style.color = 'black'
+    borderSep.style.color = 'black'
 
     localStorage.setItem('btnDivisas','light')
     localStorage.setItem('btnCripto','light')
     localStorage.setItem('menuDrop','light')
     localStorage.setItem('opcionTitle','light')
     localStorage.setItem('optionSubTitle','light')
-    localStorage.setItem('itemResult','light')
-    
+    localStorage.setItem('textInputC','light')
+    localStorage.setItem('input7','light')
+       
 // se cambia el color de "a" y "h1"
     for (let i = 0; i < aNav.length; i++) {
         aNav[i].style.color = "black"
@@ -91,15 +96,6 @@ else{
 
 function loadPage() {
 
-// al iniciar la app agrega estilo white en Texto opcion elegida en "Option Cripto"
-    if (localStorage.getItem('itemResult')){
-        if (localStorage.getItem('itemResult') === 'light'){
-            itemResult.style.color = 'white'   
-        }
-        else{
-            itemResult.style.border = 'black'
-        }
-    }
 // al iniciar la app agrega estilo white en Borde opcion elegida en "Option Cripto"
     if (localStorage.getItem('menuDrop')){
         if (localStorage.getItem('menuDrop') === 'light'){
@@ -133,6 +129,13 @@ function loadPage() {
             for (let i = 0; i < h3.length; i++) {
                 h3[i].style.color = 'black'               
             }
+                
+        }
+        else{
+            for (let i = 0; i < h3.length; i++) {
+                h3[i].style.color = 'silver'
+                
+            }
         }
     }
     // se cambia el color tema Background en LocalStorade al iniciar pagina
@@ -159,13 +162,14 @@ function loadPage() {
     
             for (let i = 0; i < aNav.length; i++) {
     
-              aNav[i].style.color = 'silver';
+              aNav[i].style.color = 'white';
         }
           } 
+
         else {
-    // se cambia el color de "a" y "h1"
+    
             for (let i = 0; i < aNav.length; i++) {
-            aNav[i].style.color = 'silver'
+            aNav[i].style.color = 'black'
     
             }
         }
