@@ -44,7 +44,7 @@ const urlArgenBtc = `https://criptoya.com/api/${exchange}/${coin}/${fiat}/0.1`;
             let resultadoPeso = division(pesosBtc,resultadoBtc);
             let datoApi = datos.ask;
 
-console.log(typeof(resultadoPeso));
+// console.log(typeof(resultadoPeso));
        
             let tBody = document.getElementById('tableTwo');
             let iconoCripto = `<td>${icono}</td>`;
@@ -131,7 +131,7 @@ let valorInput = $("[name*='btc']").val();
             let datoPrice = parseFloat(dato.askPrice);
             let percentPrice = dato.priceChangePercent
             
- console.log(respuesta)   
+//  console.log(respuesta)   
 
             let tableBody = document.getElementById('tableTwo');
             let nameCripto = `<td>${icono}</td>`;
@@ -140,9 +140,7 @@ let valorInput = $("[name*='btc']").val();
             let pricePercent = `<td>${percentPrice} %</td>`;
 
             tableBody.innerHTML += `<tr>${nameCripto + simb + valor + pricePercent}</tr>`;
-
-// console.log(respuesta);  
-
+  
             if(valorInput !==''){
                 $("#table").prepend(`                    
                     <tr>

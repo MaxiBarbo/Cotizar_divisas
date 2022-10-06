@@ -10,13 +10,14 @@ let menuDrop = document.querySelector('.dropdown')
 let opcionTitle = document.querySelector('.title')
 let optionSubTitle = document.querySelector('.menu')
 let itemResult = document.querySelector('button')
-let input7 = document.getElementById('input-7')
+let input7 = document.getElementById('input_7')
 let textInputC = document.getElementById('textInputC')
 let borderSep = document.getElementById('borderSep')
-console.log(borderSep)
-let theme = false;
-function changeTheme(){
 
+// Funcion Cambio de 'Tema'
+
+let theme = true;
+function changeTheme(){
 theme = !theme;
 if(theme){
 
@@ -34,29 +35,31 @@ if(theme){
 // Cambio fondo Body en subcarpeta
     for (let i = 0; i < body.length; i++) {
         body[i].style.backgroundImage = "url('../Imagenes/fonfo-game27.png')";
-        localStorage.setItem('body','dark')
-        
-    }     
-    
+        body[i].style.transition = 'all 0.8s'
+        localStorage.setItem('body','dark')  
+    }    
+     
     input7.style.color = 'white'
     textInputC.style.color = 'white'
     optionSubTitle.style.color = 'white'
     opcionTitle.style.color = 'white'
     menuDrop.style.border = '1px solid white'
-    borderSep.style.color = 'red'
+    borderSep.style.color = 'white'
     
     btnCripto.removeClass('btn-outline-dark')
     btnForex.toggleClass('btn-outline-primary')
 
+// Seteanos las variables en el local storage 'clave / valor'
     localStorage.setItem('btnCripto','dark')
     localStorage.setItem('btnDivisas','dark')
     localStorage.setItem('menuDrop','dark')
     localStorage.setItem('opcionTitle','dark')
     localStorage.setItem('optionSubTitle','dark')
-    localStorage.setItem('itemResult','dark')
     localStorage.setItem('textInputC','dark')
     localStorage.setItem('input7','dark')
+    // localStorage.setItem('itemResult','dark')
 }
+
 else{
 
     for (let i = 0; i < h3.length; i++) {
@@ -67,10 +70,10 @@ else{
     menuDrop.style.border = '1px solid black'
     optionSubTitle.style.color = 'black'
     opcionTitle.style.color = 'black'
-    btnCripto.toggleClass('btn-outline-dark')
     input7.style.color = 'black'
     textInputC.style.color = 'black'
     borderSep.style.color = 'black'
+    btnCripto.toggleClass('btn-outline-dark')
 
     localStorage.setItem('btnDivisas','light')
     localStorage.setItem('btnCripto','light')
@@ -89,6 +92,7 @@ else{
 // Cambio fondo Body en subcarpeta
     for (let i = 0; i < body.length; i++) {
         body[i].style.backgroundImage = "url('../Imagenes/body-f9.jpg')";
+        body[i].style.transition = 'all 0.8s'
         localStorage.setItem('body','light')   
     }  
   }   
@@ -159,15 +163,12 @@ function loadPage() {
       if (localStorage.getItem('a')) {
     
         if (localStorage.getItem('a') === 'dark') {
-    
             for (let i = 0; i < aNav.length; i++) {
-    
               aNav[i].style.color = 'white';
         }
           } 
 
         else {
-    
             for (let i = 0; i < aNav.length; i++) {
             aNav[i].style.color = 'black'
     

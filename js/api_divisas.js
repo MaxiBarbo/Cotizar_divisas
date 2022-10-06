@@ -46,7 +46,7 @@ console.log(datos)
         let VariacionT = `<td>${variacionT} %</td>`;
         let diferenVar = `<td>%</td>`;
 
-      tableBody.innerHTML += `<tr>${ flag + dolarCompraT + dolarVentaT + diferenVar + VariacionT}</tr>`;
+      tableBody.innerHTML += `<tr>${flag + dolarCompraT + dolarVentaT + diferenVar + VariacionT}</tr>`;
 
       }
   })
@@ -63,7 +63,7 @@ function apiDolar(icono){;
               
           const misDatosDolar = respuesta;
           
-console.log(misDatosDolar);
+// console.log(misDatosDolar);
           
           const dolarBlueCompra = misDatosDolar[1].casa.compra;
           const dolarBlueventa = misDatosDolar[1].casa.venta;
@@ -103,7 +103,7 @@ console.log(misDatosDolar);
 
               let tableResult = document.getElementById('tableResults');
               let variacion = `<td>${variacionDolarOficial}%</td>`;
-              let flag = `<td><span class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></span></td>`;
+              let flag = `<td><span cla<span class="iconify" data-icon="emojione-v1:flag-for-argentina" data-width="25" data-height="25"></span><span class="iconify" data-icon="eva:arrow-right-outline" data-width="15" data-height="15"></span><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></span></td>`;
               let resultadoOficial = `<td><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarOficial.toFixed(2)}</td>`;
               let resultadoBlue = `<td><span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span> ${pesosCotizarBlue.toFixed(2)}</td>`;
 
