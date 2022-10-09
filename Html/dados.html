@@ -6,73 +6,42 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
     <style>
-        .container {
-        width: 100%;
-        margin: auto;
-        text-align: center;
-        }
-        .dice {
-        text-align: center;
-        display: inline-block;
-        margin: 7rem;
-        }
-        body {
-        background-color: #161a1d;
-        width: auto;
-        height: 1600px;
-        }
-        h1 {
-        margin: 20px;
-        font-family: 'Lobster', cursive;
-        text-shadow: 5px 0 #232931;
-        font-size: 8rem;
-        color: #4ECCA3;
-        }
-        h2{
-        margin: 30px;
-        font-family: 'Lobster', cursive;
-        text-shadow: 5px 0 #232931;
-        font-size: 4rem;
-        color: #4ECCA3; 
-        }
-        h3{
-          margin-top: -1rem;
-          font-size: 1em;
-          text-transform: capitalize;
-          letter-spacing: 3px;
-        }
-        p {
-        font-size: 2rem;
-        color: #4ECCA3;
-        font-family: 'Indie Flower', cursive;
-        }
-        img {
-        width: 80%;
-        }
-        footer {
-        margin-top: 5%;
-        color: #EEEEEE;
-        text-align: center;
-        font-family: 'Indie Flower', cursive;
-        }
-        .touchBox{
-          height: 50rem;
-        }
-       
+       .container { width: 100%; margin: auto; text-align: center; } 
+       .dice { text-align: center; display: inline-block; margin: 7rem; } 
+       body { background-color: #161a1d; width: auto; height: 1600px; } 
+       h1 { margin: 20px; font-family: 'Lobster', cursive; text-shadow: 5px 0 #232931; font-size: 8rem; color: #4ECCA3; } 
+       h2{ margin: 30px; font-family: 'Lobster', cursive; text-shadow: 5px 0 #232931; font-size: 4rem; color: #4ECCA3; } 
+       h3{ margin-top: -1rem; font-size: 1em; text-transform: capitalize; letter-spacing: 3px; } 
+       p { font-size: 2rem; color: #4ECCA3; font-family: 'Indie Flower', cursive; } 
+       img { width: 80%; } 
+       footer { margin-top: 5%; color: #EEEEEE; text-align: center; font-family: 'Indie Flower', cursive; } .touchBox{ height: 50rem; }
+       #touchBox{height: 50rem; width: 100%;}
+       .header{display: flex; flex-direction: row;justify-content: space-around;align-items: center;}
+       input{height: 1rem;background-color: #30343F;
+        
+            border: 1px white solid;
+            text-decoration:overline;
+            color: white;
+            padding: 20px 20px;
+            margin: 20px 20px;
+            cursor: pointer;}
     </style>
   </head>
-  <body onclick="DadoClick()">
+  <body >
     <div class="container">
-      <h1>Touch</h1>
-      <h2></h2>
-
+      <div class="header">
+        <input type="text" id="domTextElement1" placeholder="Name 1" >
+        <h1>Touch</h1>
+        <input type="text" id="domTextElement2" placeholder="Name 2">
+      </div>
+        <h2>....</h2>
       <div class="dice">
-        <p id="nameOne">Player 1</p>
+        <p>Player 1</p>
         <img class="img1" src="../images/dice1.png" >
       </div>
 
       <div class="dice">
-        <p id="nameTwo">Player 2</p>
+        <p>Player 2</p>
         <img class="img2" src="../images/dice5.png">
       </div>
 
@@ -80,7 +49,7 @@
     <footer>
       <a href="../index.html"><h2>Back</h2></a> 
     </footer>
-    <div id="touchBox"></div>
+    <div id="touchBox" onclick="DadoClick()"></div>
   </body>
 <script>
     function DadoClick(){
@@ -94,19 +63,34 @@
     let img2 = document.querySelectorAll('img')[1];
     img2.setAttribute('src', imageRandom2);
 
-    let nameOne = prompt('Ingrese primer nombre')
-    let nameTwo = prompt('Ingrese Segundo Nombre')
+    let inputValue1 = document.getElementById("domTextElement1").value; 
+    let inputValue2 = document.querySelector("#domTextElement2").value; 
 
     if (randonNamber1 > randonNamber2){
+
+      if (inputValue1 && inputValue2 != ''){
         document.querySelector('h1').innerHTML = `<h1>Win</h1>`
-        document.querySelector('h2').innerHTML = `<h3>${nameOne}</h3>`
+        document.querySelector('h2').innerHTML = `<h3>${inputValue1}</h3>`
+      } 
+      else{
+        document.querySelector('h1').innerHTML = `<h1>Win</h1>`
+        document.querySelector('h2').innerHTML = `<h3>Win Name 1</h3>`
+      }
     }
+
     else if (randonNamber1 < randonNamber2){
+
+      if (inputValue1 && inputValue2 != ''){
         document.querySelector('h1').innerHTML = `<h1>Win</h1>`
-        document.querySelector('h2').innerHTML = `<h3>${nameTwo}</h3>`
+        document.querySelector('h2').innerHTML = `<h3>${inputValue2}</h3>`
+      } 
+      else{
+        document.querySelector('h1').innerHTML = `<h1>Win</h1>`
+        document.querySelector('h2').innerHTML = `<h3>Win Name 2</h3>`
+      }
     }
     else{
-        document.querySelector('h1').innerHTML = 'Empate'
+        document.querySelector('h1').innerHTML = '<h2>Empate</h2>'
     }
 }
 </script>
