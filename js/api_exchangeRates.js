@@ -23,21 +23,25 @@ function apiDolar(fiat){;
     $.get(apiExchangeRate, function (respuesta, estado) {
     
         if(estado === "success"){
+
 // console.log(respuesta);  
+// console.log(respuesta.conversion_rates.USD)
+      
 
           const misDatosDolar = respuesta.conversion_rates;
-          let resultado_usd = multi(misDatosDolar.USD,pesosDolar)  
-          let resultado_gbp = multi(misDatosDolar.GBP,pesosDolar)
-          let resultado_ars = multi(misDatosDolar.ARS,pesosDolar)
-          let resultado_brl = multi(pesosDolar,misDatosDolar.BRL)
-          let resultado_clp = multi(pesosDolar,misDatosDolar.CLP)
-          let resultado_cny = multi(pesosDolar,misDatosDolar.CNY)
-          let resultado_ves = multi(pesosDolar,misDatosDolar.VES)
-          let resultado_uyu = multi(pesosDolar,misDatosDolar.UYU)
-          // console.log(resultado_brl)
 
-// console.log(misDatosDolar.EUR);
-         
+          let resultado_usd = `<td>${multi(misDatosDolar.USD,pesosDolar)}</td>`  
+          let resultado_gbp = `<td>${multi(misDatosDolar.GBP,pesosDolar)}</td>`
+          let resultado_ars = `<td>${multi(misDatosDolar.ARS,pesosDolar)}</td>`
+          let resultado_brl = `<td>${multi(pesosDolar,misDatosDolar.BRL)}</td>`
+          let resultado_clp = `<td>${multi(pesosDolar,misDatosDolar.CLP)}</td>`
+          let resultado_cny = `<td>${multi(pesosDolar,misDatosDolar.CNY)}</td>`
+          let resultado_ves = `<td>${multi(pesosDolar,misDatosDolar.VES)}</td>`
+          let resultado_uyu = `<td>${multi(pesosDolar,misDatosDolar.UYU)}</td>`
+
+          tableBody.innerHTML += `<tr>${flag + resultado_usd}</tr>`;
+
+          
           $("#table").prepend(`                    
           <tr>
             <td class="sb"><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span>USD</td>

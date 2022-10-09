@@ -11,27 +11,23 @@
         margin: auto;
         text-align: center;
         }
-
         .dice {
         text-align: center;
         display: inline-block;
         margin: 7rem;
         }
-
         body {
         background-color: #161a1d;
         width: auto;
         height: 1600px;
         }
-
         h1 {
-        margin: 30px;
+        margin: 20px;
         font-family: 'Lobster', cursive;
         text-shadow: 5px 0 #232931;
         font-size: 8rem;
         color: #4ECCA3;
         }
-
         h2{
         margin: 30px;
         font-family: 'Lobster', cursive;
@@ -39,17 +35,20 @@
         font-size: 4rem;
         color: #4ECCA3; 
         }
-
+        h3{
+          margin-top: -1rem;
+          font-size: 1em;
+          text-transform: capitalize;
+          letter-spacing: 3px;
+        }
         p {
         font-size: 2rem;
         color: #4ECCA3;
         font-family: 'Indie Flower', cursive;
         }
-
         img {
         width: 80%;
         }
-
         footer {
         margin-top: 5%;
         color: #EEEEEE;
@@ -65,14 +64,15 @@
   <body onclick="DadoClick()">
     <div class="container">
       <h1>Touch</h1>
+      <h2></h2>
 
       <div class="dice">
-        <p>Player 1</p>
+        <p id="nameOne">Player 1</p>
         <img class="img1" src="../images/dice1.png" >
       </div>
 
       <div class="dice">
-        <p>Player 2</p>
+        <p id="nameTwo">Player 2</p>
         <img class="img2" src="../images/dice5.png">
       </div>
 
@@ -94,14 +94,19 @@
     let img2 = document.querySelectorAll('img')[1];
     img2.setAttribute('src', imageRandom2);
 
+    let nameOne = prompt('Ingrese primer nombre')
+    let nameTwo = prompt('Ingrese Segundo Nombre')
+
     if (randonNamber1 > randonNamber2){
-        document.querySelector('h1').innerHTML = 'Win 1'
+        document.querySelector('h1').innerHTML = `<h1>Win</h1>`
+        document.querySelector('h2').innerHTML = `<h3>${nameOne}</h3>`
     }
     else if (randonNamber1 < randonNamber2){
-        document.querySelector('h1').innerHTML = 'Win 2'
+        document.querySelector('h1').innerHTML = `<h1>Win</h1>`
+        document.querySelector('h2').innerHTML = `<h3>${nameTwo}</h3>`
     }
     else{
-        document.querySelector('h1').innerHTML = 'empate'
+        document.querySelector('h1').innerHTML = 'Empate'
     }
 }
 </script>

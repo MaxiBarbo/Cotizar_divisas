@@ -200,13 +200,13 @@ h4:hover{
   font-size: 1.4em;
 }
 
-.tDivisas{
+/* .tDivisas{
   font-family: var(--font-title-family);
   color: #3E92CC;
   font: bolder;
   font-size: 1.1em;
   letter-spacing: 2px;
-}
+} */
 
 .section{
   width: 100%;
@@ -569,6 +569,9 @@ table{
 }
 #result{
   color: white;
+}
+.navbar-toggler{
+  color: red;
 }
 
 @media only screen and (max-width: 400px) {

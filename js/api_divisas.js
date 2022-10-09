@@ -22,10 +22,15 @@ $("#dolar").click(() => {
 
 $("#dolarTurista").click(() => { 
 
-  apiDolarTurista('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>')
+  apiDolarTurista('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','6','Turis')
 });
 
-function apiDolarTurista(icono){
+$("#dolarCcl").click(() => { 
+
+  apiDolarTurista('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="10" data-height="10"></span>','3','CCL')
+});
+
+function apiDolarTurista(icono,nam,tipo){
   $.getJSON(urlDolar, function(respuesta,estado){
 
       if (estado === 'success'){
@@ -34,13 +39,13 @@ function apiDolarTurista(icono){
 
 console.log(datos)
 
-        const dolarTuristaCompra = datos[6].casa.compra;
-        const dolarTuristaventa = datos[6].casa.venta;
-        const variacionT = datos[6].casa.variacion;
+        const dolarTuristaCompra = datos[nam].casa.compra;
+        const dolarTuristaventa = datos[nam].casa.venta;
+        const variacionT = datos[nam].casa.variacion;
 
 
       let tableBody = document.getElementById('tableTwo');
-        let flag = `<td><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span></td>`;
+        let flag = `<td><span class="iconify" data-icon="emojione-v1:flag-for-united-states" data-width="25" data-height="25"></span> ${tipo}</td>`;
         let dolarCompraT = `<td>${icono}${dolarTuristaCompra}</td>`;
         let dolarVentaT = `<td>${icono}${dolarTuristaventa}</td>`;  
         let VariacionT = `<td>${variacionT} %</td>`;

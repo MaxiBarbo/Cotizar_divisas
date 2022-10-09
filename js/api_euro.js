@@ -1,7 +1,7 @@
 
 // FUncion para ingresar en Api con Key
   
-$("#n").click(() => {
+$("#usdEuro").click(() => {
     datosApiDivisas('<span class="iconify" data-icon="emojione-v1:flag-for-united-states" style="color: #ffd23f;" data-width="30" data-height="30"></span>','<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="20" data-height="20"></span>')
     
 });
@@ -18,9 +18,7 @@ function datosApiDivisas(flag,fiat){
           method: "GET",
           url: 'http://data.fixer.io/api/' + endpoint + '?access_key=' + acces_key,
           dataType: 'jsonp',
-          success: function (respuesta) {
-           
-// console.log(respuesta);
+          success: function (respuesta) {        
 
               let usd_euro = respuesta.rates.USD
               let euro_gbp = respuesta.rates.GBP

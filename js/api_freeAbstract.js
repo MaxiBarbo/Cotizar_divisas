@@ -8,7 +8,7 @@ function multi(n1, n2) {
 
 $(function(){
 
-$("#newEuro").click(() => { 
+$("#").click(() => { 
 
   apiDolar('<span class="iconify" data-icon="el:usd" style="color: #ffd23f;" data-width="20" data-height="20"></span>')
   
@@ -24,7 +24,7 @@ function apiDolar(fiat){;
     $.get(apiFreeForex, function (respuesta, estado) {
     
         if(estado === "success"){
-// console.log(respuesta);  
+console.log(respuesta);  
 
           const misDatosDolar = respuesta.exchange_rates;
           let resultado_euro = multi(misDatosDolar.EUR,pesosDolar)  
@@ -34,9 +34,6 @@ function apiDolar(fiat){;
           let resultado_btc = multi(pesosDolar,misDatosDolar.BTC)
           let resultado_eth = multi(pesosDolar,misDatosDolar.ETH)
         
-        //   console.log(resultado_brl)
-
-// console.log(misDatosDolar.EUR);
          
           $("#table").prepend(`                    
           <tr>
